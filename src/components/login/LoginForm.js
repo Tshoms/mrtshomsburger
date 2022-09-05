@@ -28,7 +28,7 @@ function LoginForm() {
         value={inputValue}
         onChange={handlechange}
       />
-      <button>valider</button>
+      <button>Accéder à votre espace</button>
     </form>
   );
 }
