@@ -1,18 +1,27 @@
 import React, { useState } from "react";
+import { createSearchParams, useNavigate } from "react-router-dom";
 
 function LoginForm() {
   // state -----------------
-  const [inputValue, setInputValue] = useState("");
+  const [userName, setUserName] = useState("");
+  const navigate = useNavigate();
 
   // comportement --------------
   const handlechange = (event) => {
-    setInputValue(event.target.value);
+    setUserName(event.target.value);
   };
 
   const handlesubmit = (event) => {
     event.preventDefault();
-    alert(`bonjour ${inputValue}`);
-    setInputValue("");
+    // alert(`bonjour ${inputValue}`);
+    navigate({
+      pathname: "/Orderpage/:user",
+      search: createSearchParams({
+        userName: userName,
+      }).toString(),
+    });
+
+    setUserName("");
   };
 
   // render (le rendu) -------------------
@@ -24,10 +33,10 @@ function LoginForm() {
       <input
         type="text"
         placeholder="Entrez votre prénom..."
-        required
-        value={inputValue}
+        value={userName}
         onChange={handlechange}
       />
+
       <button>Accéder à votre espace</button>
     </form>
   );
