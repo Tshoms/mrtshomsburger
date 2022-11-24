@@ -29,21 +29,21 @@ function LoginForm() {
 
   return (
     <LoginFormStyled onSubmit={handlesubmit}>
-      <H1 className="h1">Bienvenue chez nous !</H1>
+      <h1>Bienvenue chez nous !</h1>
       <Liner />
-      <H2>Connectez-vous</H2>
-      <InputStyled>
+      <h2>Connectez-vous</h2>
+      <div div className="InputStyled">
         <MdAccountCircle size="20px" color="grey" />
-        <Input
+        <input
           type="text"
           placeholder="Entrez votre prénom..."
           value={userName}
           onChange={handlechange}
           required
         />
-      </InputStyled>
+      </div>
 
-      <Button>Accéder à mon espace</Button>
+      <button>Accéder à mon espace</button>
     </LoginFormStyled>
   );
 }
@@ -57,48 +57,45 @@ const LoginFormStyled = styled.form`
   justify-content: center;
   align-items: center;
 
-  .h1 {
+  h1 {
+    @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
+    font-family: "Amatic SC", cursive;
+    color: white;
+    font-size: 35px;
   }
-`;
 
-const H1 = styled.h1`
-  @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
-  font-family: "Amatic SC", cursive;
-  color: white;
-  font-size: 35px;
-`;
+  h2 {
+    @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
+    font-family: "Amatic SC", cursive;
+    color: white;
+    font-size: 25px;
+  }
 
-const H2 = styled.h2`
-  @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
-  font-family: "Amatic SC", cursive;
-  color: white;
-  font-size: 25px;
-`;
+  .InputStyled {
+    height: 40px;
+    width: 50%;
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
 
-const InputStyled = styled.div`
-  height: 40px;
-  width: 50%;
-  background-color: white;
-  margin-bottom: 20px;
-  border-radius: 5px;
-`;
+  input {
+    height: 20px;
+    width: 75%;
+    outline-width: 0;
+    margin: 15px;
 
-const Input = styled.input`
-  height: 20px;
-  width: 75%;
-  outline-width: 0;
-  margin: 15px;
+    border: none;
+  }
 
-  border: none;
-`;
-
-const Button = styled.button`
-  height: 40px;
-  width: 51%;
-  background-color: orange;
-  color: white;
-  border-radius: 5px;
-  border: none;
+  button {
+    height: 40px;
+    width: 51%;
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
+    border: none;
+  }
 `;
 
 const Liner = styled.div`
