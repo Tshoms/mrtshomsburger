@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { createSearchParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import burgerbackground from "../../assets/LoginPageStyled.jpg";
-import Brand from "../Brand";
 // import { FaUser } from "react-icons/fa";
 import { MdAccountCircle } from "react-icons/md";
-// import LogoStyled from "../LogoStyled";
+
 function LoginForm() {
   // state -----------------
   const [userName, setUserName] = useState("");
@@ -29,44 +27,26 @@ function LoginForm() {
     setUserName("");
   };
 
-  // render (le rendu) -------------------
   return (
-    <LoginPageStyled>
-      <Brand />
-      <LoginFormStyled onSubmit={handlesubmit}>
-        <H1>Bienvenue chez nous !</H1>
-        <Liner />
-        <H2>Connectez-vous</H2>
-        <InputStyled>
-          <MdAccountCircle size="20px" color="grey" />
-          <Input
-            type="text"
-            placeholder="Entrez votre prénom..."
-            value={userName}
-            onChange={handlechange}
-            required
-          />
-        </InputStyled>
+    <LoginFormStyled onSubmit={handlesubmit}>
+      <H1 className="h1">Bienvenue chez nous !</H1>
+      <Liner />
+      <H2>Connectez-vous</H2>
+      <InputStyled>
+        <MdAccountCircle size="20px" color="grey" />
+        <Input
+          type="text"
+          placeholder="Entrez votre prénom..."
+          value={userName}
+          onChange={handlechange}
+          required
+        />
+      </InputStyled>
 
-        <Button>Accéder à mon espace</Button>
-      </LoginFormStyled>
-    </LoginPageStyled>
+      <Button>Accéder à mon espace</Button>
+    </LoginFormStyled>
   );
 }
-
-const LoginPageStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(${burgerbackground});
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: auto;
-  height: 750px;
-  justify-content: center;
-  align-items: center;
-`;
 
 const LoginFormStyled = styled.form`
   display: flex;
@@ -76,6 +56,9 @@ const LoginFormStyled = styled.form`
   border: red;
   justify-content: center;
   align-items: center;
+
+  .h1 {
+  }
 `;
 
 const H1 = styled.h1`
@@ -85,7 +68,7 @@ const H1 = styled.h1`
   font-size: 35px;
 `;
 
-const H2 = styled.h1`
+const H2 = styled.h2`
   @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
   font-family: "Amatic SC", cursive;
   color: white;
