@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { createSearchParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-// import { FaUser } from "react-icons/fa";
 import { MdAccountCircle } from "react-icons/md";
+import { IoChevronForwardOutline } from "react-icons/io5";
 
 function LoginForm() {
   // state -----------------
@@ -32,7 +32,7 @@ function LoginForm() {
       <h1>Bienvenue chez nous !</h1>
       <Liner />
       <h2>Connectez-vous</h2>
-      <div div className="InputStyled">
+      <div div className="Input-Container">
         <MdAccountCircle size="20px" color="grey" />
         <input
           type="text"
@@ -42,8 +42,10 @@ function LoginForm() {
           required
         />
       </div>
-
-      <button>Accéder à mon espace</button>
+      <button className="button_with_icon">
+        <span>Accéder à mon espace</span>
+        <IoChevronForwardOutline className="icon" />
+      </button>
     </LoginFormStyled>
   );
 }
@@ -71,30 +73,44 @@ const LoginFormStyled = styled.form`
     font-size: 25px;
   }
 
-  .InputStyled {
+  .Input-Container {
+    display: flex;
+
     height: 40px;
     width: 50%;
     background-color: white;
+    padding-left: 7px;
     margin-bottom: 20px;
     border-radius: 5px;
+    align-items: center;
   }
 
   input {
     height: 20px;
     width: 75%;
     outline-width: 0;
-    margin: 15px;
+    margin: 10px;
 
     border: none;
   }
 
-  button {
+  .button_with_icon {
     height: 40px;
     width: 51%;
     background-color: orange;
+    align-items: center;
+    justify-content: center;
     color: white;
     border-radius: 5px;
     border: none;
+  }
+
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    margin-left: 10px;
   }
 `;
 
