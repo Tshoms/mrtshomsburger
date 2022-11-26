@@ -33,7 +33,7 @@ function LoginForm() {
       <Liner />
       <h2>Connectez-vous</h2>
       <div div className="Input-Container">
-        <MdAccountCircle size="20px" color="grey" />
+        <MdAccountCircle size="17px" color="grey" />
         <input
           type="text"
           placeholder="Entrez votre prénom..."
@@ -95,14 +95,20 @@ const LoginFormStyled = styled.form`
   }
 
   .button_with_icon {
+    display: flex;
     height: 40px;
     width: 51%;
-    background-color: orange;
+    background-color: #ff9f1b;
     align-items: center;
     justify-content: center;
     color: white;
     border-radius: 5px;
     border: none;
+
+    &:hover:not(:disabled) {
+      background-color: white;
+      color: #ff9f1b;
+    }
   }
 
   .icon {
