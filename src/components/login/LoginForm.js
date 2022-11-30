@@ -3,6 +3,7 @@ import { createSearchParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { MdAccountCircle } from "react-icons/md";
 import { IoChevronForwardOutline } from "react-icons/io5";
+import TextInput from "../reusable-ui/TextInput";
 
 function LoginForm() {
   // state -----------------
@@ -27,21 +28,21 @@ function LoginForm() {
     setUserName("");
   };
 
+  // render ------------
   return (
     <LoginFormStyled onSubmit={handlesubmit}>
       <h1>Bienvenue chez nous !</h1>
       <Liner />
       <h2>Connectez-vous</h2>
-      <div div className="Input-Container">
-        <MdAccountCircle size="17px" color="grey" />
-        <input
-          type="text"
-          placeholder="Entrez votre prénom..."
-          value={userName}
-          onChange={handlechange}
-          required
-        />
-      </div>
+      <TextInput
+        type="text"
+        placeholder="Entrez votre prénom..."
+        value={userName}
+        onChange={handlechange}
+        required
+        Icon={<MdAccountCircle className="icon_input_style" />}
+      />
+
       <button className="button_with_icon">
         <span>Accéder à mon espace</span>
         <IoChevronForwardOutline className="icon" />
@@ -85,13 +86,13 @@ const LoginFormStyled = styled.form`
     align-items: center;
   }
 
-  input {
-    height: 20px;
-    width: 75%;
-    outline-width: 0;
-    margin: 10px;
-
-    border: none;
+  .icon_input_style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: grey;
+    margin-left: 10px;
   }
 
   .button_with_icon {
