@@ -5,7 +5,14 @@ function TextInput({ value, onChange, Icon, ...restProps }) {
   return (
     <TextInputStyle>
       {Icon && Icon}
-      <input value={value} onChange={onChange} {...restProps} />
+      <input
+        type="text"
+        value={value}
+        onChange={onChange}
+        {...restProps}
+        placeholder="Entrez votre prénom..."
+        required
+      />
     </TextInputStyle>
   );
 }

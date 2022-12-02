@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { MdAccountCircle } from "react-icons/md";
 import { IoChevronForwardOutline } from "react-icons/io5";
 import TextInput from "../reusable-ui/TextInput";
+import PrimaryButton from "../reusable-ui/PrimaryButton";
 
 function LoginForm() {
   // state -----------------
@@ -35,18 +36,21 @@ function LoginForm() {
       <Liner />
       <h2>Connectez-vous</h2>
       <TextInput
-        type="text"
         placeholder="Entrez votre prénom..."
         value={userName}
         onChange={handlechange}
-        required
         Icon={<MdAccountCircle className="icon_input_style" />}
       />
 
-      <button className="button_with_icon">
+      <PrimaryButton
+        Label={"Accéder à mon espace"}
+        Icon={<IoChevronForwardOutline className="icon_button_style" />}
+      />
+
+      {/* <button className="button_with_icon">
         <span>Accéder à mon espace</span>
-        <IoChevronForwardOutline className="icon" />
-      </button>
+        <IoChevronForwardOutline className="icon_button_style" />
+      </button> */}
     </LoginFormStyled>
   );
 }
@@ -74,18 +78,6 @@ const LoginFormStyled = styled.form`
     font-size: 25px;
   }
 
-  .Input-Container {
-    display: flex;
-
-    height: 40px;
-    width: 50%;
-    background-color: white;
-    padding-left: 7px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    align-items: center;
-  }
-
   .icon_input_style {
     display: flex;
     justify-content: center;
@@ -95,24 +87,7 @@ const LoginFormStyled = styled.form`
     margin-left: 10px;
   }
 
-  .button_with_icon {
-    display: flex;
-    height: 40px;
-    width: 51%;
-    background-color: #ff9f1b;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    border-radius: 5px;
-    border: none;
-
-    &:hover:not(:disabled) {
-      background-color: white;
-      color: #ff9f1b;
-    }
-  }
-
-  .icon {
+  .icon_button_style {
     display: flex;
     justify-content: center;
     align-items: center;
