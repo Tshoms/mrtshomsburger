@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { theme } from "../../theme";
 
 export default function ({ Label, Icon }) {
   return (
@@ -14,7 +15,7 @@ const PrimaryButtonStyle = styled.button`
   display: flex;
   height: 40px;
   width: 51%;
-  background-color: #ff9f1b;
+  background-color: ${theme.colors.primary};
   align-items: center;
   justify-content: center;
   color: white;
@@ -23,6 +24,6 @@ const PrimaryButtonStyle = styled.button`
 
   &:hover:not(:disabled) {
     background-color: white;
-    color: #ff9f1b;
+    color: ${theme.colors.primary};
   }
 `;

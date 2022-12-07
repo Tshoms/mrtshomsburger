@@ -23,8 +23,7 @@ const LoginPageStyled = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  width: auto;
-  height: 750px;
+  height: 100vh;
   justify-content: center;
   align-items: center;
 `;
