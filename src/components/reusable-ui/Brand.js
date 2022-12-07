@@ -22,10 +22,6 @@ const BrandStyled = styled.div`
   width: 55%;
   justify-content: center;
   align-items: center;
-
-  /* @media (min-width) {
-    transform: scale(50%);
-  } */
 `;
 
 const BrandLogo = styled.image`
@@ -37,10 +33,5 @@ const BrandLogo = styled.image`
   background-position: center;
   margin: 10px;
 `;
-
-// const H1 = styled.h1`
-//   @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
-//   font-family: "Amatic SC", cursive;
-// `;
 
 export default Brand;

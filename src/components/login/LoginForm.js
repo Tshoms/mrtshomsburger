@@ -33,7 +33,7 @@ function LoginForm() {
   return (
     <LoginFormStyled onSubmit={handlesubmit}>
       <h1>Bienvenue chez nous !</h1>
-      <Liner />
+      <hr />
       <h2>Connectez-vous</h2>
       <TextInput
         placeholder="Entrez votre prénom..."
@@ -53,24 +53,26 @@ function LoginForm() {
 const LoginFormStyled = styled.form`
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 370px;
   width: 55%;
-  border: red;
   justify-content: center;
   align-items: center;
 
+  hr {
+    border: 1.5px solid #f56a2c;
+    width: 480px;
+  }
+
   h1 {
-    @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
     font-family: "Amatic SC", cursive;
     color: white;
-    font-size: 35px;
+    font-size: 48px;
   }
 
   h2 {
-    @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
     font-family: "Amatic SC", cursive;
     color: white;
-    font-size: 25px;
+    font-size: 36px;
   }
 
   .icon_input_style {
@@ -89,15 +91,6 @@ const LoginFormStyled = styled.form`
     font-size: 15px;
     margin-left: 10px;
   }
-`;
-
-const Liner = styled.div`
-  border-top: 2px #ffca28 solid;
-  border-top-color: #ef6207;
-  border-top-style: solid;
-  border-top-width: 3px;
-  width: 60%;
-  margin-top: 10px;
 `;
 
 export default LoginForm;
