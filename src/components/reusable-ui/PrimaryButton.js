@@ -13,8 +13,8 @@ export default function ({ Label, Icon }) {
 
 const PrimaryButtonStyle = styled.button`
   display: flex;
-  height: 40px;
-  width: 51%;
+  height: 60px;
+  width: 61%;
   background-color: ${theme.colors.primary};
   align-items: center;
   justify-content: center;

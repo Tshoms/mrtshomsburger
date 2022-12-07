@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { createSearchParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { MdAccountCircle } from "react-icons/md";
+import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForwardOutline } from "react-icons/io5";
 import TextInput from "../reusable-ui/TextInput";
 import PrimaryButton from "../reusable-ui/PrimaryButton";
+import { theme } from "../../theme";
 
 function LoginForm() {
   // state -----------------
@@ -39,7 +40,7 @@ function LoginForm() {
         placeholder="Entrez votre prénom..."
         value={userName}
         onChange={handlechange}
-        Icon={<MdAccountCircle className="icon_input_style" />}
+        Icon={<BsPersonCircle className="icon_input_style" />}
       />
 
       <PrimaryButton
@@ -79,8 +80,8 @@ const LoginFormStyled = styled.form`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
-    color: grey;
+    font-size: 15px;
+    color: ${theme.colors.greySemiDark};
     margin-left: 10px;
   }
 

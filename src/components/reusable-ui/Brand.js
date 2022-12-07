@@ -13,7 +13,6 @@ function Brand() {
 }
 
 const BrandStyled = styled.div`
-  border: 2px solid blue;
   display: flex;
   align-items: center;
   transform: scale(2.5);

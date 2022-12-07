@@ -20,8 +20,8 @@ function TextInput({ value, onChange, Icon, ...restProps }) {
 const TextInputStyle = styled.div`
   display: flex;
 
-  height: 40px;
-  width: 50%;
+  height: 60px;
+  width: 60%;
   background-color: white;
   padding-left: 7px;
   margin-bottom: 20px;
