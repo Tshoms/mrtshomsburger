@@ -46,11 +46,6 @@ function LoginForm() {
         Label={"Accéder à mon espace"}
         Icon={<IoChevronForwardOutline className="icon_button_style" />}
       />
-
-      {/* <button className="button_with_icon">
-        <span>Accéder à mon espace</span>
-        <IoChevronForwardOutline className="icon_button_style" />
-      </button> */}
     </LoginFormStyled>
   );
 }
