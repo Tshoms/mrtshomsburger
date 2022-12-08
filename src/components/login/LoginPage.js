@@ -4,7 +4,6 @@ import burgerbackground from "../../assets/LoginPageStyled.jpg";
 import Brand from "../reusable-ui/Brand";
 import LoginForm from "./LoginForm";
 
-// import LogoStyled from "../LogoStyled";
 function LoginPage() {
   // render (le rendu) -------------------
   return (

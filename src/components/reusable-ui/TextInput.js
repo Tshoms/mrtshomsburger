@@ -19,25 +19,6 @@ function TextInput({ value, onChange, Icon, ...restProps }) {
 }
 
 const TextInputStyle = styled.div`
-  /* display: flex;
-
-  height: 60px;
-  width: 100%;
-  background-color: white;
-  padding-left: 7px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  align-items: center;
-
-  input {
-    height: 20px;
-    width: 100%;
-    outline-width: 0;
-    margin: 10px;
-
-    border: none;
-  } */
-
   background-color: #fff;
   border-radius: ${theme.borderRadius.round};
   display: flex;
@@ -58,7 +39,6 @@ const TextInputStyle = styled.div`
     font-size: ${theme.fonts.size.P0};
     color: ${theme.colors.dark};
     width: 100%;
-    /* display: flex; */
 
     &::placeholder {
       background: ${theme.colors.white};

@@ -12,21 +12,6 @@ export default function ({ Label, Icon }) {
 }
 
 const PrimaryButtonStyle = styled.button`
-  /* display: flex;
-  height: 60px;
-  width: 61%;
-  background-color: ${theme.colors.primary};
-  align-items: center;
-  justify-content: center;
-  color: white;
-  border-radius: 5px;
-  border: none;
-
-  &:hover:not(:disabled) {
-    background-color: white;
-    color: ${theme.colors.primary};
-  } */
-
   width: 100%;
   border: 1px solid red;
   display: inline-flex;
