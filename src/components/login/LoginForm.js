@@ -36,17 +36,19 @@ function LoginForm() {
       <h1>Bienvenue chez nous !</h1>
       <hr />
       <h2>Connectez-vous</h2>
-      <TextInput
-        placeholder="Entrez votre prénom..."
-        value={userName}
-        onChange={handlechange}
-        Icon={<BsPersonCircle className="icon_input_style" />}
-      />
 
-      <PrimaryButton
-        Label={"Accéder à mon espace"}
-        Icon={<IoChevronForwardOutline className="icon_button_style" />}
-      />
+      <div className="container_form">
+        <TextInput
+          placeholder="Entrez votre prénom..."
+          value={userName}
+          onChange={handlechange}
+          Icon={<BsPersonCircle className="icon" />}
+        />
+        <PrimaryButton
+          Label={"Accéder à mon espace"}
+          Icon={<IoChevronForwardOutline className="icon_button_style" />}
+        />
+      </div>
     </LoginFormStyled>
   );
 }
@@ -57,11 +59,17 @@ const LoginFormStyled = styled.form`
   height: 370px;
   width: 55%;
   justify-content: center;
+  width: 480px;
   align-items: center;
+  margin-top: 50px;
+
+  .container_form {
+    width: 100%;
+  }
 
   hr {
     border: 1.5px solid #f56a2c;
-    width: 480px;
+    width: 100%;
   }
 
   h1 {
@@ -76,7 +84,7 @@ const LoginFormStyled = styled.form`
     font-size: 36px;
   }
 
-  .icon_input_style {
+  .icon {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -18,14 +18,22 @@ function LoginPage() {
 const LoginPageStyled = styled.div`
   display: flex;
   flex-direction: column;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(${burgerbackground});
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 100vh;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  ::before {
+    content: "";
+    background: url(${burgerbackground}) rgba(0, 0, 0, 0.7);
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+  }
 `;
 
 export default LoginPage;
