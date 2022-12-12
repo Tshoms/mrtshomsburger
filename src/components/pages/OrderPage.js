@@ -1,6 +1,7 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
+import Main from "../Main";
 import NavBar from "../NavBar";
 
 function OrderPage() {
@@ -13,8 +14,8 @@ function OrderPage() {
   return (
     <OrderStyled>
       <div className="container">
-        <NavBar />
-        <h2>{`Bonjour ${userName}`}</h2>
+        <NavBar userName={userName} />
+        <Main />
       </div>
     </OrderStyled>
   );
@@ -28,8 +29,10 @@ const OrderStyled = styled.div`
   align-items: center;
 
   .container {
-    background-color: red;
     height: 95vh;
+    display: flex;
+    flex-direction: column;
+    background-color: red;
     /* width: 1400px; */
     width: 1200px;
   }
