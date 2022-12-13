@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-function Brand() {
+function Brand({ className }) {
   return (
-    <BrandStyled>
+    <BrandStyled className={className}>
       <h1>Crazee</h1>
       <img src="/images/LogoStyled.png" alt="Logo" />
       <h1>Burger</h1>
@@ -15,7 +15,6 @@ function Brand() {
 const BrandStyled = styled.div`
   display: flex;
   align-items: center;
-  transform: scale(2.5);
 
   h1 {
     display: inline;
@@ -35,15 +34,5 @@ const BrandStyled = styled.div`
     margin: 0 5px;
   }
 `;
-
-// const BrandLogo = styled.image`
-//   height: 179px;
-//   width: 60%;
-//   background-image: url(${LogoBrand});
-//   background-size: cover;
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   margin: 10px;
-// `;
 
 export default Brand;

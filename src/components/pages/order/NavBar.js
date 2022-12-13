@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Brand from "../../reusable-ui/Brand";
 
 function NavBar({ userName }) {
   return (
     <NavBarStyled>
-      <div className="left-side"></div>
+      <Brand />
+
       <div className="right-side">
         <div className="admin-left"></div>
         <div className="login-right">
@@ -24,11 +26,7 @@ const NavBarStyled = styled.div`
   background-color: blue;
   display: flex;
   justify-content: space-between;
-
-  .left-side {
-    border: 1px solid red;
-    width: 40%;
-  }
+  padding-left: 20px;
 
   .right-side {
     display: flex;
