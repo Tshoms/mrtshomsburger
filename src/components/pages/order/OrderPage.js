@@ -1,8 +1,8 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
-import Main from "../Main";
-import NavBar from "../NavBar";
+import NavBar from "./NavBar";
+import Main from "./Main";
 
 function OrderPage() {
   // state ----------
@@ -33,8 +33,8 @@ const OrderStyled = styled.div`
     display: flex;
     flex-direction: column;
     background-color: red;
-    /* width: 1400px; */
-    width: 1200px;
+    width: 1400px;
+    /* width: 1200px; */
   }
 `;
 
