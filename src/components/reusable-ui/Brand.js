@@ -31,7 +31,7 @@ const BrandStyled = styled.div`
     object-position: center;
     height: 60px;
     width: 80px;
-    margin: 0 5px;
+    margin: 0 ${theme.gridUnit / 2}px;
   }
 `;
 
