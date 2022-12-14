@@ -1,28 +1,30 @@
-import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-function Brand({ className }) {
+export default function Brand({ className }) {
   return (
-    <BrandStyled className={className}>
-      <h1>Crazee</h1>
-      <img src="/images/LogoStyled.png" alt="Logo" />
-      <h1>Burger</h1>
-    </BrandStyled>
+    <LogoStyled className={className}>
+      <h1>CRAZEE</h1>
+      <img src="/images/logo-style.png" alt="logo-crazee-burger" />
+      <h1>BURGER</h1>
+    </LogoStyled>
   );
 }
 
-const BrandStyled = styled.div`
+const LogoStyled = styled.div`
   display: flex;
   align-items: center;
+  /* transform: scale(2.5); */
 
   h1 {
     display: inline;
     text-align: center;
     color: ${theme.colors.primary};
-    font-size: 36px;
-    font-weight: 700;
+    font-size: ${theme.fonts.size.P4};
+    line-height: 1em;
+    font-weight: ${theme.fonts.weights.bold};
     text-transform: uppercase;
+    letter-spacing: 1.5px;
     font-family: "Amatic SC", cursive;
   }
 
@@ -30,9 +32,7 @@ const BrandStyled = styled.div`
     object-fit: contain;
     object-position: center;
     height: 60px;
-    width: 80px;
+    width: 80px; // for Safari and Firefox
     margin: 0 ${theme.gridUnit / 2}px;
   }
 `;
-
-export default Brand;

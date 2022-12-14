@@ -15,7 +15,7 @@ function NavBar({ userName }) {
           <h1>admin</h1>
         </div>
         <div className="login-right">
-          <h1>Hey,{userName}</h1>
+          <h1>Hey, {userName}</h1>
           <Link to="/">
             <button>Déconnexion</button>
           </Link>
@@ -30,7 +30,7 @@ function NavBar({ userName }) {
 
 const NavBarStyled = styled.div`
   height: 10vh;
-  background-color: blue;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   padding-left: 20px;
@@ -42,10 +42,6 @@ const NavBarStyled = styled.div`
     width: 40%;
   }
 
-  h1 {
-    font-size: 15px;
-  }
-
   .admin-left {
     border: 1px solid yellow;
     width: 50%;
@@ -54,6 +50,11 @@ const NavBarStyled = styled.div`
   .login-right {
     border: 1px solid green;
     width: 30%;
+
+    h1 {
+      font-size: 15px;
+      font-family: "Open Sans", sans-serif;
+    }
   }
 
   .avatar-container {

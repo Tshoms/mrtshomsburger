@@ -8,7 +8,7 @@ function LoginPage() {
   // render (le rendu) -------------------
   return (
     <LoginPageStyled>
-      <Brand className={"logo-login-page"} />
+      <Brand className="logo-login-page" />
       <LoginForm />
     </LoginPageStyled>
   );
