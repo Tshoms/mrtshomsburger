@@ -34,7 +34,6 @@ const OrderStyled = styled.div`
     flex-direction: column;
     background-color: red;
     width: 1400px;
-    /* width: 1200px; */
   }
 `;
 
