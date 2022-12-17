@@ -8,7 +8,10 @@ import NavbarRightStyle from "./NavbarRightStyle";
 function NavBar({ userName }) {
   return (
     <NavBarStyled>
-      <Brand />
+      <Brand
+        className="logo-order-page"
+        onClick={() => window.location.reload()}
+      />
 
       <NavbarRightStyle userName={userName} />
     </NavBarStyled>
@@ -23,6 +26,10 @@ const NavBarStyled = styled.div`
   padding: 0 20px;
   border-top-left-radius: ${theme.borderRadius.extraRound};
   border-top-right-radius: ${theme.borderRadius.extraRound};
+
+  .logo-order-page {
+    cursor: pointer;
+  }
 `;
 
 export default NavBar;
