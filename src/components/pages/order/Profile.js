@@ -11,10 +11,14 @@ export default function Profile({ userName }) {
         <p>
           Hey, <b>{userName}</b>
         </p>
-        <Link to={"/"}>Se déconnecter</Link>
+        <Link to={"/"}>
+          <div className="description">
+            <small>Se déconnecter</small>
+          </div>
+        </Link>
       </div>
       <BsPersonCircle
-        className="icon"
+        className="picture"
         size={40}
         color={theme.colors.greyDark}
       />
@@ -26,7 +30,8 @@ const ProfileStyle = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  min-width: 100px;
+
   .info {
     display: flex;
     flex-direction: column;
@@ -42,26 +47,26 @@ const ProfileStyle = styled.div`
         color: ${theme.colors.primary};
       }
     }
-  }
-
-  span {
-    color: ${theme.colors.primary};
-    font-weight: ${theme.weights.bold};
-  }
-  a {
-    cursor: pointer;
-    text-decoration: none;
-    background-color: transparent;
-    border: 0px;
-    font-family: "Open Sans", sans-serif;
-    font-size: ${theme.fonts.XXS};
-    font-weight: ${theme.weights.medium};
-    color: ${theme.colors.greyDark};
-    &:hover {
-      text-decoration: underline ${theme.colors.dark};
+    a {
+      text-decoration: none;
+      .description {
+        &:hover {
+          text-decoration: underline;
+          color: ${theme.colors.greyDark};
+        }
+        small {
+          font-size: ${theme.fonts.size.XXS};
+          color: ${theme.colors.greyBlue};
+          font-weight: ${theme.fonts.weights.medium};
+          text-decoration: none;
+          position: relative;
+          bottom: 2px;
+        }
+      }
     }
   }
-  .icon {
+
+  .picture {
     height: auto;
     display: flex;
 
