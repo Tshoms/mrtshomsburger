@@ -1,17 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme";
+import { refreshPage } from "../../../utils/window";
 import Brand from "../../reusable-ui/Brand";
-
 import NavbarRightStyle from "./NavbarRightStyle";
 
 function NavBar({ userName }) {
   return (
     <NavBarStyled>
-      <Brand
-        className="logo-order-page"
-        onClick={() => window.location.reload()}
-      />
+      <Brand className="logo-order-page" onClick={refreshPage} />
 
       <NavbarRightStyle userName={userName} />
     </NavBarStyled>

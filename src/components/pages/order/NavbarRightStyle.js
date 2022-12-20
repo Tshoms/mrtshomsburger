@@ -15,7 +15,6 @@ export default function NavbarRightStyle({ userName }) {
 }
 
 const NavbarRightSide = styled.div`
-  /* background: purple; */
   display: flex;
   align-items: center;
   padding-right: 50px;

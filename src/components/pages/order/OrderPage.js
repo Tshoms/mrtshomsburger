@@ -32,7 +32,6 @@ const OrderStyled = styled.div`
     height: 95vh;
     display: flex;
     flex-direction: column;
-    /* background-color: red; */
     width: 1400px;
   }
 `;
