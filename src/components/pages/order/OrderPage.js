@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import NavBar from "./NavBar";
 import Main from "./Main";
+import { theme } from "../../../theme";
 
 function OrderPage() {
   // state ----------
@@ -22,7 +23,7 @@ function OrderPage() {
 }
 
 const OrderStyled = styled.div`
-  background-color: orange;
+  background-color: ${theme.colors.primary};
   height: 100vh;
   display: flex;
   justify-content: center;
