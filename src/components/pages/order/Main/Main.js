@@ -6,7 +6,7 @@ import Menu from "./Menu";
 export default function Main() {
   return (
     <MainStyled>
-      <div className="basket">basket</div>
+      {/* <div className="basket">basket</div> */}
       <Menu />
     </MainStyled>
   );
@@ -20,9 +20,9 @@ const MainStyled = styled.div`
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
   /*css grid */
   display: grid;
-  grid-template-columns: 25% 1fr; /* comportement en rows */
+  grid-template-columns: 1fr; /* comportement en rows */
 
-  .basket {
+  /* .basket {
     background-color: pink;
-  }
+  } */
 `;
