@@ -1,8 +1,8 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
-import NavBar from "./NavBar";
-import Main from "./Main";
+import NavBar from "./Navbar/NavBar";
+import Main from "./Main/Main";
 import { theme } from "../../../theme";
 
 function OrderPage() {

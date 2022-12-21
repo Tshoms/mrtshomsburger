@@ -3,9 +3,9 @@ import { createSearchParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForwardOutline } from "react-icons/io5";
-import TextInput from "../reusable-ui/TextInput";
-import PrimaryButton from "../reusable-ui/PrimaryButton";
-import { theme } from "../../theme";
+import TextInput from "../../reusable-ui/TextInput";
+import PrimaryButton from "../../reusable-ui/PrimaryButton";
+import { theme } from "../../../theme";
 
 function LoginForm() {
   // state -----------------
