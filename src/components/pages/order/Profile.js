@@ -17,11 +17,9 @@ export default function Profile({ userName }) {
           </div>
         </Link>
       </div>
-      <BsPersonCircle
-        className="picture"
-        size={40}
-        color={theme.colors.greyDark}
-      />
+      <div className="picture">
+        <BsPersonCircle />
+      </div>
     </ProfileStyle>
   );
 }
@@ -33,11 +31,8 @@ const ProfileStyle = styled.div`
   min-width: 100px;
 
   .info {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    margin-right: 5px;
+    text-align: right;
+    margin-right: 10px;
 
     p {
       margin: 0;
@@ -69,9 +64,8 @@ const ProfileStyle = styled.div`
   .picture {
     height: auto;
     display: flex;
-
+    height: 100%;
     font-size: ${theme.fonts.size.P4};
     color: ${theme.colors.greyBlue};
-    margin-top: 10px;
   }
 `;
