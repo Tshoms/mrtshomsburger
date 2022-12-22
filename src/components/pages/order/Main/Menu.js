@@ -10,7 +10,20 @@ export default function Menu() {
   return (
     <MenuStyled>
       {menu.map((produits) => {
-        return <div className="produit">{produits.title}</div>;
+        return (
+          <div className="produit">
+            <div className="image">
+              <img src={produits.imageSource} alt={produits.title} />
+            </div>
+            <div className="info-text">
+              <div className="title">{produits.title}</div>
+              <div className="description">
+                <div className="price">{produits.price}</div>
+                <button>ajouter</button>
+              </div>
+            </div>
+          </div>
+        );
       })}
     </MenuStyled>
   );
@@ -31,5 +44,29 @@ const MenuStyled = styled.div`
     width: 240px;
     height: 330px;
     background: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .image {
+      border: 1px solid yellow;
+      width: 145px;
+      height: 100px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .description {
+      border: 1px solid yellow;
+      display: flex;
+      flex-direction: row;
+
+      .price {
+        width: 100%;
+      }
+    }
   }
 `;
