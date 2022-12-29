@@ -21,6 +21,7 @@ const MainStyled = styled.div`
   /*css grid */
   display: grid;
   grid-template-columns: 1fr; /* comportement en rows */
+  overflow-y: scroll; /*important pour le scroll */
 
   /* .basket {
     background-color: pink;

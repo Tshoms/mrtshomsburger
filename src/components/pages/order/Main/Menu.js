@@ -31,8 +31,7 @@ const MenuStyled = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr); /*à maitriser */
   grid-row-gap: 60px; /*à maitriser */
-  padding: 50px 50px 50px;
+  padding: 50px 50px 150px;
   justify-items: center;
-  overflow-y: scroll; /* important pour le scroll */
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
 `;
