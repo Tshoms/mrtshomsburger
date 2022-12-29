@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
 import { theme } from "../../../../theme";
 import { formatPrice } from "../../../../utils/maths";
-import Product from "./Product";
+import Card from "../../../reusable-ui/Card";
 
 export default function Menu() {
   /* state ----------- */
@@ -13,13 +13,12 @@ export default function Menu() {
     <MenuStyled>
       {menu.map(({ id, imageSource, title, price }) => {
         return (
-          <Product
+          <Card
             key={id}
             imageSource={imageSource}
             title={title}
             price={price}
             leftDescription={formatPrice(price)}
-            label={"Ajouter"}
           />
         );
       })}

@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../../../theme";
-import PrimaryButton from "../../../reusable-ui/PrimaryButton";
+import { theme } from "../../theme";
+import PrimaryButton from "./PrimaryButton";
 
 export default function Product({ imageSource, title, leftDescription }) {
   return (
-    <ProductStyled className="produit">
+    <CardStyled className="produit">
       <div className="image">
         <img src={imageSource} alt={title} />
       </div>
@@ -14,15 +14,15 @@ export default function Product({ imageSource, title, leftDescription }) {
         <div className="description">
           <div className="left-description">{leftDescription}</div>
           <div className="right-description">
-            <PrimaryButton className="primary-button" label={"Ajouter"} />
+            <PrimaryButton className="primary-button" Label={"Ajouter"} />
           </div>
         </div>
       </div>
-    </ProductStyled>
+    </CardStyled>
   );
 }
 
-const ProductStyled = styled.div`
+const CardStyled = styled.div`
   width: 200px;
   height: 300px;
   display: grid;
