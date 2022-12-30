@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function ({ Label, Icon }) {
+export default function ({ label, Icon, className }) {
   return (
-    <PrimaryButtonStyle className="button_with_icon">
-      <span>{Label}</span>
+    <PrimaryButtonStyle className={className}>
+      <span>{label}</span>
       {Icon && Icon}
     </PrimaryButtonStyle>
   );
@@ -27,22 +27,20 @@ const PrimaryButtonStyle = styled.button`
   font-size: 15px;
   font-weight: 800;
   color: white;
-  background-color: #ff9f1b;
-  border: 1px solid #ff9f1b;
-
+  background-color: ${theme.colors.primary_burger};
+  border: 1px solid ${theme.colors.primary_burger};
   :hover {
     color: ${theme.colors.primary};
     background-color: ${theme.colors.white};
     border: 1px solid ${theme.colors.primary};
     transition: all 200ms ease-out;
   }
-  :active {
-    background-color: ${theme.colors.primary};
+  &:active {
     color: ${theme.colors.white};
+    background-color: ${theme.colors.primary_burger};
   }
-
-  &.is-disabled {
-    opacity: 50%;
+  &:disabled {
+    opacity: 0.6;
     cursor: not-allowed;
     z-index: 2;
   }
