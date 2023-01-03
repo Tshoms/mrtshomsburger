@@ -1,14 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+import ToggleButton from "../../../reusable-ui/ToggleButton";
 import Profile from "./Profile";
 // import { BsPersonCircle } from "react-icons/bs";
 
 export default function NavbarRightStyle({ userName }) {
   return (
     <NavbarRightSide>
-      {/* <div className="admin-container">
-        <h1>admin</h1>
-      </div> */}
+      <ToggleButton
+        labelIfUnchecked="ACTIVER LE MODE ADMIN"
+        labelIfChecked="DÉSACTIVER LE MODE ADMIN"
+      />
       <Profile userName={userName} />
     </NavbarRightSide>
   );
