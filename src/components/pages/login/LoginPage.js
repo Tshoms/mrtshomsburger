@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import burgerbackground from "../../assets/LoginPageStyled.jpg";
-import Brand from "../reusable-ui/Brand";
+import burgerbackground from "../../../assets/LoginPageStyled.jpg";
+import Brand from "../../reusable-ui/Brand";
 import LoginForm from "./LoginForm";
 
 function LoginPage() {

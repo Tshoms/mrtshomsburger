@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function ({ Label, Icon }) {
+export default function ({ label, Icon, className }) {
   return (
-    <PrimaryButtonStyle className="button_with_icon">
-      <span>{Label}</span>
+    <PrimaryButtonStyle className={className}>
+      <span>{label}</span>
       {Icon && Icon}
     </PrimaryButtonStyle>
   );
@@ -27,24 +27,36 @@ const PrimaryButtonStyle = styled.button`
   font-size: 15px;
   font-weight: 800;
   color: white;
-  background-color: #ff9f1b;
-  border: 1px solid #ff9f1b;
-
-  &:hover:not(:disabled) {
-    background-color: white;
-    color: #ff9f1b;
-    border: 1px solid #ff9f1b;
+  background-color: ${theme.colors.primary_burger};
+  border: 1px solid ${theme.colors.primary_burger};
+  :hover {
+    color: ${theme.colors.primary};
+    background-color: ${theme.colors.white};
+    border: 1px solid ${theme.colors.primary};
     transition: all 200ms ease-out;
   }
-
   &:active {
-    color: white;
-    background-color: #ff9f1b;
-    border: 1px solid #ff9f1b;
+    color: ${theme.colors.white};
+    background-color: ${theme.colors.primary_burger};
   }
-
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+    z-index: 2;
+  }
+
+  &.with-focus {
+    border: 1px solid white;
+    background-color: ${theme.colors.white};
+    color: ${theme.colors.primary};
+    :hover {
+      color: ${theme.colors.white};
+      background-color: ${theme.colors.primary};
+      border: 1px solid ${theme.colors.white};
+    }
+    :active {
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary};
+    }
   }
 `;

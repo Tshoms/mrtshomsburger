@@ -3,9 +3,9 @@ import { createSearchParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForwardOutline } from "react-icons/io5";
-import TextInput from "../reusable-ui/TextInput";
-import PrimaryButton from "../reusable-ui/PrimaryButton";
-import { theme } from "../../theme";
+import TextInput from "../../reusable-ui/TextInput";
+import PrimaryButton from "../../reusable-ui/PrimaryButton";
+import { theme } from "../../../theme";
 
 function LoginForm() {
   // state -----------------
@@ -45,8 +45,8 @@ function LoginForm() {
           Icon={<BsPersonCircle className="icon" />}
         />
         <PrimaryButton
-          Label={"Accéder à mon espace"}
-          Icon={<IoChevronForwardOutline className="icon_button_style" />}
+          label={"Accéder à mon espace"}
+          Icon={<IoChevronForwardOutline className="icon" />}
         />
       </div>
     </LoginFormStyled>
@@ -88,16 +88,7 @@ const LoginFormStyled = styled.form`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 15px;
-    color: ${theme.colors.greySemiDark};
-    margin-left: 10px;
-  }
-
-  .icon_button_style {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 15px;
+    font-size: ${theme.fonts.size.P0};
     margin-left: 10px;
   }
 `;
