@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
+import Admin from "./Admin/Admin";
 import Menu from "./Menu";
 
 export default function Main() {
@@ -8,6 +9,7 @@ export default function Main() {
     <MainStyled>
       {/* <div className="basket">basket</div> */}
       <Menu />
+      <Admin />
     </MainStyled>
   );
 }
