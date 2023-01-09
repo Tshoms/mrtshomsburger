@@ -6,7 +6,10 @@ import { toast } from "react-toastify";
 import ToastAdmin from "./ToastAdmin";
 
 export default function NavbarRightStyle({ userName }) {
+  // state ----------
   const [isModeAdmin, setisModeAdmin] = useState(false);
+
+  // comportement -----------
 
   const displayToastNotification = () => {
     if (!isModeAdmin) {
@@ -31,6 +34,7 @@ export default function NavbarRightStyle({ userName }) {
         labelIfUnchecked="ACTIVER LE MODE ADMIN"
         labelIfChecked="DÉSACTIVER LE MODE ADMIN"
         onToggle={displayToastNotification}
+        //onClick={}
       />
       <Profile userName={userName} />
       <ToastAdmin />
