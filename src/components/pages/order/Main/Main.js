@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
+import panelcontext from "../../../../context/PanelContext";
 import { theme } from "../../../../theme";
 import Admin from "./Admin/Admin";
 import Menu from "./Menu";
 
 export default function Main() {
+  // state -------
+  const [panelAdmin, setPanelAdmin] = useState(true);
+  const info = useContext(panelcontext);
   return (
     <MainStyled>
       {/* <div className="basket">basket</div> */}
       <Menu />
-      <Admin />
+      {panelAdmin ? <Admin /> : null}
     </MainStyled>
   );
 }

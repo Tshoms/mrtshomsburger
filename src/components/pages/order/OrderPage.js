@@ -11,7 +11,7 @@ function OrderPage() {
   const [searchParams] = useSearchParams();
   const userName = searchParams.get("userName");
 
-  // provider for context
+  // provider for context w state.
   const [panelAdmin, setPanelAdmin] = useState(false);
   const panelContextValue = {
     panelAdmin,
