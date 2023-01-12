@@ -8,8 +8,9 @@ import Menu from "./Menu";
 
 export default function Main() {
   // state -------
-  const [panelAdmin, setPanelAdmin] = useState(true);
   const info = useContext(panelcontext);
+  const [panelAdmin, setPanelAdmin] = useState(false);
+
   return (
     <MainStyled>
       {/* <div className="basket">basket</div> */}

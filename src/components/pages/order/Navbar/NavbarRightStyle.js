@@ -4,10 +4,15 @@ import ToggleButton from "../../../reusable-ui/ToggleButton";
 import Profile from "./Profile";
 import { toast } from "react-toastify";
 import ToastAdmin from "./ToastAdmin";
+import { useContext } from "react";
+import PanelContext from "../../../../context/PanelContext";
 
 export default function NavbarRightStyle({ userName }) {
   // state ----------
   const [isModeAdmin, setisModeAdmin] = useState(false);
+
+  // context provider - useContext
+  const { panelAdmin, setPanelAdmin } = useContext(PanelContext);
 
   // comportement -----------
 
@@ -28,13 +33,19 @@ export default function NavbarRightStyle({ userName }) {
     setisModeAdmin(!isModeAdmin);
   };
 
+  const handelclick = () => {
+    console.log("hello world !");
+    console.log("info :", panelAdmin);
+    setPanelAdmin(!panelAdmin);
+  };
+
   return (
     <NavbarRightSide>
       <ToggleButton
         labelIfUnchecked="ACTIVER LE MODE ADMIN"
         labelIfChecked="DÉSACTIVER LE MODE ADMIN"
         onToggle={displayToastNotification}
-        //onClick={}
+        onClick={handelclick}
       />
       <Profile userName={userName} />
       <ToastAdmin />
