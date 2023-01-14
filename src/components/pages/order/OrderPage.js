@@ -44,6 +44,7 @@ const OrderStyled = styled.div`
     display: flex;
     flex-direction: column;
     width: 1400px;
+    position: relative; /* imporant pour le composant <Admin/> */
   }
 `;
 

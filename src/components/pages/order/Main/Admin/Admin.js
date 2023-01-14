@@ -9,10 +9,7 @@ const Adminstyled = styled.div`
   height: 280px;
   width: 100%;
   border: 1px solid red;
-  position: fixed;
-
-  margin-top: 330px;
   background-color: white;
-  color: white;
-  text-align: center;
+  position: absolute; /* imporant pour le composant <Admin/> */
+  bottom: 0;
 `;
