@@ -1,22 +1,26 @@
 import React from "react";
 import styled from "styled-components";
+import Tabs from "./tabs/Tabs";
+import { FaAngleDown, FaPen, FaPlus } from "react-icons/fa";
+import { theme } from "../../../../../theme";
+import ButtonSize from "./tabs/ButtonSize";
 
 export default function Admin() {
   return (
     <Adminstyled>
       <div className="container-tabs">
         <div className="bloc-tabs">
-          <div className="tabs-button-modif">
-            <span>Modifier un produit</span>
-          </div>
+          <Tabs
+            label={"Modifier un produit"}
+            Icon={<FaPen className="icon" />}
+          />
 
-          <div className="tabs-button-add">
-            <span>Ajouter un produit</span>
-          </div>
+          <Tabs
+            label={"Ajouter un produit"}
+            Icon={<FaPlus className="icon" />}
+          />
 
-          <div className="button-panel-low">
-            <button></button>
-          </div>
+          <ButtonSize Icon={<FaAngleDown className="icon-button-size" />} />
         </div>
         <div className="bloc-contenu-tabs">
           <div className="tabs-add">
@@ -54,46 +58,21 @@ const Adminstyled = styled.div`
       left: 55px;
       border: 1px solid transparent;
 
-      .tabs-button-add {
+      .icon {
         display: flex;
-        height: 100%;
-        width: 40%;
-        align-items: center;
         justify-content: center;
-        background-color: white;
-        border-top-left-radius: 7px;
-        border-top-right-radius: 7px;
-        margin-right: 1px;
-        border: 1px solid green;
-      }
-      .tabs-button-modif {
-        display: flex;
-        height: 100%;
-        width: 40%;
         align-items: center;
-        justify-content: center;
-        background-color: white;
-        border-top-left-radius: 7px;
-        border-top-right-radius: 7px;
-        margin-right: 1px;
-        border: 1px solid green;
+        color: ${theme.colors.greyDark};
+        font-size: 14px;
+        margin-right: 7px;
       }
 
-      .button-panel-low {
+      .icon-button-size {
         display: flex;
-        height: 100%;
-        width: 10%;
-        align-items: center;
         justify-content: center;
-        background-color: black;
-        border-top-left-radius: 7px;
-        border-top-right-radius: 7px;
-        margin-right: 1px;
-        border: 1px solid green;
-      }
-
-      .span {
-        font-weight: 500;
+        align-items: center;
+        font-size: 20px;
+        color: ${theme.colors.white};
       }
     }
 
