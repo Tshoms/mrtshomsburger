@@ -54,8 +54,8 @@ const Adminstyled = styled.div`
       width: 40%;
       border: 1px solid green;
       position: absolute;
-      top: -65px;
-      left: 55px;
+      top: -63px;
+      left: 10px;
       border: 1px solid transparent;
 
       .icon {
