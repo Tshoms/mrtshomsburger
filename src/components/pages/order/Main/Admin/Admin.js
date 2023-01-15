@@ -6,16 +6,21 @@ export default function Admin() {
     <Adminstyled>
       <div className="container-tabs">
         <div className="bloc-tabs">
-          <div className="tabs-button-add">
-            <h3>ajouter</h3>
-          </div>
           <div className="tabs-button-modif">
-            <h3>modifier</h3>
+            <span>Modifier un produit</span>
+          </div>
+
+          <div className="tabs-button-add">
+            <span>Ajouter un produit</span>
+          </div>
+
+          <div className="button-panel-low">
+            <button></button>
           </div>
         </div>
         <div className="bloc-contenu-tabs">
           <div className="tabs-add">
-            <h1>contenu-jouter 1</h1>
+            <h1>contenu-ajouter 1</h1>
           </div>
           <div className="tabs-modif">
             <h1>contenu-modifier 2</h1>
@@ -42,12 +47,12 @@ const Adminstyled = styled.div`
       display: flex;
       flex-direction: row-reverse;
       height: 40px;
-      width: 30%;
+      width: 40%;
       border: 1px solid green;
-      background: grey;
       position: absolute;
-      top: -63px;
+      top: -65px;
       left: 55px;
+      border: 1px solid transparent;
 
       .tabs-button-add {
         display: flex;
@@ -56,6 +61,9 @@ const Adminstyled = styled.div`
         align-items: center;
         justify-content: center;
         background-color: white;
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+        margin-right: 1px;
         border: 1px solid green;
       }
       .tabs-button-modif {
@@ -65,7 +73,27 @@ const Adminstyled = styled.div`
         align-items: center;
         justify-content: center;
         background-color: white;
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+        margin-right: 1px;
         border: 1px solid green;
+      }
+
+      .button-panel-low {
+        display: flex;
+        height: 100%;
+        width: 10%;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+        margin-right: 1px;
+        border: 1px solid green;
+      }
+
+      .span {
+        font-weight: 500;
       }
     }
 
