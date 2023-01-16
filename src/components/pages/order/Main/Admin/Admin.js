@@ -5,13 +5,15 @@ import { FaAngleDown, FaPen, FaPlus } from "react-icons/fa";
 import { theme } from "../../../../../theme";
 import ButtonSize from "./tabs/ButtonSize";
 import { useState } from "react";
+import TabsAdd from "./tabs/TabAdd";
+import TabUpdate from "./tabs/TabUpdate";
 
 export default function Admin() {
   // state -------
   const [toggleTabs, setToggleTabs] = useState(1);
   // comportement ------
   const toggletab = (index) => {
-    console.log(index);
+    setToggleTabs(index);
   };
   return (
     <Adminstyled>
@@ -35,10 +37,10 @@ export default function Admin() {
           />
         </div>
         <div className="bloc-contenu-tabs">
-          <div className="tabs-add">
+          <div className={toggleTabs === 1 ? <TabsAdd /> : "contents-add"}>
             <h1>contenu-ajouter 1</h1>
           </div>
-          <div className="tabs-modif">
+          <div className={toggleTabs === 2 ? <TabUpdate /> : "contents-update"}>
             <h1>contenu-modifier 2</h1>
           </div>
         </div>
@@ -90,10 +92,20 @@ const Adminstyled = styled.div`
       }
     }
 
-    .tabs-add {
+    .contents-add {
+      height: 100%;
+      width: 100%;
+      background-color: white;
+      border: 3px solid green;
+      display: none;
     }
 
-    .tabs-modif {
+    .contents-update {
+      height: 100%;
+      width: 100%;
+      background-color: white;
+      border: 3px solid blue;
+      display: none;
     }
   }
 `;
