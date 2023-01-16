@@ -4,8 +4,15 @@ import Tabs from "./tabs/Tabs";
 import { FaAngleDown, FaPen, FaPlus } from "react-icons/fa";
 import { theme } from "../../../../../theme";
 import ButtonSize from "./tabs/ButtonSize";
+import { useState } from "react";
 
 export default function Admin() {
+  // state -------
+  const [toggleTabs, setToggleTabs] = useState(1);
+  // comportement ------
+  const toggletab = (index) => {
+    console.log(index);
+  };
   return (
     <Adminstyled>
       <div className="container-tabs">
@@ -13,14 +20,19 @@ export default function Admin() {
           <Tabs
             label={"Modifier un produit"}
             Icon={<FaPen className="icon" />}
+            onClick={() => toggletab(2)}
           />
 
           <Tabs
             label={"Ajouter un produit"}
             Icon={<FaPlus className="icon" />}
+            onClick={() => toggletab(1)}
           />
 
-          <ButtonSize Icon={<FaAngleDown className="icon-button-size" />} />
+          <ButtonSize
+            Icon={<FaAngleDown className="icon-button-size" />}
+            onClick={toggletab}
+          />
         </div>
         <div className="bloc-contenu-tabs">
           <div className="tabs-add">

@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../../theme";
 
-export default function Tabs({ label, Icon, className }) {
+export default function Tabs({ label, Icon, className, onClick }) {
   return (
-    <TabsStyled className={className}>
+    <TabsStyled className={className} onClick={onClick}>
       {Icon && Icon}
       <span>{label}</span>
     </TabsStyled>
@@ -27,5 +27,9 @@ const TabsStyled = styled.button`
     font-size: 17px;
     color: ${theme.colors.greyBlue};
     cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+      color: ${theme.colors.greyDark};
+    }
   }
 `;
