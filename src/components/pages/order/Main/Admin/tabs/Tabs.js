@@ -23,6 +23,15 @@ const TabsStyled = styled.button`
   margin-right: 1px;
   border: 1px solid green;
 
+  :hover {
+    color: ${theme.colors.background_white};
+    background-color: ${theme.colors.background_dark};
+  }
+  &:active {
+    color: ${theme.colors.white};
+    background-color: ${theme.colors.background_dark};
+  }
+
   span {
     font-size: 17px;
     color: ${theme.colors.greyBlue};

@@ -88,7 +88,7 @@ const Adminstyled = styled.div`
         justify-content: center;
         align-items: center;
         font-size: 20px;
-        color: ${theme.colors.white};
+        color: ${theme.colors.greyDark};
       }
 
       .active-tabs {
