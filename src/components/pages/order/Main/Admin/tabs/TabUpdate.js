@@ -10,7 +10,7 @@ export default function TabUpdate() {
 }
 
 const TabUpdateStyled = styled.div`
-  height: 100%;
+  height: 278px;
   width: 100%;
   border: 3px solid green;
 `;

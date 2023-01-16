@@ -38,10 +38,10 @@ export default function Admin() {
         </div>
         <div className="bloc-contenu-tabs">
           <div className={toggleTabs === 1 ? <TabsAdd /> : "contents-add"}>
-            <h1>contenu-ajouter 1</h1>
+            <TabsAdd />
           </div>
           <div className={toggleTabs === 2 ? <TabUpdate /> : "contents-update"}>
-            <h1>contenu-modifier 2</h1>
+            <TabUpdate />
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@ export default function Admin() {
 const Adminstyled = styled.div`
   height: 280px;
   width: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   background-color: white;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
@@ -70,7 +70,7 @@ const Adminstyled = styled.div`
       width: 40%;
       border: 1px solid green;
       position: absolute;
-      top: -63px;
+      top: -40px;
       left: 10px;
       border: 1px solid transparent;
 
@@ -89,6 +89,10 @@ const Adminstyled = styled.div`
         align-items: center;
         font-size: 20px;
         color: ${theme.colors.white};
+      }
+
+      .active-tabs {
+        background-color: white;
       }
     }
 
