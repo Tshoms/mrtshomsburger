@@ -52,6 +52,8 @@ const Adminstyled = styled.div`
   width: 100%;
   border: 1px solid red;
   background-color: white;
+  border-bottom-left-radius: ${theme.borderRadius.extraRound};
+  border-bottom-right-radius: ${theme.borderRadius.extraRound};
   position: absolute; /* imporant pour le composant <Admin/> */
   bottom: 0;
 
