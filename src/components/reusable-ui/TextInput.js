@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-function TextInput({ value, onChange, Icon, ...restProps }) {
+function TextInput({ value, onChange, Icon, className, ...restProps }) {
   return (
-    <TextInputStyle>
+    <TextInputStyle className={className}>
       {Icon && Icon}
       <input
         type="text"
