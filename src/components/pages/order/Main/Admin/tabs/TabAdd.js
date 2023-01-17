@@ -4,6 +4,7 @@ import { theme } from "../../../../../../theme";
 import TextInput from "../../../../../reusable-ui/TextInput";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
+import { BiEuro } from "react-icons/bi";
 export default function TabsAdd() {
   return (
     <TabsAddStyled>
@@ -20,6 +21,12 @@ export default function TabsAdd() {
             className={"input-tab-add"}
             Icon={<BsFillCameraFill className="icon" />}
           />
+          <div className="bloc-low-input">
+            <TextInput
+              className={"input-low"}
+              Icon={<BiEuro className="icon" />}
+            />
+          </div>
         </div>
       </div>
     </TabsAddStyled>
@@ -76,6 +83,29 @@ const TabsAddStyled = styled.div`
       .icon {
         font-size: 19px;
         color: ${theme.colors.greyDark};
+      }
+
+      .bloc-low-input {
+        display: flex;
+        flex-direction: row;
+        height: 45px;
+        width: 95%;
+        /* border: 1px solid blue; */
+        margin-left: 10px;
+
+        .input-low {
+          height: 100%;
+          width: 25%;
+          background-color: ${theme.colors.greyLight};
+          color: ${theme.colors.greyLight};
+          padding: 0px 10px;
+          margin-top: 0px;
+        }
+
+        .icon {
+          font-size: 25px;
+          color: ${theme.colors.greyDark};
+        }
       }
     }
   }
