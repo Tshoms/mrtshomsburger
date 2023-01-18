@@ -5,6 +5,10 @@ import TextInput from "../../../../../reusable-ui/TextInput";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { BiEuro } from "react-icons/bi";
+import SelectStore from "../select/SelectStore";
+import SelectPub from "../select/SelectPub";
+import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
+
 export default function TabsAdd() {
   return (
     <TabsAddStyled>
@@ -26,6 +30,14 @@ export default function TabsAdd() {
               className={"input-low"}
               Icon={<BiEuro className="icon" />}
             />
+            <SelectStore />
+            <SelectPub />
+          </div>
+          <div className="primary-container">
+            <PrimaryButton
+              className="primary-contents"
+              label={"Ajouter un nouveau produit au menu"}
+            />
           </div>
         </div>
       </div>
@@ -43,8 +55,8 @@ const TabsAddStyled = styled.div`
     flex-direction: row;
     height: 90%;
     width: 70%;
-    border: 1px solid red;
-    margin-top: 15px;
+    /* border: 1px solid red; */
+    margin-top: 10px;
     margin-left: 20px;
 
     .bloc-picture {
@@ -72,7 +84,7 @@ const TabsAddStyled = styled.div`
       /* border: 1px solid green; */
 
       .input-tab-add {
-        width: 70%;
+        width: 73%;
         padding: 10px 10px;
         margin-top: 0px;
         margin-left: 10px;
@@ -105,6 +117,31 @@ const TabsAddStyled = styled.div`
         .icon {
           font-size: 25px;
           color: ${theme.colors.greyDark};
+        }
+      }
+
+      .primary-container {
+        margin-top: 15px;
+        margin-left: 10px;
+        width: 46%;
+        /* border: 1px solid black; */
+
+        .primary-contents {
+          padding: 12px;
+          color: white;
+          background-color: rgb(96, 189, 79);
+          border: 1px solid rgb(96, 189, 79);
+
+          :hover {
+            color: rgb(96, 189, 79);
+            background-color: ${theme.colors.white};
+            border: 1px solid rgb(96, 189, 79);
+            transition: all 200ms ease-out;
+          }
+          &:active {
+            color: ${theme.colors.white};
+            background-color: rgb(96, 189, 79);
+          }
         }
       }
     }
