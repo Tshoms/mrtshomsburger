@@ -4,7 +4,7 @@ import styled from "styled-components";
 import NavBar from "./Navbar/NavBar";
 import Main from "./Main/Main";
 import { theme } from "../../../theme";
-import PanelContext from "../../../context/PanelContext";
+import OrderContext from "../../../context/OrderContext";
 
 function OrderPage() {
   // state ----------
@@ -12,10 +12,10 @@ function OrderPage() {
   const userName = searchParams.get("userName");
 
   // provider for context w state.
-  const [panelAdmin, setPanelAdmin] = useState(false);
-  const panelContextValue = {
-    panelAdmin,
-    setPanelAdmin,
+  const [isModeAdmin, setisModeAdmin] = useState(false);
+  const orderContextValue = {
+    isModeAdmin,
+    setisModeAdmin,
   };
   // comportement -------
 
@@ -23,10 +23,10 @@ function OrderPage() {
   return (
     <OrderStyled>
       <div className="container">
-        <PanelContext.Provider value={panelContextValue}>
+        <OrderContext.Provider value={orderContextValue}>
           <NavBar userName={userName} />
           <Main />
-        </PanelContext.Provider>
+        </OrderContext.Provider>
       </div>
     </OrderStyled>
   );

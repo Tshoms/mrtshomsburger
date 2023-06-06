@@ -1,26 +1,25 @@
 import React from "react";
 import { useContext } from "react";
 import styled from "styled-components";
-import PanelContext from "../../../../context/PanelContext";
+import OrderContext from "../../../../context/OrderContext";
 import { theme } from "../../../../theme";
 import AdminPanel from "./Admin/AdminPanel";
 import Menu from "./Menu";
 
 export default function Main() {
   // state -------
-  const { panelAdmin } = useContext(PanelContext);
+  const { isModeAdmin } = useContext(OrderContext);
 
   return (
     <MainStyled>
-      {/* <div className="basket">basket</div> */}
+      <div className="basket">basket</div>
       <Menu />
-      {panelAdmin ? <AdminPanel /> : null}
+      {isModeAdmin ? <AdminPanel /> : null}
     </MainStyled>
   );
 }
 
 const MainStyled = styled.div`
-  height: 85vh;
   background-color: ${theme.colors.background_white};
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
@@ -28,10 +27,10 @@ const MainStyled = styled.div`
 
   /*css grid */
   display: grid;
-  grid-template-columns: 1fr; /* comportement en rows */
+  grid-template-columns: 25% 1fr; /* comportement en rows */
   overflow-y: scroll; /*important pour le scroll */
 
-  /* .basket {
+  .basket {
     background-color: pink;
-  } */
+  }
 `;

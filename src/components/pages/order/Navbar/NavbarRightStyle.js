@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import ToggleButton from "../../../reusable-ui/ToggleButton";
 import Profile from "./Profile";
 import { toast } from "react-toastify";
 import ToastAdmin from "./ToastAdmin";
 import { useContext } from "react";
-import PanelContext from "../../../../context/PanelContext";
+import OrderContext from "../../../../context/OrderContext";
 
 export default function NavbarRightStyle({ userName }) {
   // state ----------
-  const [isModeAdmin, setisModeAdmin] = useState(false);
+  // const [isModeAdmin, setisModeAdmin] = useState(false);
 
   // context provider - useContext
-  const { panelAdmin, setPanelAdmin } = useContext(PanelContext);
+  const { isModeAdmin, setisModeAdmin } = useContext(OrderContext);
 
   // comportement -----------
 
@@ -35,8 +35,8 @@ export default function NavbarRightStyle({ userName }) {
 
   const handelclick = () => {
     console.log("hello world !");
-    console.log("info :", panelAdmin);
-    setPanelAdmin(!panelAdmin);
+    console.log("info :", isModeAdmin);
+    setisModeAdmin(!isModeAdmin);
   };
 
   return (

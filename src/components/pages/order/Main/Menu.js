@@ -31,6 +31,7 @@ const MenuStyled = styled.div`
   background-color: ${theme.colors.background_white};
   display: grid;
   grid-template-columns: repeat(4, 1fr); /*à maitriser */
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
   grid-row-gap: 60px; /*à maitriser */
   padding: 50px 50px 150px;
   justify-items: center;
