@@ -13,8 +13,6 @@ export default function AdminPanel() {
   // state -------
   const [toggleTabs, setToggleTabs] = useState(1);
 
-  // comportement -------
-
   return (
     <Adminstyled>
       <div className="container-tabs">
