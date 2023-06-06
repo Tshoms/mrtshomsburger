@@ -8,7 +8,7 @@ import Menu from "./Menu";
 
 export default function Main() {
   // state -------
-  const { panelAdmin, setPanelAdmin } = useContext(PanelContext);
+  const { panelAdmin } = useContext(PanelContext);
 
   return (
     <MainStyled>
