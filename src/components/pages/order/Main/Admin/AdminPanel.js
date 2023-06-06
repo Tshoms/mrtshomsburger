@@ -8,7 +8,7 @@ import { useState } from "react";
 import TabsAdd from "./tabs/TabAdd";
 import TabUpdate from "./tabs/TabUpdate";
 
-export default function Admin() {
+export default function AdminPanel() {
   // state -------
   const [toggleTabs, setToggleTabs] = useState(1);
   // comportement ------

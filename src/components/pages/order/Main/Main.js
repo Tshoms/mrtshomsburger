@@ -3,7 +3,7 @@ import { useContext } from "react";
 import styled from "styled-components";
 import PanelContext from "../../../../context/PanelContext";
 import { theme } from "../../../../theme";
-import Admin from "./Admin/Admin";
+import AdminPanel from "./Admin/AdminPanel";
 import Menu from "./Menu";
 
 export default function Main() {
@@ -14,7 +14,7 @@ export default function Main() {
     <MainStyled>
       {/* <div className="basket">basket</div> */}
       <Menu />
-      {panelAdmin ? <Admin /> : null}
+      {panelAdmin ? <AdminPanel /> : null}
     </MainStyled>
   );
 }
