@@ -23,7 +23,7 @@ export default function Admin() {
         isCollapsed={isCollapsed}
       />
 
-      {isCollapsed && <AdminPanels toggleTabs={toggleTabs} />}
+      {!isCollapsed && <AdminPanels toggleTabs={toggleTabs} />}
     </AdminStyled>
   );
 }

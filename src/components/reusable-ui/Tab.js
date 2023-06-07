@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function Tab({ Icon, onClick }) {
+export default function Tab({ Icon, onClick, className }) {
   return (
-    <TabStyle onClick={onClick}>
+    <TabStyle className={className} onClick={onClick}>
       <div className="icon">{Icon}</div>
     </TabStyle>
   );
@@ -42,7 +42,6 @@ const TabStyle = styled.button`
   }
 
   .icon {
-    border: 1px solid red;
     display: flex;
   }
 `;

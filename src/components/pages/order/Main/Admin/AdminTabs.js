@@ -32,7 +32,8 @@ function AdminTabs({ setToggleTabs, isCollapsed, setIsCollapsed }) {
       {/* <ButtonSize /> */}
 
       <Tab
-        Icon={<FiChevronDown className="icon-button-size" />}
+        className={isCollapsed ? "icon-activ" : ""}
+        Icon={isCollapsed ? <FiChevronUp /> : <FiChevronDown />}
         onClick={toggleCollapsed}
       />
     </AdminTabsStyled>
@@ -57,6 +58,16 @@ const AdminTabsStyled = styled.div`
     color: ${theme.colors.greyDark};
     font-size: 14px;
     margin-right: 7px;
+  }
+
+  .icon-activ {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    margin-right: 7px;
+    background-color: ${theme.colors.background_dark};
+    border-color: ${theme.colors.background_dark};
   }
 
   .icon-button-size {
