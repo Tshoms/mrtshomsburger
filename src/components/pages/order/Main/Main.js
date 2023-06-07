@@ -14,7 +14,7 @@ export default function Main() {
     <MainStyled>
       <div className="basket">basket</div>
       <Menu />
-      {isModeAdmin ? <AdminPanel /> : null}
+      {isModeAdmin && <AdminPanel />}
     </MainStyled>
   );
 }

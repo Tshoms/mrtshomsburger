@@ -9,9 +9,6 @@ import OrderContext from "../../../../context/OrderContext";
 
 export default function NavbarRightStyle({ userName }) {
   // state ----------
-  // const [isModeAdmin, setisModeAdmin] = useState(false);
-
-  // context provider - useContext
   const { isModeAdmin, setisModeAdmin } = useContext(OrderContext);
 
   // comportement -----------

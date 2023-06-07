@@ -8,7 +8,7 @@ import Card from "../../../reusable-ui/Card";
 
 export default function Menu() {
   /* state ----------- */
-  const [menu, setMenu] = useState(fakeMenu2);
+  const [menu] = useState(fakeMenu2);
 
   return (
     <MenuStyled>
