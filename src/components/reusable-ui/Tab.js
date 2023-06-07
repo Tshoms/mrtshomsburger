@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function Tab({ Icon, onClick, className }) {
+export default function Tab({ label, Icon, onClick, className }) {
   return (
     <TabStyle className={className} onClick={onClick}>
       <div className="icon">{Icon}</div>
+      {label && <span className="label">{label}</span>}
     </TabStyle>
   );
 }
@@ -13,15 +14,19 @@ export default function Tab({ Icon, onClick, className }) {
 const TabStyle = styled.button`
   height: 43px;
   padding: 0 22px;
-  left: 5%;
-  top: 1px;
-  position: absolute;
-  cursor: pointer;
-  background: ${theme.colors.white};
+
   // flex.
   display: flex;
   align-items: center;
   justify-content: center;
+
+  left: 5%;
+  top: 1px;
+  position: relative;
+
+  cursor: pointer;
+
+  background: ${theme.colors.white};
 
   // font-size.
   font-size: ${theme.fonts.size.P0};
@@ -31,7 +36,7 @@ const TabStyle = styled.button`
   border-color: ${theme.colors.greyLight};
   border-width: 1px 1px 2px 1px;
   box-shadow: ${theme.shadows.subtle};
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
   // border-radius.
   border-radius: ${theme.borderRadius.round};
   border-bottom-right-radius: 0px;
@@ -43,5 +48,9 @@ const TabStyle = styled.button`
 
   .icon {
     display: flex;
+  }
+
+  .label {
+    margin-left: 13px;
   }
 `;

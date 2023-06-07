@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { AiOutlinePlus } from "react-icons/ai";
+import { MdModeEditOutline } from "react-icons/md";
 // import Tabs from "./Tabs";
 import Tab from "../../../../reusable-ui/Tab";
 
@@ -9,27 +11,26 @@ function AdminTabs({ setToggleTabs, isCollapsed, setIsCollapsed }) {
   // state -------------------
 
   // comportement ---------------
-  // const toggletab = (index) => {
-  //   setToggleTabs(index);
-  // };
+  const toggletab = (index) => {
+    setToggleTabs(index);
+  };
 
   const toggleCollapsed = () => {
     setIsCollapsed(!isCollapsed);
   };
   return (
     <AdminTabsStyled>
-      {/* <Tab
+      <Tab
         label={"Modifier un produit"}
-        Icon={<FaPen className="icon" />}
+        Icon={<AiOutlinePlus className="icon" />}
         onClick={() => toggletab(2)}
       />
 
       <Tab
         label={"Ajouter un produit"}
-        Icon={<FaPlus className="icon" />}
+        Icon={<MdModeEditOutline className="icon" />}
         onClick={() => toggletab(1)}
-      /> */}
-      {/* <ButtonSize /> */}
+      />
 
       <Tab
         className={isCollapsed ? "icon-activ" : ""}
@@ -65,21 +66,12 @@ const AdminTabsStyled = styled.div`
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    margin-right: 7px;
     background-color: ${theme.colors.background_dark};
     border-color: ${theme.colors.background_dark};
   }
 
-  .icon-button-size {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    color: ${theme.colors.greySemiDark};
-  }
-
-  .active-tabs {
-    background-color: white;
+  button {
+    margin-left: 1px;
   }
 `;
 
