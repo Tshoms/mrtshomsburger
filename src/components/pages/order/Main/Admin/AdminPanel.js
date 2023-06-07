@@ -32,7 +32,7 @@ export default function AdminPanel() {
 }
 
 const AdminPanelStyled = styled.div`
-  height: 280px;
+  height: 250px;
   width: 100%;
   /* border: 1px solid red; */
   background-color: white;

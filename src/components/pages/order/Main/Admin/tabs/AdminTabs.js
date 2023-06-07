@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../../theme";
-import { FaAngleDown, FaPen, FaPlus } from "react-icons/fa";
-import Tabs from "./Tabs";
-import ButtonSize from "./ButtonSize";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+// import Tabs from "./Tabs";
+import Tab from "../../../../../reusable-ui/Tab";
 
 function AdminTabs({ setToggleTabs }) {
   // state -------------------
@@ -14,7 +14,7 @@ function AdminTabs({ setToggleTabs }) {
   };
   return (
     <AdminTabsStyled>
-      <Tabs
+      {/* <Tabs
         label={"Modifier un produit"}
         Icon={<FaPen className="icon" />}
         onClick={() => toggletab(2)}
@@ -24,10 +24,11 @@ function AdminTabs({ setToggleTabs }) {
         label={"Ajouter un produit"}
         Icon={<FaPlus className="icon" />}
         onClick={() => toggletab(1)}
-      />
+      /> */}
+      {/* <ButtonSize /> */}
 
-      <ButtonSize
-        Icon={<FaAngleDown className="icon-button-size" />}
+      <Tab
+        Icon={<FiChevronDown className="icon-button-size" />}
         onClick={toggletab}
       />
     </AdminTabsStyled>
@@ -59,7 +60,7 @@ const AdminTabsStyled = styled.div`
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    color: ${theme.colors.greyDark};
+    color: ${theme.colors.greySemiDark};
   }
 
   .active-tabs {

@@ -13,8 +13,9 @@ export default function Tabs({ label, Icon, className, onClick }) {
 
 const TabsStyled = styled.button`
   display: flex;
-  height: 100%;
-  width: 40%;
+  height: 43px;
+  width: 212px;
+  /* padding: 0 22px; */
   align-items: center;
   justify-content: center;
   background-color: white;
