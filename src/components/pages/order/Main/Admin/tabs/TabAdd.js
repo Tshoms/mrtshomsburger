@@ -48,16 +48,12 @@ export default function TabsAdd() {
 const TabsAddStyled = styled.div`
   height: 278px;
   width: 100%;
-  border: 1px solid white;
 
   .container-add {
     display: flex;
     flex-direction: row;
-    height: 90%;
+    height: 100%;
     width: 70%;
-    /* border: 1px solid red; */
-    margin-top: 10px;
-    margin-left: 20px;
 
     .bloc-picture {
       display: flex;

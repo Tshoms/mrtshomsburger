@@ -17,13 +17,11 @@ export default function TabUpdate() {
 const TabUpdateStyled = styled.div`
   height: 278px;
   width: 100%;
-  /* border: 3px solid green; */
 
   .container-update {
     display: flex;
     height: 100%;
     width: 50%;
-    /* border: 1px solid red; */
     justify-content: center;
     align-items: center;
 

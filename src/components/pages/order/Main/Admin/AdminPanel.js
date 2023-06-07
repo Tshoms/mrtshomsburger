@@ -14,7 +14,7 @@ export default function AdminPanel() {
   const [toggleTabs, setToggleTabs] = useState(1);
 
   return (
-    <Adminstyled>
+    <AdminPanelStyled>
       <div className="container-tabs">
         <AdminTabs setToggleTabs={setToggleTabs} />
 
@@ -27,11 +27,11 @@ export default function AdminPanel() {
           </div>
         </div>
       </div>
-    </Adminstyled>
+    </AdminPanelStyled>
   );
 }
 
-const Adminstyled = styled.div`
+const AdminPanelStyled = styled.div`
   height: 280px;
   width: 100%;
   /* border: 1px solid red; */
