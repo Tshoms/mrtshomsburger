@@ -1,26 +1,30 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../../../../../theme";
+import { theme } from "../../../../../theme";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 // import Tabs from "./Tabs";
-import Tab from "../../../../../reusable-ui/Tab";
+import Tab from "../../../../reusable-ui/Tab";
 
-function AdminTabs({ setToggleTabs }) {
+function AdminTabs({ setToggleTabs, isCollapsed, setIsCollapsed }) {
   // state -------------------
 
   // comportement ---------------
-  const toggletab = (index) => {
-    setToggleTabs(index);
+  // const toggletab = (index) => {
+  //   setToggleTabs(index);
+  // };
+
+  const toggleCollapsed = () => {
+    setIsCollapsed(!isCollapsed);
   };
   return (
     <AdminTabsStyled>
-      {/* <Tabs
+      {/* <Tab
         label={"Modifier un produit"}
         Icon={<FaPen className="icon" />}
         onClick={() => toggletab(2)}
       />
 
-      <Tabs
+      <Tab
         label={"Ajouter un produit"}
         Icon={<FaPlus className="icon" />}
         onClick={() => toggletab(1)}
@@ -29,7 +33,7 @@ function AdminTabs({ setToggleTabs }) {
 
       <Tab
         Icon={<FiChevronDown className="icon-button-size" />}
-        onClick={toggletab}
+        onClick={toggleCollapsed}
       />
     </AdminTabsStyled>
   );
@@ -42,7 +46,7 @@ const AdminTabsStyled = styled.div`
   width: 40%;
   border: 1px solid green;
   position: absolute;
-  top: -40px;
+  top: -45px;
   left: 10px;
   border: 1px solid transparent;
 

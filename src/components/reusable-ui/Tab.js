@@ -2,32 +2,37 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function Tab({ Icon }) {
+export default function Tab({ Icon, onClick }) {
   return (
-    <TabStyle>
+    <TabStyle onClick={onClick}>
       <div className="icon">{Icon}</div>
     </TabStyle>
   );
 }
 
 const TabStyle = styled.button`
+  height: 43px;
+  padding: 0 22px;
+  left: 5%;
+  top: 1px;
+  position: absolute;
+  cursor: pointer;
+  background: ${theme.colors.white};
+  // flex.
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 60px;
-  height: 43px;
-  left: 71px;
-  top: 1px;
-  position: absolute;
-  cursor: pointer;
+  // font-size.
+  font-size: ${theme.fonts.size.P0};
 
-  background: ${theme.colors.white};
-  border-width: 1px 1px 2px 1px;
-  /* box-sizing: border-box; */
+  // border.
   border-style: solid;
   border-color: ${theme.colors.greyLight};
+  border-width: 1px 1px 2px 1px;
   box-shadow: ${theme.shadows.subtle};
+  /* box-sizing: border-box; */
+  // border-radius.
   border-radius: ${theme.borderRadius.round};
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
@@ -37,6 +42,7 @@ const TabStyle = styled.button`
   }
 
   .icon {
+    border: 1px solid red;
     display: flex;
   }
 `;
