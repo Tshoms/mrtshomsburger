@@ -1,12 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-// import Tabs from "./tabs/Tabs";
-// import { FaAngleDown, FaPen, FaPlus } from "react-icons/fa";
 import { theme } from "../../../../../theme";
-// import ButtonSize from "./tabs/ButtonSize";
 import { useState } from "react";
-// import TabsAdd from "./tabs/TabAdd";
-// import TabUpdate from "./tabs/TabUpdate";
 import AdminTabs from "./AdminTabs";
 import AdminPanels from "./AdminPanels";
 
