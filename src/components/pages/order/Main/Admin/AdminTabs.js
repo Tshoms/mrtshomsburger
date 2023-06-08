@@ -69,7 +69,6 @@ const AdminTabsStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    color: ${theme.colors.greyDark};
     font-size: 14px;
   }
 

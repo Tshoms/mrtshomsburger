@@ -23,7 +23,7 @@ const TabStyle = styled.button`
   left: 5%;
   top: 1px;
   position: relative;
-
+  color: ${theme.colors.greySemiDark};
   cursor: pointer;
 
   background: ${theme.colors.white};
@@ -44,13 +44,17 @@ const TabStyle = styled.button`
 
   :hover {
     border-bottom: white;
+    text-decoration: underline;
+    /* color: ${theme.colors.greyDark}; */
   }
 
   .icon {
     display: flex;
+    /* color: ${theme.colors.greyDark}; */
   }
 
   .label {
     margin-left: 13px;
+    font-family: "Open Sans";
   }
 `;
