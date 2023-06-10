@@ -10,12 +10,16 @@ function OrderPage() {
   // state ----------
   const [searchParams] = useSearchParams();
   const userName = searchParams.get("userName");
+  const [isModeAdmin, setisModeAdmin] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   // provider for context w state.
-  const [isModeAdmin, setisModeAdmin] = useState(false);
+
   const orderContextValue = {
     isModeAdmin,
     setisModeAdmin,
+    isCollapsed,
+    setIsCollapsed,
   };
   // comportement -------
 

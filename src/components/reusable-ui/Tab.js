@@ -43,18 +43,18 @@ const TabStyle = styled.button`
   border-bottom-left-radius: 0px;
 
   :hover {
-    border-bottom: white;
-    text-decoration: underline;
-    /* color: ${theme.colors.greyDark}; */
+    .label {
+      border-bottom: white;
+      text-decoration: underline;
+    }
   }
 
   .icon {
     display: flex;
-    /* color: ${theme.colors.greyDark}; */
   }
 
   .label {
     margin-left: 13px;
-    font-family: "Open Sans";
+    /* font-family: "Open Sans"; */
   }
 `;

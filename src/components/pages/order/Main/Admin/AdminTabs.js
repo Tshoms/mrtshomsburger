@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
@@ -6,11 +6,13 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
 // import Tabs from "./Tabs";
 import Tab from "../../../../reusable-ui/Tab";
+import OrderContext from "../../../../../context/OrderContext";
 
-function AdminTabs({ setToggleTabs, isCollapsed, setIsCollapsed }) {
+function AdminTabs({ setToggleTabs }) {
   // state -------------------
   const [isEditSelected, setIsEditSelected] = useState(false);
   const [isAddSelected, setIsAddSelected] = useState(true);
+  const { isModeAdmin, isCollapsed, setIsCollapsed } = useContext(OrderContext);
   // comportement ---------------
   const selectAddTab = (index) => {
     setToggleTabs(index);
