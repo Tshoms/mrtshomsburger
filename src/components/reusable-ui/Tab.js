@@ -20,7 +20,6 @@ const TabStyle = styled.button`
   align-items: center;
   justify-content: center;
 
-  left: 5%;
   top: 1px;
   position: relative;
   color: ${theme.colors.greySemiDark};
@@ -42,6 +41,10 @@ const TabStyle = styled.button`
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
 
+  .label {
+    margin-left: 13px;
+  }
+
   :hover {
     .label {
       border-bottom: white;
@@ -51,10 +54,5 @@ const TabStyle = styled.button`
 
   .icon {
     display: flex;
-  }
-
-  .label {
-    margin-left: 13px;
-    /* font-family: "Open Sans"; */
   }
 `;

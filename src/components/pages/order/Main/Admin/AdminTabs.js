@@ -59,26 +59,23 @@ function AdminTabs({ setToggleTabs }) {
 const AdminTabsStyled = styled.div`
   display: flex;
   flex-direction: row-reverse;
-  height: 40px;
-  width: 40%;
-  border: 1px solid green;
   position: absolute;
   top: -45px;
-  left: 10px;
-  border: 1px solid transparent;
+  left: 45px;
+  border: 1px solid red;
 
   .icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 14px;
+    font-size: ${theme.fonts.size.P0};
   }
 
   .icon-activ {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 14px;
+    font-size: ${theme.fonts.size.P0};
     background-color: ${theme.colors.background_dark};
     border-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};
