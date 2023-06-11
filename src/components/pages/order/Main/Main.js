@@ -12,25 +12,35 @@ export default function Main() {
 
   return (
     <MainStyled>
-      <div className="basket">basket</div>
-      <Menu />
-      {isModeAdmin && <Admin />}
+      {/* <div className="basket">basket</div> */}
+      <div className="menu-and-admin">
+        <Menu />
+        {isModeAdmin && <Admin />}
+      </div>
     </MainStyled>
   );
 }
 
 const MainStyled = styled.div`
   background-color: ${theme.colors.background_white};
+  flex: 1;
+
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
 
   /*css grid */
   display: grid;
-  grid-template-columns: 25% 1fr; /* comportement en rows */
+  grid-template-columns: 1fr; /* comportement en rows */
   overflow-y: scroll; /*important pour le scroll */
 
-  .basket {
+  /* .basket {
     background-color: pink;
+  } */
+
+  .menu-and-admin {
+    position: relative;
+    overflow-y: hidden;
+    display: grid;
   }
 `;

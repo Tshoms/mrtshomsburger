@@ -60,9 +60,9 @@ const AdminTabsStyled = styled.div`
   display: flex;
   flex-direction: row-reverse;
   position: absolute;
-  top: -45px;
+  top: -44px;
   left: 45px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   .icon {
     display: flex;

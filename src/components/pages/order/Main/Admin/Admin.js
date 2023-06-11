@@ -28,7 +28,7 @@ export default function Admin() {
 const AdminStyled = styled.div`
   position: absolute;
   background-color: white;
-  border-bottom-left-radius: ${theme.borderRadius.extraRound};
+  /* border-bottom-left-radius: ${theme.borderRadius.extraRound}; */
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   left: 0;
   right: 0;
