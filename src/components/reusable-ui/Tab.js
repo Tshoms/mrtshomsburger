@@ -30,9 +30,10 @@ const TabStyle = styled.button`
   color: ${theme.colors.greySemiDark};
   background: ${theme.colors.white};
   box-shadow: ${theme.shadows.subtle};
+  /* box-sizing: border-box; */
 
   // border.
-  border-width: 1px 1px 1px 1px;
+  border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-color: ${theme.colors.greyLight};
 
@@ -46,7 +47,7 @@ const TabStyle = styled.button`
   }
 
   :hover {
-    border-bottom: 1px solid ${theme.colors.white};
+    border-bottom: 2px solid ${theme.colors.white};
     .label {
       text-decoration: underline;
     }
