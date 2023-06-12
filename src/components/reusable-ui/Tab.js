@@ -21,16 +21,15 @@ const TabStyle = styled.button`
   justify-content: center;
 
   position: relative;
-  top: 1px;
+  top: 2px;
 
   cursor: pointer;
 
-  // font-size.
+  // font.
   font-size: ${theme.fonts.size.P0};
   color: ${theme.colors.greySemiDark};
   background: ${theme.colors.white};
   box-shadow: ${theme.shadows.subtle};
-  /* box-sizing: border-box; */
 
   // border.
   border-width: 1px 1px 2px 1px;
