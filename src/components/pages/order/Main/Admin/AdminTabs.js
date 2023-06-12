@@ -77,8 +77,8 @@ const AdminTabsStyled = styled.div`
     align-items: center;
     font-size: ${theme.fonts.size.P0};
     background-color: ${theme.colors.background_dark};
-    border-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};
+    border: none;
   }
 
   button {

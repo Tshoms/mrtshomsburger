@@ -20,22 +20,22 @@ const TabStyle = styled.button`
   align-items: center;
   justify-content: center;
 
-  top: 1px;
   position: relative;
-  color: ${theme.colors.greySemiDark};
-  cursor: pointer;
+  top: 1px;
 
-  background: ${theme.colors.white};
+  cursor: pointer;
 
   // font-size.
   font-size: ${theme.fonts.size.P0};
+  color: ${theme.colors.greySemiDark};
+  background: ${theme.colors.white};
+  box-shadow: ${theme.shadows.subtle};
 
   // border.
+  border-width: 1px 1px 1px 1px;
   border-style: solid;
   border-color: ${theme.colors.greyLight};
-  border-width: 1px 1px 2px 1px;
-  box-shadow: ${theme.shadows.subtle};
-  box-sizing: border-box;
+
   // border-radius.
   border-radius: ${theme.borderRadius.round};
   border-bottom-right-radius: 0px;
@@ -46,8 +46,8 @@ const TabStyle = styled.button`
   }
 
   :hover {
+    border-bottom: 1px solid ${theme.colors.white};
     .label {
-      border-bottom: white;
       text-decoration: underline;
     }
   }
