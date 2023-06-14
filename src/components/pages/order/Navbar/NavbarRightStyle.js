@@ -9,7 +9,7 @@ import OrderContext from "../../../../context/OrderContext";
 
 export default function NavbarRightStyle({ userName }) {
   // state ----------
-  const { isModeAdmin, setisModeAdmin } = useContext(OrderContext);
+  const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext);
 
   // comportement -----------
 
@@ -27,22 +27,16 @@ export default function NavbarRightStyle({ userName }) {
         progress: undefined,
       });
     }
-    setisModeAdmin(!isModeAdmin);
-  };
-
-  const handelclick = () => {
-    console.log("hello world !");
-    console.log("info :", isModeAdmin);
-    setisModeAdmin(!isModeAdmin);
+    setIsModeAdmin(!isModeAdmin);
   };
 
   return (
     <NavbarRightSide>
       <ToggleButton
+        isChecked={isModeAdmin}
         labelIfUnchecked="ACTIVER LE MODE ADMIN"
         labelIfChecked="DÉSACTIVER LE MODE ADMIN"
         onToggle={displayToastNotification}
-        onClick={handelclick}
       />
       <Profile userName={userName} />
       <ToastAdmin />

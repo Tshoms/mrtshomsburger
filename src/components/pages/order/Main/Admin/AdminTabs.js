@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
@@ -8,24 +8,29 @@ import { MdModeEditOutline } from "react-icons/md";
 import Tab from "../../../../reusable-ui/Tab";
 import OrderContext from "../../../../../context/OrderContext";
 
-function AdminTabs({ setToggleTabs }) {
+function AdminTabs() {
   // state -------------------
-  const [isEditSelected, setIsEditSelected] = useState(false);
-  const [isAddSelected, setIsAddSelected] = useState(true);
-  const { isModeAdmin, isCollapsed, setIsCollapsed } = useContext(OrderContext);
+  const {
+    isCollapsed,
+    setIsCollapsed,
+    isAddSelected,
+    setIsAddSelected,
+    isEditSelected,
+    setIsEditSelected,
+  } = useContext(OrderContext);
   // comportement ---------------
-  const selectAddTab = (index) => {
-    setToggleTabs(index);
-    setIsEditSelected(false);
-    setIsAddSelected(true);
-    setIsCollapsed(false);
-  };
 
-  const selectEditTab = (index) => {
-    setToggleTabs(index);
-    setIsEditSelected(true);
-    setIsAddSelected(false);
+  const selectTab = (tabSelect) => {
     setIsCollapsed(false);
+    if (tabSelect === "add") {
+      setIsEditSelected(false);
+      setIsAddSelected(true);
+    }
+
+    if (tabSelect === "edit") {
+      setIsEditSelected(true);
+      setIsAddSelected(false);
+    }
   };
 
   const toggleCollapsed = () => {
@@ -37,14 +42,14 @@ function AdminTabs({ setToggleTabs }) {
         className={isEditSelected ? "icon-activ" : ""}
         label={"Modifier un produit"}
         Icon={<MdModeEditOutline className="icon" />}
-        onClick={() => selectEditTab(2)}
+        onClick={() => selectTab("edit")}
       />
 
       <Tab
         className={isAddSelected ? "icon-activ" : ""}
         label={"Ajouter un produit"}
         Icon={<AiOutlinePlus className="icon" />}
-        onClick={() => selectAddTab(1)}
+        onClick={() => selectTab("add")}
       />
 
       <Tab

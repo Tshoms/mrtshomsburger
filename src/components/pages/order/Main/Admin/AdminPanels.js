@@ -1,17 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import TabsAdd from "./tabs/TabAdd";
+import TabAdd from "./tabs/TabAdd";
 import TabUpdate from "./tabs/TabUpdate";
+import OrderContext from "../../../../../context/OrderContext";
 
-function AdminPanels({ toggleTabs }) {
+function AdminPanels() {
+  const { isAddSelected, isEditSelected } = useContext(OrderContext);
   return (
     <AdminPanelStyle>
-      <div className={toggleTabs === 1 ? <TabsAdd /> : "contents-add"}>
-        <TabsAdd />
-      </div>
-      <div className={toggleTabs === 2 ? <TabUpdate /> : "contents-update"}>
-        <TabUpdate />
-      </div>
+      {isAddSelected ? <TabAdd /> : ""}
+      {isEditSelected ? <TabUpdate /> : ""}
     </AdminPanelStyle>
   );
 }

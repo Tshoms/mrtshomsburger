@@ -7,7 +7,6 @@ export default function ToggleButton({
   onToggle,
   labelIfChecked = "Fermer",
   labelIfUnchecked = "Ouvrir",
-  onClick,
 }) {
   return (
     <ToggleButtonStyled>
@@ -17,7 +16,6 @@ export default function ToggleButton({
         id="rounded"
         checked={isChecked}
         onChange={onToggle}
-        onClick={onClick}
       />
       <label
         htmlFor="rounded"
