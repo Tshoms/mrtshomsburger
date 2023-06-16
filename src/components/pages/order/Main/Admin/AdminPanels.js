@@ -3,12 +3,12 @@ import styled from "styled-components";
 import TabAdd from "./tabs/TabAdd";
 import TabUpdate from "./tabs/TabUpdate";
 import OrderContext from "../../../../../context/OrderContext";
-import { getTabsConfig } from "./getTabsConfig";
+import { getTabIndexSelected, tabsConfig } from "./TabsConfig";
 function AdminPanels() {
   const { currentTabSelected } = useContext(OrderContext);
 
-  const tabs = getTabsConfig(currentTabSelected);
-  const TabSelected = tabs.find((tab) => tab.index === currentTabSelected);
+  const tabs = tabsConfig;
+  const TabSelected = getTabIndexSelected(tabs, currentTabSelected);
 
   return (
     <AdminPanelStyle>

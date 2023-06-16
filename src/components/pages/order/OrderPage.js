@@ -12,8 +12,6 @@ function OrderPage() {
   const userName = searchParams.get("userName");
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isAddSelected, setIsAddSelected] = useState(true);
-  const [isEditSelected, setIsEditSelected] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   // provider for context w state.
 
@@ -22,10 +20,6 @@ function OrderPage() {
     setIsModeAdmin,
     isCollapsed,
     setIsCollapsed,
-    isAddSelected,
-    setIsAddSelected,
-    isEditSelected,
-    setIsEditSelected,
     currentTabSelected,
     setCurrentTabSelected,
   };

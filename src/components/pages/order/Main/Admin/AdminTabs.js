@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import Tab from "../../../../reusable-ui/Tab";
-import { getTabsConfig } from "./getTabsConfig";
+import { tabsConfig } from "./TabsConfig";
 import OrderContext from "../../../../../context/OrderContext";
 
 function AdminTabs() {
@@ -11,10 +11,6 @@ function AdminTabs() {
   const {
     isCollapsed,
     setIsCollapsed,
-    isAddSelected,
-    setIsAddSelected,
-    isEditSelected,
-    setIsEditSelected,
     currentTabSelected,
     setCurrentTabSelected,
   } = useContext(OrderContext);
@@ -26,13 +22,14 @@ function AdminTabs() {
   };
 
   // config file method!!!
-  const tabs = getTabsConfig(currentTabSelected);
+  const tabs = tabsConfig;
 
   return (
     <AdminTabsStyled>
       {tabs.map((tab) => {
         return (
           <Tab
+            key={tab.index}
             label={tab.label}
             Icon={tab.icon}
             onClick={() => selectTab(tab.index)}
