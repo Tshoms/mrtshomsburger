@@ -7,7 +7,7 @@ import ToastAdmin from "./ToastAdmin";
 import { useContext } from "react";
 import OrderContext from "../../../../context/OrderContext";
 
-export default function NavbarRightStyle({ userName }) {
+export default function NavbarRightStyle() {
   // state ----------
   const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext);
 
@@ -38,7 +38,7 @@ export default function NavbarRightStyle({ userName }) {
         labelIfChecked="DÉSACTIVER LE MODE ADMIN"
         onToggle={displayToastNotification}
       />
-      <Profile userName={userName} />
+      <Profile />
       <ToastAdmin />
     </NavbarRightSide>
   );

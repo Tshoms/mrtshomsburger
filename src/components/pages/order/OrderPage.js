@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import NavBar from "./Navbar/NavBar";
 import Main from "./Main/Main";
@@ -8,8 +7,6 @@ import OrderContext from "../../../context/OrderContext";
 
 function OrderPage() {
   // state ----------
-  // const [searchParams] = useSearchParams();
-  // const userName = searchParams.get("userName");
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
