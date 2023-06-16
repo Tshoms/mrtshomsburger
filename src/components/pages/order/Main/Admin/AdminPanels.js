@@ -3,13 +3,16 @@ import styled from "styled-components";
 import TabAdd from "./tabs/TabAdd";
 import TabUpdate from "./tabs/TabUpdate";
 import OrderContext from "../../../../../context/OrderContext";
-
+import { getTabsConfig } from "./getTabsConfig";
 function AdminPanels() {
-  const { isAddSelected, isEditSelected } = useContext(OrderContext);
+  const { currentTabSelected } = useContext(OrderContext);
+
+  const tabs = getTabsConfig(currentTabSelected);
+  const TabSelected = tabs.find((tab) => tab.index === currentTabSelected);
+
   return (
     <AdminPanelStyle>
-      {isAddSelected ? <TabAdd /> : ""}
-      {isEditSelected ? <TabUpdate /> : ""}
+      {TabSelected.index === "add" ? <TabAdd /> : <TabUpdate />}
     </AdminPanelStyle>
   );
 }

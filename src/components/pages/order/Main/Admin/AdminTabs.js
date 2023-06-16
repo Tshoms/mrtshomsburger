@@ -36,7 +36,7 @@ function AdminTabs() {
             label={tab.label}
             Icon={tab.icon}
             onClick={() => selectTab(tab.index)}
-            className={tab.className}
+            className={currentTabSelected === tab.index ? "icon-activ" : ""}
           />
         );
       })}
