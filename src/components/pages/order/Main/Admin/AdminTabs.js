@@ -33,30 +33,40 @@ function AdminTabs() {
     }
   };
 
-  const toggleCollapsed = () => {
-    setIsCollapsed(!isCollapsed);
-  };
+  // coonfig file method!!!
+  const tabsConfig = [
+    {
+      label: "Modifier un produit",
+      icon: <MdModeEditOutline className="icon" />,
+      className: isEditSelected ? "icon-activ" : "",
+      onClick: () => selectTab("edit"),
+    },
+    {
+      label: "Ajouter un produit",
+      icon: <AiOutlinePlus className="icon" />,
+      className: isAddSelected ? "icon-activ" : "",
+      onClick: () => selectTab("add"),
+    },
+    {
+      label: "",
+      icon: isCollapsed ? <FiChevronUp /> : <FiChevronDown />,
+      className: isCollapsed ? "icon-activ" : "",
+      onClick: () => setIsCollapsed(!isCollapsed),
+    },
+  ];
+
   return (
     <AdminTabsStyled>
-      <Tab
-        className={isEditSelected ? "icon-activ" : ""}
-        label={"Modifier un produit"}
-        Icon={<MdModeEditOutline className="icon" />}
-        onClick={() => selectTab("edit")}
-      />
-
-      <Tab
-        className={isAddSelected ? "icon-activ" : ""}
-        label={"Ajouter un produit"}
-        Icon={<AiOutlinePlus className="icon" />}
-        onClick={() => selectTab("add")}
-      />
-
-      <Tab
-        className={isCollapsed ? "icon-activ" : ""}
-        Icon={isCollapsed ? <FiChevronUp /> : <FiChevronDown />}
-        onClick={toggleCollapsed}
-      />
+      {tabsConfig.map((tab) => {
+        return (
+          <Tab
+            label={tab.label}
+            Icon={tab.icon}
+            onClick={tab.onClick}
+            className={tab.className}
+          />
+        );
+      })}
     </AdminTabsStyled>
   );
 }
