@@ -9,7 +9,7 @@ import SelectStore from "../select/SelectStore";
 import SelectPub from "../select/SelectPub";
 import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
 
-export default function TabsAdd() {
+export default function AddForm() {
   return (
     <TabsAddStyled>
       <div className="container-add">

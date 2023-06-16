@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { theme } from "../../../../../../theme";
 import { HiCursorClick } from "react-icons/hi";
 
-export default function TabUpdate() {
+export default function UpdateForm() {
   return (
     <TabUpdateStyled>
       <div className="container-update">

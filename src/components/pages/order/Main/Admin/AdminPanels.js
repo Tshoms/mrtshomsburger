@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import TabAdd from "./tabs/TabAdd";
-import TabUpdate from "./tabs/TabUpdate";
+import AddForm from "./tabs/AddForm";
+import UpdateForm from "./tabs/UpdateForm";
 import OrderContext from "../../../../../context/OrderContext";
 import { getTabIndexSelected, tabsConfig } from "./TabsConfig";
+
 function AdminPanels() {
   const { currentTabSelected } = useContext(OrderContext);
 
@@ -12,7 +13,7 @@ function AdminPanels() {
 
   return (
     <AdminPanelStyle>
-      {TabSelected.index === "add" ? <TabAdd /> : <TabUpdate />}
+      {TabSelected.index === "add" ? <AddForm /> : <UpdateForm />}
     </AdminPanelStyle>
   );
 }
