@@ -14,6 +14,7 @@ function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isAddSelected, setIsAddSelected] = useState(true);
   const [isEditSelected, setIsEditSelected] = useState(false);
+  const [currentTabSelected, setCurrentTabSelected] = useState("add");
   // provider for context w state.
 
   const orderContextValue = {
@@ -25,6 +26,8 @@ function OrderPage() {
     setIsAddSelected,
     isEditSelected,
     setIsEditSelected,
+    currentTabSelected,
+    setCurrentTabSelected,
   };
   // comportement -------
 
