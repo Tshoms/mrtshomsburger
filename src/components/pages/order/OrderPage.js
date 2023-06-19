@@ -1,22 +1,35 @@
-import React from "react";
-import { useSearchParams } from "react-router-dom";
+import React, { useState } from "react";
 import styled from "styled-components";
 import NavBar from "./Navbar/NavBar";
 import Main from "./Main/Main";
 import { theme } from "../../../theme";
+import OrderContext from "../../../context/OrderContext";
 
 function OrderPage() {
   // state ----------
-  const [searchParams] = useSearchParams();
-  const userName = searchParams.get("userName");
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [currentTabSelected, setCurrentTabSelected] = useState("add");
+  // provider for context w state.
+
+  const orderContextValue = {
+    isModeAdmin,
+    setIsModeAdmin,
+    isCollapsed,
+    setIsCollapsed,
+    currentTabSelected,
+    setCurrentTabSelected,
+  };
   // comportement -------
 
   // rendu ------------
   return (
     <OrderStyled>
       <div className="container">
-        <NavBar userName={userName} />
-        <Main />
+        <OrderContext.Provider value={orderContextValue}>
+          <NavBar />
+          <Main />
+        </OrderContext.Provider>
       </div>
     </OrderStyled>
   );
@@ -34,6 +47,7 @@ const OrderStyled = styled.div`
     display: flex;
     flex-direction: column;
     width: 1400px;
+    position: relative; /* imporant pour le composant <Admin/> */
   }
 `;
 

@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-function TextInput({ value, onChange, Icon, ...restProps }) {
+function TextInput({ value, onChange, Icon, className, ...restProps }) {
   return (
-    <TextInputStyle>
+    <TextInputStyle className={className}>
       {Icon && Icon}
       <input
         type="text"
@@ -28,7 +28,7 @@ const TextInputStyle = styled.div`
   /* white-space: nowrap; */
 
   .icon {
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     margin-right: 8px;
     color: ${theme.colors.greySemiDark};
     /* min-width: 1em; // that way, the icon size is NOT affected by width of the entire component. */
@@ -36,7 +36,7 @@ const TextInputStyle = styled.div`
 
   input {
     border: none;
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     color: ${theme.colors.dark};
     width: 100%;
 

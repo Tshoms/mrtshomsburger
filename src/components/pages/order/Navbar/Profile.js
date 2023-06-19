@@ -1,10 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import { BsPersonCircle } from "react-icons/bs";
 
-export default function Profile({ userName }) {
+export default function Profile() {
+  const [searchParams] = useSearchParams();
+  const userName = searchParams.get("userName");
+
   return (
     <ProfileStyle>
       <div className="info ">
