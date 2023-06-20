@@ -15,9 +15,11 @@ function AdminPanels() {
 }
 
 const AdminPanelStyle = styled.div`
-  /* height: 100%;
-  width: 100%; */
+  height: 250px;
+  /* padding-top: 10px;
+  padding-left: 20px; */
   position: relative;
+  padding: 20px 5%;
 
   .contents-add {
     height: 100%;

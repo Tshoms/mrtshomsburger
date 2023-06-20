@@ -7,7 +7,7 @@ import OrderContext from "../../../context/OrderContext";
 
 function OrderPage() {
   // state ----------
-  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isModeAdmin, setIsModeAdmin] = useState(true);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   // provider for context w state.
