@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 // import { theme } from "../../../../../../theme";
 // import TextInput from "../../../../../reusable-ui/TextInput";
@@ -10,29 +10,58 @@ import styled from "styled-components";
 // import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
 import OrderContext from "../../../../../../context/OrderContext";
 
+const EMPTY_PRODUCT = {
+  id: "",
+  title: "",
+  imageSource: "",
+  price: 14,
+};
+
 export default function AddForm() {
   // state --------
   const { handleAdd } = useContext(OrderContext);
-
-  const newProduct = {
-    id: new Date().getTime(),
-    title: "nouveau produit",
-    image:
-      "https://www.radiofrance.fr/s3/cruiser-production/2020/07/aac65c59-6e65-4410-9929-9ff6359d4861/1200x680_photo-1572802419224-296b0aeee0d9.jpg",
-    price: 2.5,
-  };
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleAdd(newProduct);
+
+    const newProductToAdd = {
+      ...newProduct,
+      id: crypto.randomUUID(),
+    };
+
+    handleAdd(newProductToAdd);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNewProduct({ ...newProduct, [name]: value });
   };
   return (
     <AddFormStyled onSubmit={handleSubmit}>
       <div className="image-preview"></div>
       <div className="input-fields">
-        <input type="text" placeholder="Nom" />
-        <input type="text" placeholder="Url image" />
-        <input type="text" placeholder="prix" />
+        <input
+          name="title"
+          value={newProduct.title}
+          onChange={handleChange}
+          type="text"
+          placeholder="Nom"
+        />
+        <input
+          name="imageSource"
+          value={newProduct.imageSource}
+          onChange={handleChange}
+          type="text"
+          placeholder="Url image"
+        />
+        <input
+          name="price"
+          value={newProduct.price ? newProduct.price : ""}
+          onChange={handleChange}
+          type="text"
+          placeholder="prix"
+        />
       </div>
       <button className="submit-btn">button</button>
     </AddFormStyled>
