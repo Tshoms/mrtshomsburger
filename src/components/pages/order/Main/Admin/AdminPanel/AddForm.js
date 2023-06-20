@@ -13,8 +13,21 @@ import OrderContext from "../../../../../../context/OrderContext";
 export default function AddForm() {
   // state --------
   const { handleAdd } = useContext(OrderContext);
+
+  const newProduct = {
+    id: new Date().getTime(),
+    title: "nouveau produit",
+    image:
+      "https://www.radiofrance.fr/s3/cruiser-production/2020/07/aac65c59-6e65-4410-9929-9ff6359d4861/1200x680_photo-1572802419224-296b0aeee0d9.jpg",
+    price: 2.5,
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleAdd(newProduct);
+  };
   return (
-    <AddFormStyled onSubmit={handleAdd}>
+    <AddFormStyled onSubmit={handleSubmit}>
       <div className="image-preview"></div>
       <div className="input-fields">
         <input type="text" placeholder="Nom" />
