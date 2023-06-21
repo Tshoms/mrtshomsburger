@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
+import { FiCheck } from "react-icons/fi";
 // import { theme } from "../../../../../../theme";
 // import TextInput from "../../../../../reusable-ui/TextInput";
 // import { FaHamburger } from "react-icons/fa";
@@ -21,6 +22,7 @@ export default function AddForm() {
   // state --------
   const { handleAdd } = useContext(OrderContext);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [isSubmit, setisSubmit] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,11 +34,20 @@ export default function AddForm() {
 
     handleAdd(newProductToAdd);
     setNewProduct(EMPTY_PRODUCT);
+
+    displaysuccessMSG();
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewProduct({ ...newProduct, [name]: value });
+  };
+
+  const displaysuccessMSG = () => {
+    setisSubmit(true);
+    setTimeout(() => {
+      setisSubmit(false);
+    }, 2000);
   };
   return (
     <AddFormStyled onSubmit={handleSubmit}>
@@ -70,7 +81,15 @@ export default function AddForm() {
           placeholder="prix"
         />
       </div>
-      <button className="submit-btn">button</button>
+      <div className="submit">
+        <button className="submit-btn">button</button>{" "}
+        {isSubmit && (
+          <div className="submit-messag">
+            <FiCheck />
+            <span>Ajouter au panier!</span>
+          </div>
+        )}
+      </div>
     </AddFormStyled>
   );
 }
@@ -107,9 +126,19 @@ const AddFormStyled = styled.form`
     grid-template-rows: repeat(3, 1fr);
   }
 
-  .submit-btn {
+  .submit {
     background-color: green;
     grid-area: 4 / -2 / -2 / -1;
     width: 50%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+
+    .submit-btn {
+      width: 50%;
+    }
+
+    .submit-messag {
+    }
   }
 `;
