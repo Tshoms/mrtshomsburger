@@ -43,6 +43,7 @@ function LoginForm() {
           value={userName}
           onChange={handlechange}
           Icon={<BsPersonCircle />}
+          className="input-login"
         />
         <PrimaryButton
           label={"Accéder à mon espace"}
@@ -82,6 +83,10 @@ const LoginFormStyled = styled.form`
     font-family: "Amatic SC", cursive;
     color: white;
     font-size: 36px;
+  }
+
+  .input-login {
+    margin: 18px 0;
   }
 `;
 
