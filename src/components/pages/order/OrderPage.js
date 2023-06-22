@@ -22,6 +22,17 @@ function OrderPage() {
     setMenu(menuUpdate);
   };
 
+  const handleDelete = (idOfProduct) => {
+    //1. copy du state.
+    const menuCopy = [...menu];
+    console.log("state before", menuCopy);
+    //2. manip du state.
+    const menuUpdate = menuCopy.filter((product) => product.id !== idOfProduct);
+    console.log("state after: ", menuUpdate);
+    //3. Update du state.
+    setMenu(menuUpdate);
+  };
+
   // provider for context w state.
   const orderContextValue = {
     isModeAdmin,
@@ -33,6 +44,7 @@ function OrderPage() {
     menu,
     setMenu,
     handleAdd,
+    handleDelete,
   };
 
   // rendu ------------
