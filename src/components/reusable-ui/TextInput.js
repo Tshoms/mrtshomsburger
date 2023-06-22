@@ -5,7 +5,7 @@ import { theme } from "../../theme";
 function TextInput({ value, onChange, Icon, className, ...restProps }) {
   return (
     <TextInputStyle className={className}>
-      {Icon && Icon}
+      <div className="icon">{Icon && Icon}</div>
       <input
         type="text"
         value={value}
@@ -28,7 +28,11 @@ const TextInputStyle = styled.div`
   /* white-space: nowrap; */
 
   .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: ${theme.fonts.size.SM};
+    margin-left: 10px;
     margin-right: 8px;
     color: ${theme.colors.greySemiDark};
     /* min-width: 1em; // that way, the icon size is NOT affected by width of the entire component. */

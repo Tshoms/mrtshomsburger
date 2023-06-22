@@ -42,11 +42,11 @@ function LoginForm() {
           placeholder="Entrez votre prénom..."
           value={userName}
           onChange={handlechange}
-          Icon={<BsPersonCircle className="icon" />}
+          Icon={<BsPersonCircle />}
         />
         <PrimaryButton
           label={"Accéder à mon espace"}
-          Icon={<IoChevronForwardOutline className="icon" />}
+          Icon={<IoChevronForwardOutline />}
         />
       </div>
     </LoginFormStyled>
@@ -82,14 +82,6 @@ const LoginFormStyled = styled.form`
     font-family: "Amatic SC", cursive;
     color: white;
     font-size: 36px;
-  }
-
-  .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: ${theme.fonts.size.SM};
-    margin-left: 10px;
   }
 `;
 

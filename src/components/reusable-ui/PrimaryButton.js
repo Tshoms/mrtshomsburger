@@ -6,7 +6,7 @@ export default function ({ label, Icon, className }) {
   return (
     <PrimaryButtonStyle className={className}>
       <span>{label}</span>
-      {Icon && Icon}
+      <div className="icon">{Icon && Icon}</div>
     </PrimaryButtonStyle>
   );
 }
@@ -58,5 +58,13 @@ const PrimaryButtonStyle = styled.button`
       background-color: ${theme.colors.white};
       color: ${theme.colors.primary};
     }
+  }
+
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-size: ${theme.fonts.size.SM}; */
+    margin-left: 10px;
   }
 `;
