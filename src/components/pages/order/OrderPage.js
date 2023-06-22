@@ -33,6 +33,9 @@ function OrderPage() {
     setMenu(menuUpdate);
   };
 
+  const resetMenu = () => {
+    setMenu(fakeMenu.MEDIUM);
+  };
   // provider for context w state.
   const orderContextValue = {
     isModeAdmin,
@@ -45,6 +48,7 @@ function OrderPage() {
     setMenu,
     handleAdd,
     handleDelete,
+    resetMenu,
   };
 
   // rendu ------------
