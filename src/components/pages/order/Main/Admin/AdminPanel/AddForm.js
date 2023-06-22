@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { FiCheck } from "react-icons/fi";
-// import { theme } from "../../../../../../theme";
-// import TextInput from "../../../../../reusable-ui/TextInput";
-// import { FaHamburger } from "react-icons/fa";
-// import { BsFillCameraFill } from "react-icons/bs";
-// import { BiEuro } from "react-icons/bi";
+import TextInput from "../../../../../reusable-ui/TextInput";
+import { FaHamburger } from "react-icons/fa";
+import { BsFillCameraFill } from "react-icons/bs";
+import { MdOutlineEuro } from "react-icons/md";
+
 // import SelectStore from "../select/SelectStore";
 // import SelectPub from "../select/SelectPub";
 // import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
@@ -60,26 +60,32 @@ export default function AddForm() {
         )}
       </div>
       <div className="input-fields">
-        <input
+        <TextInput
           name="title"
           value={newProduct.title}
           onChange={handleChange}
           type="text"
           placeholder="Nom du produit (ex: super burger)"
+          Icon={<FaHamburger />}
+          version="minimaliste"
         />
-        <input
+        <TextInput
           name="imageSource"
           value={newProduct.imageSource}
           onChange={handleChange}
           type="text"
           placeholder="lien Url d'une image (ex: https://la-photo-de-mon-image.png)"
+          Icon={<BsFillCameraFill />}
+          version="minimaliste"
         />
-        <input
+        <TextInput
           name="price"
           value={newProduct.price ? newProduct.price : ""}
           onChange={handleChange}
           type="text"
           placeholder="prix"
+          Icon={<MdOutlineEuro />}
+          version="minimaliste"
         />
       </div>
       <div className="submit">
@@ -133,12 +139,12 @@ const AddFormStyled = styled.form`
   }
 
   .input-fields {
-    background-color: blue;
     grid-area: 1 / 2 / -2 / 2;
 
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 8px;
+    /* grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr); */
   }
 
   .submit {

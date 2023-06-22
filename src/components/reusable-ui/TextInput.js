@@ -1,10 +1,17 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
-function TextInput({ value, onChange, Icon, className, ...restProps }) {
+function TextInput({
+  value,
+  onChange,
+  Icon,
+  className,
+  version = "normal",
+  ...restProps
+}) {
   return (
-    <TextInputStyle className={className}>
+    <TextInputStyle className={className} version={version}>
       <div className="icon">{Icon && Icon}</div>
       <input
         type="text"
@@ -19,7 +26,7 @@ function TextInput({ value, onChange, Icon, className, ...restProps }) {
 }
 
 const TextInputStyle = styled.div`
-  background-color: ${theme.colors.white};
+  /* background-color: ${theme.colors.white}; */
   border-radius: ${theme.borderRadius.round};
   display: flex;
   align-items: center;
@@ -44,6 +51,41 @@ const TextInputStyle = styled.div`
     &::placeholder {
       background: ${theme.colors.white};
       color: ${theme.colors.greyMedium};
+    }
+  }
+
+  ${(props) => props.version === "normal" && extraNormal};
+  ${(props) => props.version === "minimaliste" && extratMinimaliste};
+`;
+
+const extraNormal = css`
+  background-color: ${theme.colors.white};
+  padding: 18px 28px;
+  color: ${theme.colors.greySemiDark};
+
+  input {
+    color: ${theme.colors.dark};
+
+    &::placeholder {
+      background: ${theme.colors.white};
+    }
+  }
+`;
+
+const extratMinimaliste = css`
+  background-color: ${theme.colors.background_white};
+  padding: 8px 16px;
+  color: ${theme.colors.greyBlue};
+
+  input {
+    background: ${theme.colors.background_white};
+    color: ${theme.colors.dark};
+
+    &::placeholder {
+      background: ${theme.colors.background_white};
+    }
+    &:focus {
+      outline: 0;
     }
   }
 `;

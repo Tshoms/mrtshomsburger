@@ -44,6 +44,7 @@ function LoginForm() {
           onChange={handlechange}
           Icon={<BsPersonCircle />}
           className="input-login"
+          version="normal"
         />
         <PrimaryButton
           label={"Accéder à mon espace"}
