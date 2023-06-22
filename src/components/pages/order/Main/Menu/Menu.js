@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import OrderContext from "../../../../context/OrderContext";
-import { theme } from "../../../../theme";
-import { formatPrice } from "../../../../utils/maths";
-import Card from "../../../reusable-ui/Card";
+import OrderContext from "../../../../../context/OrderContext";
+import { theme } from "../../../../../theme";
+import { formatPrice } from "../../../../../utils/maths";
+import Card from "../../../../reusable-ui/Card";
+import EmptyMenuAdmin from "./EmptyMenuAdmin";
+import EmptyMenuClient from "./EmptyMenuClient";
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 export default function Menu() {
@@ -13,10 +15,10 @@ export default function Menu() {
 
   // comportement -------
   if (menu.length === 0) {
+    if (!isModeAdmin) return <EmptyMenuClient />;
     return (
       <div>
-        <span>Pas de produit.</span>
-        <button onClick={resetMenu}>Générer de nouveaux produits.</button>
+        <EmptyMenuAdmin handleClick={resetMenu} />
       </div>
     );
   }
