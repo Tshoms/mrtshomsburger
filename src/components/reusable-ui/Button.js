@@ -1,17 +1,27 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
-export default function ({ label, Icon, className }) {
+export default function Button({
+  label,
+  Icon,
+  className,
+  version = "minimaliste",
+}) {
   return (
-    <PrimaryButtonStyle className={className}>
+    <ButtonStyle className={className} version={version}>
       <span>{label}</span>
       <div className="icon">{Icon && Icon}</div>
-    </PrimaryButtonStyle>
+    </ButtonStyle>
   );
 }
 
-const PrimaryButtonStyle = styled.button`
+const ButtonStyle = styled.button`
+  ${({ version }) => extraStyle[version]}
+`;
+
+const extraNormal = css`
+  /* background-color: ${theme.colors.primary_burger}; */
   width: 100%;
   border: 1px solid red;
   display: inline-flex;
@@ -64,7 +74,33 @@ const PrimaryButtonStyle = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    /* font-size: ${theme.fonts.size.SM}; */
-    margin-left: 10px;
   }
 `;
+
+const extraMinimaliste = css`
+  cursor: pointer;
+  height: 35px;
+  padding: 0 1.5em;
+  border-radius: ${theme.borderRadius.round};
+  background-color: ${theme.colors.success};
+  border: 1px solid ${theme.colors.background_white};
+  color: ${theme.colors.background_white};
+  font-weight: ${theme.fonts.weights.semiBold};
+
+  :hover {
+    border: 1px solid ${theme.colors.success};
+    background: ${theme.colors.white};
+    color: ${theme.colors.success};
+  }
+
+  :after {
+    color: ${theme.colors.white};
+    background: ${theme.colors.success};
+    border: 1px solid ${theme.colors.success};
+  }
+`;
+
+const extraStyle = {
+  normale: extraNormal,
+  minimaliste: extraMinimaliste,
+};
