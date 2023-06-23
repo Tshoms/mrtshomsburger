@@ -7,9 +7,10 @@ export default function Button({
   Icon,
   className,
   version = "minimaliste",
+  onClick,
 }) {
   return (
-    <ButtonStyle className={className} version={version}>
+    <ButtonStyle className={className} version={version} onClick={onClick}>
       <span>{label}</span>
       <div className="icon">{Icon && Icon}</div>
     </ButtonStyle>

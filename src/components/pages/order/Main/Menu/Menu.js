@@ -16,11 +16,7 @@ export default function Menu() {
   // comportement -------
   if (menu.length === 0) {
     if (!isModeAdmin) return <EmptyMenuClient />;
-    return (
-      <div>
-        <EmptyMenuAdmin handleClick={resetMenu} />
-      </div>
-    );
+    return <EmptyMenuAdmin onReset={resetMenu} />;
   }
 
   return (
@@ -44,9 +40,9 @@ export default function Menu() {
 
 const MenuStyled = styled.div`
   position: relative;
-  /* border: 1px solid blue; */
   background-color: ${theme.colors.background_white};
   display: grid;
+  grid-template-columns: repeat(4, 1fr);
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-row-gap: 60px; /*à maitriser */
   padding: 50px 50px 150px;
