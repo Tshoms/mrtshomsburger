@@ -1,18 +1,13 @@
 import React, { useContext, useState } from "react";
-import styled, { css } from "styled-components";
-import { FiCheck } from "react-icons/fi";
+import styled from "styled-components";
 import TextInput from "../../../../../reusable-ui/TextInput";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
-
-// import SelectStore from "../select/SelectStore";
-// import SelectPub from "../select/SelectPub";
-// import Button from "../../../../../reusable-ui/Button";
 import OrderContext from "../../../../../../context/OrderContext";
-import { theme } from "../../../../../../theme";
 import Button from "../../../../../reusable-ui/Button";
 import ImagePreview from "./ImagePreview";
+import SubmitMessag from "./SubmitMessag";
 
 export const EMPTY_PRODUCT = {
   id: "",
@@ -92,12 +87,7 @@ export default function AddForm() {
           version="minimaliste"
           label={"Ajouter un nouveaux produit au menu."}
         />
-        {isSubmit && (
-          <div className="submit-message">
-            <FiCheck className="icon" />
-            <span className="message">Ajouter au panier!</span>
-          </div>
-        )}
+        {isSubmit && <SubmitMessag />}
       </div>
     </AddFormStyled>
   );
@@ -130,28 +120,6 @@ const AddFormStyled = styled.form`
 
     .submit-btn {
       width: 50%;
-    }
-
-    .submit-message {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-left: 5px;
-      .icon {
-        color: ${theme.colors.success};
-        margin-left: 10px;
-        width: 1em;
-        height: 1em;
-        border: 1px solid ${theme.colors.success};
-        border-radius: 50%;
-        vertical-align: middle;
-      }
-
-      .message {
-        margin-left: 5px;
-        font-size: ${theme.fonts.size.SM};
-        color: ${theme.colors.success};
-      }
     }
   }
 `;
