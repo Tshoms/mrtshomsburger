@@ -55,6 +55,7 @@ export default function AddForm() {
       <div className="input-fields">
         {inputTexts.map((input) => (
           <TextInput
+            key={input.id}
             name={input.name}
             value={input.value}
             onChange={handleChange}
