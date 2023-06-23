@@ -63,33 +63,6 @@ export default function AddForm() {
             version="minimaliste"
           />
         ))}
-        {/* <TextInput
-          name="title"
-          value={newProduct.title}
-          onChange={handleChange}
-          type="text"
-          placeholder="Nom du produit (ex: super burger)"
-          Icon={<FaHamburger />}
-          version="minimaliste"
-        />
-        <TextInput
-          name="imageSource"
-          value={newProduct.imageSource}
-          onChange={handleChange}
-          type="text"
-          placeholder="lien Url d'une image (ex: https://la-photo-de-mon-image.png)"
-          Icon={<BsFillCameraFill />}
-          version="minimaliste"
-        />
-        <TextInput
-          name="price"
-          value={newProduct.price ? newProduct.price : ""}
-          onChange={handleChange}
-          type="text"
-          placeholder="prix"
-          Icon={<MdOutlineEuro />}
-          version="minimaliste"
-        /> */}
       </div>
       <div className="submit">
         <Button
