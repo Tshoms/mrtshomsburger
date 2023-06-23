@@ -79,12 +79,14 @@ const extraNormal = css`
 
 const extraMinimaliste = css`
   cursor: pointer;
+  color: ${theme.colors.white};
+  background: ${theme.colors.success};
+  border-radius: ${theme.borderRadius.round};
   height: 35px;
   padding: 0 1.5em;
-  border-radius: ${theme.borderRadius.round};
-  background-color: ${theme.colors.success};
+
   border: 1px solid ${theme.colors.background_white};
-  color: ${theme.colors.background_white};
+
   font-weight: ${theme.fonts.weights.semiBold};
 
   :hover {
