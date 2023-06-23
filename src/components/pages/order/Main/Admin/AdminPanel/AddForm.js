@@ -1,13 +1,11 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import TextInput from "../../../../../reusable-ui/TextInput";
-import { FaHamburger } from "react-icons/fa";
-import { BsFillCameraFill } from "react-icons/bs";
-import { MdOutlineEuro } from "react-icons/md";
 import OrderContext from "../../../../../../context/OrderContext";
 import Button from "../../../../../reusable-ui/Button";
 import ImagePreview from "./ImagePreview";
 import SubmitMessag from "./SubmitMessag";
+import { getInputTextsConfig } from "./inputTextsConfig";
 
 export const EMPTY_PRODUCT = {
   id: "",
@@ -46,6 +44,8 @@ export default function AddForm() {
       setisSubmit(false);
     }, 2000);
   };
+  const inputTexts = getInputTextsConfig(newProduct);
+
   return (
     <AddFormStyled onSubmit={handleSubmit}>
       <ImagePreview
@@ -53,7 +53,17 @@ export default function AddForm() {
         title={newProduct.title}
       />
       <div className="input-fields">
-        <TextInput
+        {inputTexts.map((input) => (
+          <TextInput
+            name={input.name}
+            value={input.value}
+            onChange={handleChange}
+            placeholder={input.placeholder}
+            Icon={input.icon}
+            version="minimaliste"
+          />
+        ))}
+        {/* <TextInput
           name="title"
           value={newProduct.title}
           onChange={handleChange}
@@ -79,7 +89,7 @@ export default function AddForm() {
           placeholder="prix"
           Icon={<MdOutlineEuro />}
           version="minimaliste"
-        />
+        /> */}
       </div>
       <div className="submit">
         <Button
