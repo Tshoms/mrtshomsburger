@@ -54,8 +54,10 @@ const TextInputStyle = styled.div`
     }
   }
 
-  ${(props) => props.version === "normal" && extraNormal};
-  ${(props) => props.version === "minimaliste" && extratMinimaliste};
+  /* ${(props) => props.version === "normal" && extraNormal};
+  ${(props) => props.version === "minimaliste" && extratMinimaliste}; */
+
+  ${({ version }) => extraStyle[version]}
 `;
 
 const extraNormal = css`
@@ -89,5 +91,10 @@ const extratMinimaliste = css`
     }
   }
 `;
+
+const extraStyle = {
+  normal: extraNormal,
+  minimaliste: extratMinimaliste,
+};
 
 export default TextInput;
