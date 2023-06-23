@@ -12,6 +12,7 @@ import { MdOutlineEuro } from "react-icons/md";
 import OrderContext from "../../../../../../context/OrderContext";
 import { theme } from "../../../../../../theme";
 import Button from "../../../../../reusable-ui/Button";
+import ImagePreview from "./ImagePreview";
 
 export const EMPTY_PRODUCT = {
   id: "",
@@ -23,7 +24,6 @@ export const EMPTY_PRODUCT = {
 export default function AddForm() {
   // state --------
   const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
-  // const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [isSubmit, setisSubmit] = useState(false);
 
   const handleSubmit = (e) => {
@@ -53,13 +53,10 @@ export default function AddForm() {
   };
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <div className="image-preview">
-        {newProduct.imageSource ? (
-          <img src={newProduct.imageSource} alt={newProduct.title} />
-        ) : (
-          <div className="empty-image">Aucune image</div>
-        )}
-      </div>
+      <ImagePreview
+        imageSource={newProduct.imageSource}
+        title={newProduct.title}
+      />
       <div className="input-fields">
         <TextInput
           name="title"
@@ -116,32 +113,6 @@ const AddFormStyled = styled.form`
   grid-template-rows: repeat(4, 1fr); // nb étage (rows).
   grid-column-gap: 20px; // space betwen column w/ grid
   grid-row-gap: 8px; // space betwen row w/ grid.
-
-  .image-preview {
-    /* background-color: red; */
-    grid-area: 1 / 1 / 4 / 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: contain;
-      object-position: center;
-    }
-
-    .empty-image {
-      height: 100%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid ${theme.colors.greyLight};
-      line-height: 1.5;
-      color: ${theme.colors.greySemiDark};
-      border-radius: ${theme.borderRadius.round};
-    }
-  }
 
   .input-fields {
     grid-area: 1 / 2 / -2 / 2;
