@@ -6,7 +6,7 @@ export default function Button({
   label,
   Icon,
   className,
-  version = "minimaliste",
+  version = "success",
   onClick,
 }) {
   return (
@@ -21,7 +21,7 @@ const ButtonStyle = styled.button`
   ${({ version }) => extraStyle[version]}
 `;
 
-const extraNormal = css`
+const extraStylePrimary = css`
   /* background-color: ${theme.colors.primary_burger}; */
   width: 100%;
   border: 1px solid red;
@@ -78,7 +78,7 @@ const extraNormal = css`
   }
 `;
 
-const extraMinimaliste = css`
+const extraStyleSuccess = css`
   cursor: pointer;
   color: ${theme.colors.white};
   background: ${theme.colors.success};
@@ -104,6 +104,6 @@ const extraMinimaliste = css`
 `;
 
 const extraStyle = {
-  normale: extraNormal,
-  minimaliste: extraMinimaliste,
+  normale: extraStylePrimary,
+  success: extraStyleSuccess,
 };
