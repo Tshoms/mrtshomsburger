@@ -103,7 +103,7 @@ const AddFormStyled = styled.form`
     align-items: center;
 
     .submit-btn {
-      width: 50%;
+      height: 100%;
     }
   }
 `;
