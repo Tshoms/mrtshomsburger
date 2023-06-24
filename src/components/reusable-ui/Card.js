@@ -43,6 +43,7 @@ export default function Product({
 }
 
 const CardStyled = styled.div`
+  background: ${theme.colors.white};
   position: relative;
   width: 200px;
   height: 300px;
