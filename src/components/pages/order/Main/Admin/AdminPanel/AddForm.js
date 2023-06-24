@@ -56,11 +56,8 @@ export default function AddForm() {
         {inputTexts.map((input) => (
           <TextInput
             key={input.id}
-            name={input.name}
-            value={input.value}
+            {...input}
             onChange={handleChange}
-            placeholder={input.placeholder}
-            Icon={input.icon}
             version="minimaliste"
           />
         ))}
@@ -93,8 +90,6 @@ const AddFormStyled = styled.form`
 
     display: grid;
     grid-row-gap: 8px;
-    /* grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr); */
   }
 
   .submit {
