@@ -66,7 +66,7 @@ export default function AddForm() {
         <Button
           className="submit-btn"
           version="success"
-          label={"Ajouter un nouveaux produit au menu."}
+          label={"Ajouter un nouveaux produit au menu"}
         />
         {isSubmit && <SubmitMessag />}
       </div>

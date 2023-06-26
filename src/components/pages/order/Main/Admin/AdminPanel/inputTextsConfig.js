@@ -17,7 +17,7 @@ export const getInputTextsConfig = (newProduct) => [
     name: "imageSource",
     value: newProduct.imageSource,
     type: "text",
-    placeholder: "lien Url d'une image (ex: https://la-photo-de-mon-image.png)",
+    placeholder: "Lien Url d'une image (ex: https://la-photo-de-mon-image.png)",
     icon: <BsFillCameraFill />,
     version: "minimaliste",
   },
