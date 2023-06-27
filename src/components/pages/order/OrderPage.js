@@ -4,14 +4,41 @@ import NavBar from "./Navbar/NavBar";
 import Main from "./Main/Main";
 import { theme } from "../../../theme";
 import OrderContext from "../../../context/OrderContext";
+import { fakeMenu } from "../../../fakeData/fakeMenu";
+import { EMPTY_PRODUCT } from "./Main/Admin/AdminPanel/AddForm";
 
 function OrderPage() {
   // state ----------
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
-  // provider for context w state.
+  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
+  const handleAdd = (newProduct) => {
+    //1. copy du state.
+    const menuCopy = [...menu];
+    // 2. manipulation su state.
+    const menuUpdate = [newProduct, ...menuCopy];
+    // 3. Update du state avec le setter.
+    setMenu(menuUpdate);
+  };
+
+  const handleDelete = (idOfProduct) => {
+    //1. copy du state.
+    const menuCopy = [...menu];
+    console.log("state before", menuCopy);
+    //2. manip du state.
+    const menuUpdate = menuCopy.filter((product) => product.id !== idOfProduct);
+    console.log("state after: ", menuUpdate);
+    //3. Update du state.
+    setMenu(menuUpdate);
+  };
+
+  const resetMenu = () => {
+    setMenu(fakeMenu.MEDIUM);
+  };
+  // provider for context w state.
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
@@ -19,8 +46,14 @@ function OrderPage() {
     setIsCollapsed,
     currentTabSelected,
     setCurrentTabSelected,
+    menu,
+    setMenu,
+    handleAdd,
+    handleDelete,
+    resetMenu,
+    newProduct,
+    setNewProduct,
   };
-  // comportement -------
 
   // rendu ------------
   return (

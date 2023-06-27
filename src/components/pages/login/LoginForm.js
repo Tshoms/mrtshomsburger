@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForwardOutline } from "react-icons/io5";
 import TextInput from "../../reusable-ui/TextInput";
-import PrimaryButton from "../../reusable-ui/PrimaryButton";
+import Button from "../../reusable-ui/Button";
 import { theme } from "../../../theme";
 
 function LoginForm() {
@@ -42,11 +42,14 @@ function LoginForm() {
           placeholder="Entrez votre prénom..."
           value={userName}
           onChange={handlechange}
-          Icon={<BsPersonCircle className="icon" />}
+          Icon={<BsPersonCircle />}
+          className="input-login"
+          version="normal"
         />
-        <PrimaryButton
+        <Button
           label={"Accéder à mon espace"}
-          Icon={<IoChevronForwardOutline className="icon" />}
+          Icon={<IoChevronForwardOutline />}
+          version="normale"
         />
       </div>
     </LoginFormStyled>
@@ -84,12 +87,8 @@ const LoginFormStyled = styled.form`
     font-size: 36px;
   }
 
-  .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: ${theme.fonts.size.SM};
-    margin-left: 10px;
+  .input-login {
+    margin: 18px 0;
   }
 `;
 

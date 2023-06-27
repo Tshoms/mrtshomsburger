@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import AddForm from "./tabs/AddForm";
-import UpdateForm from "./tabs/UpdateForm";
 import OrderContext from "../../../../../context/OrderContext";
+import { theme } from "../../../../../theme";
 import { getTabIndexSelected, tabsConfig } from "./TabsConfig";
 
 function AdminPanels() {
@@ -12,32 +11,18 @@ function AdminPanels() {
   const TabSelected = getTabIndexSelected(tabs, currentTabSelected);
 
   return (
-    <AdminPanelStyle>
-      {TabSelected.index === "add" ? <AddForm /> : <UpdateForm />}
-    </AdminPanelStyle>
+    <AdminPanelStyle>{TabSelected && TabSelected.content}</AdminPanelStyle>
   );
 }
 
 const AdminPanelStyle = styled.div`
-  /* height: 100%;
-  width: 100%; */
-  position: relative;
-
-  .contents-add {
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    border: 3px solid green;
-    display: none;
-  }
-
-  .contents-update {
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    border: 3px solid blue;
-    display: none;
-  }
+  height: 240px;
+  padding-left: 20px;
+  background: ${theme.colors.white};
+  border-top: 1px solid ${theme.colors.greyLight};
+  box-shadow: ${theme.shadows.subtle};
+  padding: 30px 5%;
+  box-sizing: border-box;
 `;
 
 export default AdminPanels;
