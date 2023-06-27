@@ -9,7 +9,7 @@ import EmptyMenuClient from "./EmptyMenuClient";
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 export default function Menu() {
-  const { menu, isModeAdmin, handleDelete, resetMenu } =
+  const { menu, isModeAdmin, handleDelete, resetMenu, setProductSelected } =
     useContext(OrderContext);
   //state -----------
 
@@ -23,6 +23,7 @@ export default function Menu() {
     console.log("first :", infoCard);
     const productSelected = menu.find((product) => product.id === infoCard);
     console.log("produtFind :", productSelected);
+    setProductSelected(productSelected);
   };
 
   return (

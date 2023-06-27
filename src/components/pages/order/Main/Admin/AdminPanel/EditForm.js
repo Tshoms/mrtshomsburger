@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import OrderContext from "../../../../../../context/OrderContext";
 import { theme } from "../../../../../../theme";
 import HintMessage from "./HintMessage";
 // import { HiCursorClick } from "react-icons/hi";
 
 export default function UpdateForm() {
+  // state -----------
+  const { productSelected } = useContext(OrderContext);
   return (
     <TabUpdateStyled>
       {/* <div className="container-update">
@@ -12,6 +15,7 @@ export default function UpdateForm() {
         <HiCursorClick className="icon" />
       </div> */}
       <HintMessage />
+      <span>{productSelected && productSelected.title}</span>
     </TabUpdateStyled>
   );
 }

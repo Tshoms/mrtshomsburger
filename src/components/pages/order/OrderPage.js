@@ -54,6 +54,8 @@ function OrderPage() {
     resetMenu,
     newProduct,
     setNewProduct,
+    productSelected,
+    setProductSelected,
   };
 
   // rendu ------------
