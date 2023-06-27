@@ -1,26 +1,21 @@
 import React from "react";
 import styled from "styled-components";
+import { HiCursorClick } from "react-icons/hi";
 import { theme } from "../../../../../../theme";
-import HintMessage from "./HintMessage";
-// import { HiCursorClick } from "react-icons/hi";
 
-export default function UpdateForm() {
+function HintMessage() {
   return (
-    <TabUpdateStyled>
-      {/* <div className="container-update">
+    <HintMessageStyled>
+      <div className="container-update">
         <span>cliquer sur un produit du menu pour le modifier</span>
         <HiCursorClick className="icon" />
-      </div> */}
-      <HintMessage />
-    </TabUpdateStyled>
+      </div>
+    </HintMessageStyled>
   );
 }
 
-const TabUpdateStyled = styled.div`
-  height: 278px;
-  width: 100%;
-
-  /* .container-update {
+const HintMessageStyled = styled.div`
+  .container-update {
     display: flex;
     height: 100%;
     width: 50%;
@@ -38,5 +33,7 @@ const TabUpdateStyled = styled.div`
       font-size: 29px;
       color: ${theme.colors.greyBlue};
     }
-  } */
+  }
 `;
+
+export default HintMessage;
