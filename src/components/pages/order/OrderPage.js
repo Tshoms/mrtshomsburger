@@ -5,7 +5,7 @@ import Main from "./Main/Main";
 import { theme } from "../../../theme";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
-import { EMPTY_PRODUCT } from "./Main/Admin/AdminPanel/AddForm";
+import { EMPTY_PRODUCT } from "../../enums/product";
 
 function OrderPage() {
   // state ----------
@@ -14,6 +14,7 @@ function OrderPage() {
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
 
   const handleAdd = (newProduct) => {
     //1. copy du state.

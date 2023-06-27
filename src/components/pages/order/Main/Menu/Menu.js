@@ -19,6 +19,12 @@ export default function Menu() {
     return <EmptyMenuAdmin onReset={resetMenu} />;
   }
 
+  const handleClick = (infoCard) => {
+    console.log("first :", infoCard);
+    const productSelected = menu.find((product) => product.id === infoCard);
+    console.log("produtFind :", productSelected);
+  };
+
   return (
     <MenuStyled>
       {menu.map(({ id, imageSource, title, price }) => {
@@ -31,6 +37,7 @@ export default function Menu() {
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={() => handleDelete(id)}
+            onClick={() => handleClick(id)}
           />
         );
       })}
