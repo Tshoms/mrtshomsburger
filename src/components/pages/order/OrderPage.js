@@ -36,6 +36,20 @@ function OrderPage() {
     setMenu(menuUpdate);
   };
 
+  const handleEdit = (productBeingEdit) => {
+    console.log("product:", productBeingEdit);
+    //1. copie du state (deep clone).
+    const menuCopy = JSON.parse(JSON.stringify(menu));
+    //2. manip de la copie du state.
+    const indexOfProductToEdit = menu.findIndex(
+      (product) => product.id === productBeingEdit.id
+    );
+    console.log("id of product :", indexOfProductToEdit);
+    //3. mise à jour de la nouvel valeur du state.
+    menuCopy[indexOfProductToEdit] = productBeingEdit;
+    setMenu(menuCopy);
+  };
+
   const resetMenu = () => {
     setMenu(fakeMenu.MEDIUM);
   };
@@ -56,6 +70,7 @@ function OrderPage() {
     setNewProduct,
     productSelected,
     setProductSelected,
+    handleEdit,
   };
 
   // rendu ------------

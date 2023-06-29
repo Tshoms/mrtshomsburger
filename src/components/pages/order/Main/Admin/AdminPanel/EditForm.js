@@ -1,27 +1,27 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../../context/OrderContext";
 import { theme } from "../../../../../../theme";
-import { EMPTY_PRODUCT } from "../../../../../enums/product";
 import TextInput from "../../../../../reusable-ui/TextInput";
 import ImagePreview from "./ImagePreview";
 import { getInputTextsConfig } from "./inputTextsConfig";
 
 export default function UpdateForm() {
   // state -----------
-  const { productSelected } = useContext(OrderContext);
-  const [productBeingEdited, setProductBeingEdited] = useState(EMPTY_PRODUCT); // state inter à EditForm.
-
+  const { productSelected, handleEdit, setProductSelected } =
+    useContext(OrderContext);
   const inputTexts = getInputTextsConfig(productSelected);
   // comportement ---------
-
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setProductBeingEdited({
-      ...productBeingEdited,
+    const productBeingUpdate = {
+      ...productSelected,
       [name]: value,
-    });
+    };
+    setProductSelected(productBeingUpdate); // Update de la valeur de l'objet dans le formulaire.
+    handleEdit(productBeingUpdate); // Update de l'objet modifié et l'envoi à handleEdit.
   };
+  // affichage ----------
   return (
     <TabUpdateStyled>
       <ImagePreview
