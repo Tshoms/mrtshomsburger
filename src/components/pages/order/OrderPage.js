@@ -6,6 +6,7 @@ import { theme } from "../../../theme";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
 import { EMPTY_PRODUCT } from "../../enums/product";
+import { deepClone } from "../../../utils/array";
 
 function OrderPage() {
   // state ----------
@@ -18,7 +19,7 @@ function OrderPage() {
 
   const handleAdd = (newProduct) => {
     //1. copy du state.
-    const menuCopy = [...menu];
+    const menuCopy = deepClone(menu);
     // 2. manipulation su state.
     const menuUpdate = [newProduct, ...menuCopy];
     // 3. Update du state avec le setter.
@@ -27,7 +28,7 @@ function OrderPage() {
 
   const handleDelete = (idOfProduct) => {
     //1. copy du state.
-    const menuCopy = [...menu];
+    const menuCopy = deepClone(menu);
     console.log("state before", menuCopy);
     //2. manip du state.
     const menuUpdate = menuCopy.filter((product) => product.id !== idOfProduct);
@@ -39,7 +40,7 @@ function OrderPage() {
   const handleEdit = (productBeingEdit) => {
     console.log("product:", productBeingEdit);
     //1. copie du state (deep clone).
-    const menuCopy = JSON.parse(JSON.stringify(menu));
+    const menuCopy = deepClone(menu);
     //2. manip de la copie du state.
     const indexOfProductToEdit = menu.findIndex(
       (product) => product.id === productBeingEdit.id
