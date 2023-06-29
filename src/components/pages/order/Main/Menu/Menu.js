@@ -21,9 +21,9 @@ export default function Menu() {
 
   const handleClick = (infoCard) => {
     console.log("first :", infoCard);
-    const productSelected = menu.find((product) => product.id === infoCard);
-    console.log("productFind :", productSelected);
-    setProductSelected(productSelected);
+    const productClickedOn = menu.find((product) => product.id === infoCard);
+    console.log("productFind :", productClickedOn);
+    setProductSelected(productClickedOn);
   };
 
   return (

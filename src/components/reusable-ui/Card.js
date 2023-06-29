@@ -45,9 +45,10 @@ export default function Product({
 
 const CardStyled = styled.div`
   background: ${theme.colors.white};
+  box-sizing: border-box;
   position: relative;
-  width: 200px;
-  height: 300px;
+  width: 240px;
+  height: 330px;
   display: grid;
   grid-template-rows: 65% 1fr;
   padding: 20px;
