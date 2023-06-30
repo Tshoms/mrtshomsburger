@@ -40,6 +40,12 @@ export default function UpdateForm() {
           />
         ))}
       </div>
+      <div className="submit">
+        <span className="sentence">
+          Cliquer sur un produit du menu pour le modifier{""}
+          <span className="live-update">en temps réel</span>
+        </span>
+      </div>
     </TabUpdateStyled>
   );
 }
@@ -66,32 +72,15 @@ const TabUpdateStyled = styled.div`
     grid-area: 4 / -2 / -2 / -1;
     display: flex;
     align-items: center;
+    position: relative;
+    top: 3px;
 
-    .submit-btn {
-      height: 100%;
+    .sentence {
+      color: orange;
+      font-size: ${theme.fonts.size.SM};
+      .live-update {
+        text-decoration: underline;
+      }
     }
   }
-
-  //----- old ----------------
-
-  /* .container-update {
-    display: flex;
-    height: 100%;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-
-    span {
-      color: ${theme.colors.greyBlue};
-      font-family: ${theme.fonts.family.stylish};
-      font-size: ${theme.fonts.size.P3};
-      margin-right: 7px;
-    }
-
-    .icon {
-      font-size: 29px;
-      color: ${theme.colors.greyBlue};
-    }
-  } 
-  -----------------   */
 `;
