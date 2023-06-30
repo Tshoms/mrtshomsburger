@@ -71,7 +71,7 @@ export default function AddForm() {
 const AddFormStyled = styled.form`
   height: 100%;
   width: 70%;
-
+  border: 1px solid red;
   // grid.
   display: grid;
   grid-template-columns: 1fr 3fr; // nb colone (columns).

@@ -8,7 +8,7 @@ function HintMessage() {
     <HintMessageStyled>
       <div className="container-update">
         <span>cliquer sur un produit du menu pour le modifier</span>
-        <HiCursorClick className="icon" />
+        <HiCursorClick />
       </div>
     </HintMessageStyled>
   );
@@ -19,19 +19,15 @@ const HintMessageStyled = styled.div`
     display: flex;
     height: 100%;
     width: 50%;
-    justify-content: center;
     align-items: center;
+    font-size: ${theme.fonts.size.P3};
+    font-family: ${theme.fonts.family.stylish};
+    color: ${theme.colors.greyBlue};
+    position: relative;
+    top: 50px;
 
     span {
-      color: ${theme.colors.greyBlue};
-      font-family: ${theme.fonts.family.stylish};
-      font-size: ${theme.fonts.size.P3};
-      margin-right: 7px;
-    }
-
-    .icon {
-      font-size: 29px;
-      color: ${theme.colors.greyBlue};
+      margin-right: 10px;
     }
   }
 `;
