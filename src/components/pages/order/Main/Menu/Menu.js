@@ -19,6 +19,7 @@ export default function Menu() {
     productSelected,
     setIsCollapsed,
     setCurrentTabSelected,
+    titleEditRef,
   } = useContext(OrderContext);
   //state -----------
 
@@ -28,13 +29,14 @@ export default function Menu() {
     return <EmptyMenuAdmin onReset={resetMenu} />;
   }
 
-  const handleClick = (infoCard) => {
+  const handleClick = async (infoCard) => {
     if (!isModeAdmin) return;
 
-    setIsCollapsed(false);
-    setCurrentTabSelected("edit");
+    await setIsCollapsed(false);
+    await setCurrentTabSelected("edit");
     const productClickedOn = menu.find((product) => product.id === infoCard);
-    setProductSelected(productClickedOn);
+    await setProductSelected(productClickedOn);
+    titleEditRef.current.focus();
   };
 
   const handleCardDelete = (event, idProductToDelete) => {

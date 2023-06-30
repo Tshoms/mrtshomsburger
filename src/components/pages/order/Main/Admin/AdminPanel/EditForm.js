@@ -8,9 +8,10 @@ import { getInputTextsConfig } from "./inputTextsConfig";
 
 export default function UpdateForm() {
   // state -----------
-  const { productSelected, handleEdit, setProductSelected } =
+  const { productSelected, handleEdit, setProductSelected, titleEditRef } =
     useContext(OrderContext);
   const inputTexts = getInputTextsConfig(productSelected);
+
   // comportement ---------
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -35,6 +36,7 @@ export default function UpdateForm() {
             {...input}
             onChange={handleChange}
             version="minimaliste"
+            ref={input.name === "title" ? titleEditRef : null}
           />
         ))}
       </div>
