@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import Tab from "../../../../reusable-ui/Tab";
-import { tabsConfig } from "./TabsConfig";
+import { getTabsConfig } from "./tabsConfig";
 import OrderContext from "../../../../../context/OrderContext";
 
 function AdminTabs() {
@@ -22,7 +22,7 @@ function AdminTabs() {
   };
 
   // config file method!!!
-  const tabs = tabsConfig;
+  const tabs = getTabsConfig();
 
   return (
     <AdminTabsStyled>
