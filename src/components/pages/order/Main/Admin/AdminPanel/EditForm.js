@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../../context/OrderContext";
-import { theme } from "../../../../../../theme";
 import TextInput from "../../../../../reusable-ui/TextInput";
+import EditInfoMessage from "./EditInfoMessage";
 import ImagePreview from "./ImagePreview";
 import { getInputTextsConfig } from "./inputTextsConfig";
 
@@ -41,10 +41,7 @@ export default function UpdateForm() {
         ))}
       </div>
       <div className="submit">
-        <span className="sentence">
-          Cliquer sur un produit du menu pour le modifier{""}
-          <span className="live-update">en temps réel</span>
-        </span>
+        <EditInfoMessage />
       </div>
     </TabUpdateStyled>
   );
@@ -74,13 +71,5 @@ const TabUpdateStyled = styled.div`
     align-items: center;
     position: relative;
     top: 3px;
-
-    .sentence {
-      color: orange;
-      font-size: ${theme.fonts.size.SM};
-      .live-update {
-        text-decoration: underline;
-      }
-    }
   }
 `;
