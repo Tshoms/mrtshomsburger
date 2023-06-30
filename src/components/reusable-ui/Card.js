@@ -42,6 +42,7 @@ export default function Product({
                 className="primary-button"
                 label={"Ajouter"}
                 version="normale"
+                onClick={(event) => event.stopPropagation()}
               />
             </div>
           </div>
