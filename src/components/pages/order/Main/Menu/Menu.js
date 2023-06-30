@@ -27,9 +27,8 @@ export default function Menu() {
   }
 
   const handleClick = (infoCard) => {
-    console.log("first :", infoCard);
+    if (!isModeAdmin) return;
     const productClickedOn = menu.find((product) => product.id === infoCard);
-    console.log("productFind :", productClickedOn);
     setProductSelected(productClickedOn);
   };
 
