@@ -3,8 +3,6 @@ import OrderContext from "../../../../../../context/OrderContext";
 import Form from "./Form";
 import EditInfoMessage from "./EditInfoMessage";
 
-// import EditInfoMessage from "./EditInfoMessage";
-
 export default function UpdateForm() {
   // state -----------
   const { productSelected, handleEdit, setProductSelected, titleEditRef } =

@@ -5,7 +5,7 @@ import { theme } from "../../../../../../theme";
 function EditInfoMessage() {
   return (
     <EditInfoMessageStyled>
-      Cliquer sur un produit du menu pour le modifier{""}
+      Cliquer sur un produit du menu pour le modifier {""}
       <span className="live-update">en temps réel</span>
     </EditInfoMessageStyled>
   );

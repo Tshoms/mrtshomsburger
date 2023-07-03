@@ -21,7 +21,6 @@ function AdminTabs() {
     setCurrentTabSelected(tabSelect);
   };
 
-  // config file method!!!
   const tabs = getTabsConfig();
 
   return (
