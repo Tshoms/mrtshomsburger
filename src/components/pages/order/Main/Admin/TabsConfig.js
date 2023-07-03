@@ -2,13 +2,14 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
 import AddForm from "./AdminPanel/AddForm";
 import EditForm from "./AdminPanel/EditForm";
+import HintMessage from "./AdminPanel/HintMessage";
 
-export const tabsConfig = [
+export const getTabsConfig = (hasAlreadyClicked) => [
   {
     index: "edit",
     label: "Modifier un produit",
     icon: <MdModeEditOutline className="icon" />,
-    content: <EditForm />,
+    content: hasAlreadyClicked ? <EditForm /> : <HintMessage />,
   },
   {
     index: "add",

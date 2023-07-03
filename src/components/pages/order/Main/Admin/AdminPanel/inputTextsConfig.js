@@ -26,7 +26,7 @@ export const getInputTextsConfig = (newProduct) => [
     name: "price",
     value: newProduct.price ? newProduct.price : "",
     type: "text",
-    placeholder: "prix",
+    placeholder: "Prix",
     icon: <MdOutlineEuro />,
     version: "minimaliste",
   },

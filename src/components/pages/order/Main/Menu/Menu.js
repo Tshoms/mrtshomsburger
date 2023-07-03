@@ -6,11 +6,22 @@ import { formatPrice } from "../../../../../utils/maths";
 import Card from "../../../../reusable-ui/Card";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
+import { checkIfProductIsSelected } from "./helper";
+import { EMPTY_PRODUCT } from "../../../../enums/product";
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 export default function Menu() {
-  const { menu, isModeAdmin, handleDelete, resetMenu } =
-    useContext(OrderContext);
+  const {
+    menu,
+    isModeAdmin,
+    handleDelete,
+    resetMenu,
+    setProductSelected,
+    productSelected,
+    setIsCollapsed,
+    setCurrentTabSelected,
+    titleEditRef,
+  } = useContext(OrderContext);
   //state -----------
 
   // comportement -------
@@ -18,6 +29,24 @@ export default function Menu() {
     if (!isModeAdmin) return <EmptyMenuClient />;
     return <EmptyMenuAdmin onReset={resetMenu} />;
   }
+
+  const handleClick = async (infoCard) => {
+    if (!isModeAdmin) return;
+
+    await setIsCollapsed(false);
+    await setCurrentTabSelected("edit");
+    const productClickedOn = menu.find((product) => product.id === infoCard);
+    await setProductSelected(productClickedOn);
+    titleEditRef.current.focus();
+  };
+
+  const handleCardDelete = (event, idProductToDelete) => {
+    event.stopPropagation();
+    handleDelete(idProductToDelete);
+    idProductToDelete === productSelected.id &&
+      setProductSelected(EMPTY_PRODUCT);
+    titleEditRef.current.focus();
+  };
 
   return (
     <MenuStyled>
@@ -30,7 +59,10 @@ export default function Menu() {
             price={price}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
-            onDelete={() => handleDelete(id)}
+            onDelete={(event) => handleCardDelete(event, id)}
+            onClick={() => handleClick(id)}
+            isHoverable={isModeAdmin}
+            isSelected={checkIfProductIsSelected(id, productSelected.id)}
           />
         );
       })}

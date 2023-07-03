@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import NavBar from "./Navbar/NavBar";
 import Main from "./Main/Main";
 import { theme } from "../../../theme";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
-import { EMPTY_PRODUCT } from "./Main/Admin/AdminPanel/AddForm";
+import { EMPTY_PRODUCT } from "../../enums/product";
+import { deepClone } from "../../../utils/array";
 
 function OrderPage() {
   // state ----------
@@ -14,10 +15,12 @@ function OrderPage() {
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
+  const titleEditRef = useRef();
 
   const handleAdd = (newProduct) => {
     //1. copy du state.
-    const menuCopy = [...menu];
+    const menuCopy = deepClone(menu);
     // 2. manipulation su state.
     const menuUpdate = [newProduct, ...menuCopy];
     // 3. Update du state avec le setter.
@@ -26,13 +29,26 @@ function OrderPage() {
 
   const handleDelete = (idOfProduct) => {
     //1. copy du state.
-    const menuCopy = [...menu];
+    const menuCopy = deepClone(menu);
     console.log("state before", menuCopy);
     //2. manip du state.
     const menuUpdate = menuCopy.filter((product) => product.id !== idOfProduct);
     console.log("state after: ", menuUpdate);
     //3. Update du state.
     setMenu(menuUpdate);
+  };
+
+  const handleEdit = (productBeingEdit) => {
+    //1. copie du state (deep clone).
+    const menuCopy = deepClone(menu);
+    //2. manip de la copie du state.
+    const indexOfProductToEdit = menu.findIndex(
+      (product) => product.id === productBeingEdit.id
+    );
+
+    //3. mise à jour de la nouvel valeur du state.
+    menuCopy[indexOfProductToEdit] = productBeingEdit;
+    setMenu(menuCopy);
   };
 
   const resetMenu = () => {
@@ -53,6 +69,10 @@ function OrderPage() {
     resetMenu,
     newProduct,
     setNewProduct,
+    productSelected,
+    setProductSelected,
+    handleEdit,
+    titleEditRef,
   };
 
   // rendu ------------

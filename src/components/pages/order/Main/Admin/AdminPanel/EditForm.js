@@ -1,40 +1,27 @@
-import React from "react";
-import styled from "styled-components";
-import { theme } from "../../../../../../theme";
-import { HiCursorClick } from "react-icons/hi";
+import React, { useContext } from "react";
+import OrderContext from "../../../../../../context/OrderContext";
+import Form from "./Form";
+import EditInfoMessage from "./EditInfoMessage";
 
 export default function UpdateForm() {
+  // state -----------
+  const { productSelected, handleEdit, setProductSelected, titleEditRef } =
+    useContext(OrderContext);
+
+  // comportement ---------
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    const productBeingUpdate = {
+      ...productSelected,
+      [name]: value,
+    };
+    setProductSelected(productBeingUpdate); // Update de la valeur de l'objet dans le formulaire.
+    handleEdit(productBeingUpdate); // Update de l'objet modifié et l'envoi à handleEdit.
+  };
+  // affichage ----------
   return (
-    <TabUpdateStyled>
-      <div className="container-update">
-        <span>cliquer sur un produit du menu pour le modifier</span>
-        <HiCursorClick className="icon" />
-      </div>
-    </TabUpdateStyled>
+    <Form product={productSelected} onChange={handleChange} ref={titleEditRef}>
+      <EditInfoMessage />
+    </Form>
   );
 }
-
-const TabUpdateStyled = styled.div`
-  height: 278px;
-  width: 100%;
-
-  .container-update {
-    display: flex;
-    height: 100%;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-
-    span {
-      color: ${theme.colors.greyBlue};
-      font-family: "Amatic SC", cursive;
-      font-size: 27px;
-      margin-right: 7px;
-    }
-
-    .icon {
-      font-size: 29px;
-      color: ${theme.colors.greyBlue};
-    }
-  }
-`;
