@@ -6,37 +6,43 @@ import ImagePreview from "./ImagePreview";
 import Button from "../../../../../reusable-ui/Button";
 import SubmitMessag from "./SubmitMessag";
 
-export default function Form({ onSubmit, onChange, product, isSubmit }) {
-  // state --------
+const Form = React.forwardRef(
+  ({ onSubmit, onChange, product, isSubmit, children }, ref) => {
+    // state --------
 
-  // comportement ------
+    // comportement ------
 
-  const inputTexts = getInputTextsConfig(product);
-  // render --------
-  return (
-    <FormStyled onSubmit={onSubmit}>
-      <ImagePreview imageSource={product.imageSource} title={product.title} />
-      <div className="input-fields">
-        {inputTexts.map((input) => (
-          <TextInput
-            key={input.id}
-            {...input}
-            onChange={onChange}
-            version="minimaliste"
-          />
-        ))}
-      </div>
-      <div className="submit">
-        <Button
-          className="submit-btn"
-          version="success"
-          label={"Ajouter un nouveaux produit au menu"}
-        />
-        {isSubmit && <SubmitMessag />}
-      </div>
-    </FormStyled>
-  );
-}
+    const inputTexts = getInputTextsConfig(product);
+    // render --------
+    return (
+      <FormStyled onSubmit={onSubmit}>
+        <ImagePreview imageSource={product.imageSource} title={product.title} />
+        <div className="input-fields">
+          {inputTexts.map((input) => (
+            <TextInput
+              key={input.id}
+              {...input}
+              onChange={onChange}
+              version="minimaliste"
+              ref={ref && input.name === "title" ? ref : null}
+            />
+          ))}
+        </div>
+        {/* {onSubmit && (
+          <div className="submit">
+            <Button
+              className="submit-btn"
+              version="success"
+              label={"Ajouter un nouveaux produit au menu"}
+            />
+            {isSubmit && <SubmitMessag />}
+          </div>
+        )} */}
+        <div className="submit">{children}</div>
+      </FormStyled>
+    );
+  }
+);
 
 const FormStyled = styled.form`
   height: 100%;
@@ -66,3 +72,4 @@ const FormStyled = styled.form`
     }
   }
 `;
+export default Form;
