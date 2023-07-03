@@ -5,7 +5,7 @@ import TextInput from "../../../../../reusable-ui/TextInput";
 import ImagePreview from "./ImagePreview";
 
 const Form = React.forwardRef(
-  ({ onSubmit, onChange, product, isSubmit, children }, ref) => {
+  ({ onSubmit, onChange, product, children }, ref) => {
     // state --------
 
     // comportement ------
