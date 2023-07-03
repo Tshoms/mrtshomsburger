@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { getInputTextsConfig } from "./inputTextsConfig";
 import TextInput from "../../../../../reusable-ui/TextInput";
 import ImagePreview from "./ImagePreview";
-import Button from "../../../../../reusable-ui/Button";
-import SubmitMessag from "./SubmitMessag";
 
 const Form = React.forwardRef(
   ({ onSubmit, onChange, product, isSubmit, children }, ref) => {
@@ -28,16 +26,7 @@ const Form = React.forwardRef(
             />
           ))}
         </div>
-        {/* {onSubmit && (
-          <div className="submit">
-            <Button
-              className="submit-btn"
-              version="success"
-              label={"Ajouter un nouveaux produit au menu"}
-            />
-            {isSubmit && <SubmitMessag />}
-          </div>
-        )} */}
+
         <div className="submit">{children}</div>
       </FormStyled>
     );
