@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import Tab from "../../../../reusable-ui/Tab";
-import { getTabsConfig } from "./tabsConfig";
+import { getTabsConfig } from "./TabsConfig";
 import OrderContext from "../../../../../context/OrderContext";
 
 function AdminTabs() {
