@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
+import { theme } from "../../../../../theme";
 import { formatPrice } from "../../../../../utils/maths";
 import BasketProduct from "./BasketProduct";
 import EmptyBasket from "./EmptyBasket";
@@ -17,7 +18,7 @@ function Basket() {
       {isBasketEmpty ? (
         <EmptyBasket basketProduct={basket} />
       ) : (
-        <BasketProduct />
+        <BasketProduct basket={basket} />
       )}
       <Footer />
     </BasketStyled>
@@ -25,9 +26,12 @@ function Basket() {
 }
 
 const BasketStyled = styled.div`
-  background-color: pink;
+  background: ${theme.colors.background_white};
+  box-shadow: ${theme.shadows.basket};
   display: flex;
   flex-direction: column;
+  border-bottom-left-radius: ${theme.borderRadius.extraRound};
+  height: 85vh;
 `;
 
 export default Basket;
