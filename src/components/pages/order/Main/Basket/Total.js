@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import Header from "../../../../reusable-ui/Header";
 
-function Total({ AmountToPay }) {
+function Total({ amountToPay }) {
   return (
     <Header>
       <TotalStyled>
         <span className="total">Total</span>
-        <span className="amount">{AmountToPay}</span>
+        <span className="amount">{amountToPay}</span>
       </TotalStyled>
     </Header>
   );

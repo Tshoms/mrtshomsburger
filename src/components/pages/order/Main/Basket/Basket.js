@@ -8,7 +8,7 @@ import Total from "./Total";
 function Basket() {
   return (
     <BasketStyled>
-      <Total AmountToPay={formatPrice(0)} />
+      <Total amountToPay={formatPrice(0)} />
       <BasketBody />
       <Footer />
     </BasketStyled>
