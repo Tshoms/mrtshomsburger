@@ -4,6 +4,7 @@ import styled from "styled-components";
 import OrderContext from "../../../../context/OrderContext";
 import { theme } from "../../../../theme";
 import Admin from "./Admin/Admin";
+import Basket from "./Basket/Basket";
 import Menu from "./Menu/Menu";
 
 export default function Main() {
@@ -12,7 +13,7 @@ export default function Main() {
 
   return (
     <MainStyled>
-      {/* <div className="basket">basket</div> */}
+      <Basket />
       <div className="menu-and-admin">
         <Menu />
         {isModeAdmin && <Admin />}
@@ -31,12 +32,8 @@ const MainStyled = styled.div`
 
   /*css grid */
   display: grid;
-  grid-template-columns: 1fr; /* comportement en rows */
+  grid-template-columns: 25% 1fr; /* comportement en rows */
   overflow-y: scroll; /*important pour le scroll */
-
-  /* .basket {
-    background-color: pink;
-  } */
 
   .menu-and-admin {
     position: relative;
