@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import OrderContext from "../../../../../context/OrderContext";
 import { formatPrice } from "../../../../../utils/maths";
-import BasketBody from "./BasketBody";
+import EmptyBasket from "./EmptyBasket";
 import Footer from "./Footer";
 import Total from "./Total";
 
 function Basket() {
+  const { basket } = useContext(OrderContext);
   return (
     <BasketStyled>
       <Total amountToPay={formatPrice(0)} />
-      <BasketBody />
+      <EmptyBasket basketProduct={basket} />
       <Footer />
     </BasketStyled>
   );
