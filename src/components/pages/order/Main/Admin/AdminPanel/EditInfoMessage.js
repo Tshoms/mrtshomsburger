@@ -12,8 +12,10 @@ function EditInfoMessage() {
 }
 
 const EditInfoMessageStyled = styled.span`
-  color: orange;
+  padding-left: 0px;
+  color: ${theme.colors.primary};
   font-size: ${theme.fonts.size.SM};
+
   .live-update {
     text-decoration: underline;
   }

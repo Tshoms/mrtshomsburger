@@ -35,7 +35,7 @@ const Form = React.forwardRef(
 
 const FormStyled = styled.form`
   height: 100%;
-  width: 70%;
+  width: 72%;
 
   // grid.
   display: grid;
@@ -54,7 +54,7 @@ const FormStyled = styled.form`
   .submit {
     grid-area: 4 / -2 / -2 / -1;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
 
     .submit-btn {
       height: 100%;
