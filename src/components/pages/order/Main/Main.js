@@ -4,7 +4,7 @@ import styled from "styled-components";
 import OrderContext from "../../../../context/OrderContext";
 import { theme } from "../../../../theme";
 import Admin from "./Admin/Admin";
-import Basket from "./Basket";
+import Basket from "./Basket/Basket";
 import Menu from "./Menu/Menu";
 
 export default function Main() {

@@ -1,13 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../../../theme";
+import { theme } from "../../../../../theme";
+import { formatPrice } from "../../../../../utils/maths";
+import Header from "../../../../reusable-ui/Header";
+import Footer from "./Footer";
+import Total from "./Total";
 
 function Basket() {
   return (
     <BasketStyled>
-      <div className="head">head</div>
+      <Total AmountToPay={formatPrice(0)} />
+
       <div className="body">body</div>
-      <div className="footer">footer</div>
+      <Header>
+        <Footer />
+      </Header>
     </BasketStyled>
   );
 }
@@ -16,17 +23,11 @@ const BasketStyled = styled.div`
   background-color: pink;
   display: flex;
   flex-direction: column;
-  .head {
-    height: 70px;
-    background: ${theme.colors.background_dark};
-  }
+
   .body {
     flex: 1;
     background: ${theme.colors.background_white};
-  }
-  .footer {
-    height: 70px;
-    background: ${theme.colors.background_dark};
+    box-shadow: ${theme.shadows.basket};
   }
 `;
 
