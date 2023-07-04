@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { IMAGE_COMING_SOON } from "../../../../enums/product";
 import BasketCard from "./BasketCard";
 
 function BasketProduct({ basket }) {
@@ -7,7 +8,14 @@ function BasketProduct({ basket }) {
     <BasketProductStyled>
       {basket.map((basketProduct) => (
         <div className="basket-card">
-          <BasketCard {...basketProduct} />
+          <BasketCard
+            {...basketProduct}
+            imageSource={
+              basketProduct.imageSource
+                ? basketProduct.imageSource
+                : IMAGE_COMING_SOON
+            }
+          />
         </div>
       ))}
     </BasketProductStyled>

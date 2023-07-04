@@ -7,7 +7,7 @@ import Card from "../../../../reusable-ui/Card";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { checkIfProductIsSelected } from "./helper";
-import { EMPTY_PRODUCT } from "../../../../enums/product";
+import { EMPTY_PRODUCT, IMAGE_COMING_SOON } from "../../../../enums/product";
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 export default function Menu() {
@@ -54,7 +54,7 @@ export default function Menu() {
         return (
           <Card
             key={id}
-            imageSource={imageSource ? imageSource : IMAGE_BY_DEFAULT}
+            imageSource={imageSource ? imageSource : IMAGE_COMING_SOON}
             title={title}
             price={price}
             leftDescription={formatPrice(price)}

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import { MdDeleteForever } from "react-icons/md";
+import { formatPrice } from "../../../../../utils/maths";
 
 function BasketCard({ title, imageSource, price, quantity, className }) {
   return (
@@ -17,7 +18,7 @@ function BasketCard({ title, imageSource, price, quantity, className }) {
           <div className="title">
             <span>{title}</span>
           </div>
-          <span className="price">{price}</span>
+          <span className="price">{formatPrice(price)}</span>
         </div>
         <div className="quantity">
           <span>x {quantity}</span>
