@@ -2,7 +2,7 @@ import { useState } from "react";
 import { fakeBasket } from "../fakeData/fakeBasket";
 import { deepClone, findInArray } from "../utils/array";
 
-export const useBasket = (second) => {
+export const useBasket = () => {
   //state ------
   const [basket, setBasket] = useState(fakeBasket.SMALL);
   //comportement ------
@@ -22,6 +22,16 @@ export const useBasket = (second) => {
       // 3. update du state.
       const basketUpdate = [newBasketProduct, ...basketCopy];
       setBasket(basketUpdate);
+    } else {
+      // 4. le cas ou le produit est dans l'array.
+      const indexOfProductIncrement = basket.findIndex(
+        (basketProduct) => basketProduct.id === productAdd.id
+      );
+
+      console.log("index of product: ", basketCopy[indexOfProductIncrement]);
+      basketCopy[indexOfProductIncrement].quantity += 1;
+      // 5. update le state de l'array.
+      setBasket(basketCopy);
     }
 
     //4. le cas ou le produit est dans l'array.
