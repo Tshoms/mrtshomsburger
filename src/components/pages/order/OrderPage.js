@@ -18,7 +18,7 @@ function OrderPage() {
   const titleEditRef = useRef();
   // custom hooks ----
   const { menu, handleAdd, handleEdit, handleDelete, resetMenu } = useMenu();
-  const { basket } = useBasket();
+  const { basket, handleAddToBasket } = useBasket();
 
   // provider for context w state.
   const orderContextValue = {
@@ -39,6 +39,7 @@ function OrderPage() {
     handleEdit,
     titleEditRef,
     basket,
+    handleAddToBasket,
   };
 
   // rendu ------------

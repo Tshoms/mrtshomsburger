@@ -13,6 +13,7 @@ export default function Product({
   onClick,
   isHoverable,
   isSelected,
+  onAdd,
 }) {
   return (
     <CardStyled
@@ -42,7 +43,7 @@ export default function Product({
                 className="primary-button"
                 label={"Ajouter"}
                 version="normale"
-                onClick={(event) => event.stopPropagation()}
+                onClick={onAdd}
               />
             </div>
           </div>

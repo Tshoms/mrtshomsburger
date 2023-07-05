@@ -8,6 +8,7 @@ import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { checkIfProductIsSelected } from "./helper";
 import { EMPTY_PRODUCT, IMAGE_COMING_SOON } from "../../../../enums/product";
+import { findInArray } from "../../../../../utils/array";
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 export default function Menu() {
@@ -21,6 +22,7 @@ export default function Menu() {
     setIsCollapsed,
     setCurrentTabSelected,
     titleEditRef,
+    handleAddToBasket,
   } = useContext(OrderContext);
   //state -----------
 
@@ -35,7 +37,7 @@ export default function Menu() {
 
     await setIsCollapsed(false);
     await setCurrentTabSelected("edit");
-    const productClickedOn = menu.find((product) => product.id === infoCard);
+    const productClickedOn = findInArray(infoCard, menu);
     await setProductSelected(productClickedOn);
     titleEditRef.current.focus();
   };
@@ -46,6 +48,16 @@ export default function Menu() {
     idProductToDelete === productSelected.id &&
       setProductSelected(EMPTY_PRODUCT);
     titleEditRef.current.focus();
+  };
+
+  const handleAddButton = (event, idProduct) => {
+    event.stopPropagation();
+    // const productToAdd = menu.find(
+    //   (menuProduct) => menuProduct.id === idProduct
+    // );
+    const productToAdd = findInArray(idProduct, menu);
+    console.log("product id :", productToAdd);
+    handleAddToBasket(productToAdd);
   };
 
   return (
@@ -63,6 +75,7 @@ export default function Menu() {
             onClick={() => handleClick(id)}
             isHoverable={isModeAdmin}
             isSelected={checkIfProductIsSelected(id, productSelected.id)}
+            onAdd={(event) => handleAddButton(event, id)}
           />
         );
       })}
