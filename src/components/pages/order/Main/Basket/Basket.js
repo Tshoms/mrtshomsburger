@@ -9,12 +9,17 @@ import Footer from "./Footer";
 import Total from "./Total";
 
 function Basket() {
+  // state ------
   const { basket } = useContext(OrderContext);
-
   const isBasketEmpty = basket.length === 0;
+  // comportement ------
+  const totalPrice = basket.reduce((total, BasketProduct) => {
+    total += BasketProduct.price * BasketProduct.quantity;
+    return total;
+  }, 0);
   return (
     <BasketStyled>
-      <Total amountToPay={formatPrice(0)} />
+      <Total amountToPay={formatPrice(totalPrice)} />
       {isBasketEmpty ? (
         <EmptyBasket basketProduct={basket} />
       ) : (

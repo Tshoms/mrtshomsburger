@@ -5,7 +5,7 @@ import { findIndexInArray } from "../utils/array";
 
 export const useBasket = () => {
   //state ------
-  const [basket, setBasket] = useState(fakeBasket.SMALL);
+  const [basket, setBasket] = useState(fakeBasket.EMPTY);
   //comportement ------
   const handleAddToBasket = (productAdd) => {
     // 1. copie du state ----
