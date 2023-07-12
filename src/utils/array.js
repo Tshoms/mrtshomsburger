@@ -13,3 +13,7 @@ export const findIndexInArray = (idUnknowIndex, array) => {
     (productInArray) => productInArray.id === idUnknowIndex
   );
 };
+
+export const filter = (idOfItemToRemove, array) => {
+  return array.filter((product) => product.id !== idOfItemToRemove);
+};

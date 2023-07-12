@@ -3,7 +3,11 @@ import styled from "styled-components";
 import { IMAGE_COMING_SOON } from "../../../../enums/product";
 import BasketCard from "./BasketCard";
 
-function BasketProduct({ basket, isModeAdmin }) {
+function BasketProduct({ basket, isModeAdmin, handleDeleteBasketProduct }) {
+  //  comportement ------
+  const handleOnDelete = (id) => {
+    handleDeleteBasketProduct(id);
+  };
   return (
     <BasketProductStyled>
       {basket.map((basketProduct) => (
@@ -15,6 +19,7 @@ function BasketProduct({ basket, isModeAdmin }) {
                 ? basketProduct.imageSource
                 : IMAGE_COMING_SOON
             }
+            onDelete={() => handleOnDelete(basketProduct.id)}
             isModeAdmin={isModeAdmin}
           />
         </div>

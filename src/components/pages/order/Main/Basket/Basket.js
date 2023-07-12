@@ -10,7 +10,8 @@ import Total from "./Total";
 
 function Basket() {
   // state ------
-  const { basket, isModeAdmin } = useContext(OrderContext);
+  const { basket, isModeAdmin, handleDeleteBasketProduct } =
+    useContext(OrderContext);
   const isBasketEmpty = basket.length === 0;
   // comportement ------
   const totalPrice = basket.reduce((total, BasketProduct) => {
@@ -24,7 +25,11 @@ function Basket() {
       {isBasketEmpty ? (
         <EmptyBasket basketProduct={basket} />
       ) : (
-        <BasketProduct basket={basket} isModeAdmin={isModeAdmin} />
+        <BasketProduct
+          basket={basket}
+          isModeAdmin={isModeAdmin}
+          handleDeleteBasketProduct={handleDeleteBasketProduct}
+        />
       )}
       <Footer />
     </BasketStyled>
