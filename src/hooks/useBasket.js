@@ -15,18 +15,22 @@ export const useBasket = () => {
 
     //2. le cas ou le produit n'est pas dans l'array.
     if (!isAlreadyInArray) {
-      const newBasketProduct = {
-        ...productAdd,
-        quantity: 1,
-      };
-
-      const basketUpdate = [newBasketProduct, ...basketCopy];
-      setBasket(basketUpdate);
+      createNewProductInBasket(productAdd, basketCopy, setBasket);
       return;
     }
 
     // 3. le cas ou le produit est dans l'array.
     incrementProductInBasket(productAdd, basketCopy);
+  };
+
+  const createNewProductInBasket = (productAdd, basketCopy, setBasket) => {
+    const newBasketProduct = {
+      ...productAdd,
+      quantity: 1,
+    };
+
+    const basketUpdate = [newBasketProduct, ...basketCopy];
+    setBasket(basketUpdate);
   };
 
   const incrementProductInBasket = (productAdd, basketCopy) => {
