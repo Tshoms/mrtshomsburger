@@ -10,10 +10,11 @@ import Total from "./Total";
 
 function Basket() {
   // state ------
-  const { basket } = useContext(OrderContext);
+  const { basket, isModeAdmin } = useContext(OrderContext);
   const isBasketEmpty = basket.length === 0;
   // comportement ------
   const totalPrice = basket.reduce((total, BasketProduct) => {
+    // if (isNaN(BasketProduct.price)) return total;
     total += BasketProduct.price * BasketProduct.quantity;
     return total;
   }, 0);
@@ -23,7 +24,7 @@ function Basket() {
       {isBasketEmpty ? (
         <EmptyBasket basketProduct={basket} />
       ) : (
-        <BasketProduct basket={basket} />
+        <BasketProduct basket={basket} isModeAdmin={isModeAdmin} />
       )}
       <Footer />
     </BasketStyled>

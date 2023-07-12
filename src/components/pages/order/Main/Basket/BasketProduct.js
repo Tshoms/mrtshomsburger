@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { IMAGE_COMING_SOON } from "../../../../enums/product";
 import BasketCard from "./BasketCard";
 
-function BasketProduct({ basket }) {
+function BasketProduct({ basket, isModeAdmin }) {
   return (
     <BasketProductStyled>
       {basket.map((basketProduct) => (
@@ -15,6 +15,7 @@ function BasketProduct({ basket }) {
                 ? basketProduct.imageSource
                 : IMAGE_COMING_SOON
             }
+            isModeAdmin={isModeAdmin}
           />
         </div>
       ))}
