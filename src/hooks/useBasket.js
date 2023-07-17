@@ -44,7 +44,7 @@ export const useBasket = () => {
     //1. copy du state.
     const basketCopy = deepClone(basket);
 
-    //2. manip du state.
+    //2. manip de la COPY du state.
     const basketUpdate = filter(idOfBasketProduct, basketCopy);
 
     //3. Update du state.

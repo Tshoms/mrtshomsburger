@@ -57,7 +57,6 @@ export default function Menu() {
     //   (menuProduct) => menuProduct.id === idProduct
     // );
     const productToAdd = findInArray(idProduct, menu);
-    console.log("product id :", productToAdd);
     handleAddToBasket(productToAdd);
   };
 
