@@ -7,8 +7,8 @@ import Card from "../../../../reusable-ui/Card";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { checkIfProductIsSelected } from "./helper";
-import { EMPTY_PRODUCT } from "../../../../enums/product";
-const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
+import { EMPTY_PRODUCT, IMAGE_COMING_SOON } from "../../../../enums/product";
+import { findInArray } from "../../../../../utils/array";
 
 export default function Menu() {
   const {
@@ -21,6 +21,8 @@ export default function Menu() {
     setIsCollapsed,
     setCurrentTabSelected,
     titleEditRef,
+    handleAddToBasket,
+    handleDeleteBasketProduct,
   } = useContext(OrderContext);
   //state -----------
 
@@ -35,7 +37,7 @@ export default function Menu() {
 
     await setIsCollapsed(false);
     await setCurrentTabSelected("edit");
-    const productClickedOn = menu.find((product) => product.id === infoCard);
+    const productClickedOn = findInArray(infoCard, menu);
     await setProductSelected(productClickedOn);
     titleEditRef.current.focus();
   };
@@ -43,9 +45,19 @@ export default function Menu() {
   const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete);
+    handleDeleteBasketProduct(idProductToDelete);
     idProductToDelete === productSelected.id &&
       setProductSelected(EMPTY_PRODUCT);
     titleEditRef.current.focus();
+  };
+
+  const handleAddButton = (event, idProduct) => {
+    event.stopPropagation();
+    // const productToAdd = menu.find(
+    //   (menuProduct) => menuProduct.id === idProduct
+    // );
+    const productToAdd = findInArray(idProduct, menu);
+    handleAddToBasket(productToAdd);
   };
 
   return (
@@ -54,7 +66,7 @@ export default function Menu() {
         return (
           <Card
             key={id}
-            imageSource={imageSource ? imageSource : IMAGE_BY_DEFAULT}
+            imageSource={imageSource ? imageSource : IMAGE_COMING_SOON}
             title={title}
             price={price}
             leftDescription={formatPrice(price)}
@@ -63,6 +75,7 @@ export default function Menu() {
             onClick={() => handleClick(id)}
             isHoverable={isModeAdmin}
             isSelected={checkIfProductIsSelected(id, productSelected.id)}
+            onAdd={(event) => handleAddButton(event, id)}
           />
         );
       })}
