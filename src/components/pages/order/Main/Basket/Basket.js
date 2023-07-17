@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../theme";
+import { isEmpty } from "../../../../../utils/array";
 import { formatPrice } from "../../../../../utils/maths";
 import BasketProduct from "./BasketProduct";
 import EmptyBasket from "./EmptyBasket";
@@ -12,7 +13,8 @@ function Basket() {
   // state ------
   const { basket, isModeAdmin, handleDeleteBasketProduct } =
     useContext(OrderContext);
-  const isBasketEmpty = basket.length === 0;
+  const isBasketEmpty = isEmpty(basket);
+
   // comportement ------
   const totalPrice = basket.reduce((total, BasketProduct) => {
     // if (isNaN(BasketProduct.price)) return total;

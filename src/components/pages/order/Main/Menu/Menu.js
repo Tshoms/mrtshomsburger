@@ -8,7 +8,7 @@ import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { checkIfProductIsSelected } from "./helper";
 import { EMPTY_PRODUCT, IMAGE_COMING_SOON } from "../../../../enums/product";
-import { findInArray } from "../../../../../utils/array";
+import { findObjectById, isEmpty } from "../../../../../utils/array";
 
 export default function Menu() {
   const {
@@ -27,7 +27,7 @@ export default function Menu() {
   //state -----------
 
   // comportement -------
-  if (menu.length === 0) {
+  if (isEmpty(menu)) {
     if (!isModeAdmin) return <EmptyMenuClient />;
     return <EmptyMenuAdmin onReset={resetMenu} />;
   }
@@ -37,7 +37,7 @@ export default function Menu() {
 
     await setIsCollapsed(false);
     await setCurrentTabSelected("edit");
-    const productClickedOn = findInArray(infoCard, menu);
+    const productClickedOn = findObjectById(infoCard, menu);
     await setProductSelected(productClickedOn);
     titleEditRef.current.focus();
   };
@@ -56,7 +56,7 @@ export default function Menu() {
     // const productToAdd = menu.find(
     //   (menuProduct) => menuProduct.id === idProduct
     // );
-    const productToAdd = findInArray(idProduct, menu);
+    const productToAdd = findObjectById(idProduct, menu);
     handleAddToBasket(productToAdd);
   };
 
