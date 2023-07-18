@@ -11,8 +11,7 @@ import Total from "./Total";
 
 function Basket() {
   // state ------
-  const { basket, isModeAdmin, handleDeleteBasketProduct } =
-    useContext(OrderContext);
+  const { basket } = useContext(OrderContext);
   const isBasketEmpty = isEmpty(basket);
 
   // comportement ------
@@ -27,11 +26,7 @@ function Basket() {
       {isBasketEmpty ? (
         <EmptyBasket basketProduct={basket} />
       ) : (
-        <BasketProduct
-          basket={basket}
-          isModeAdmin={isModeAdmin}
-          handleDeleteBasketProduct={handleDeleteBasketProduct}
-        />
+        <BasketProduct />
       )}
       <Footer />
     </BasketStyled>
