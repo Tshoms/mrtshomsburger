@@ -3,7 +3,6 @@ import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../theme";
 import { isEmpty } from "../../../../../utils/array";
-import { formatPrice } from "../../../../../utils/maths";
 import BasketProduct from "./BasketProduct";
 import EmptyBasket from "./EmptyBasket";
 import Footer from "./Footer";
@@ -12,18 +11,13 @@ import Total from "./Total";
 function Basket() {
   // state ------
   const { basket } = useContext(OrderContext);
-  const isBasketEmpty = isEmpty(basket);
 
   // comportement ------
-  const totalPrice = basket.reduce((total, BasketProduct) => {
-    // if (isNaN(BasketProduct.price)) return total;
-    total += BasketProduct.price * BasketProduct.quantity;
-    return total;
-  }, 0);
+
   return (
     <BasketStyled>
-      <Total amountToPay={formatPrice(totalPrice)} />
-      {isBasketEmpty ? (
+      <Total />
+      {isEmpty(basket) ? (
         <EmptyBasket basketProduct={basket} />
       ) : (
         <BasketProduct />

@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../theme";
+import { calculateSumToPay, formatPrice } from "../../../../../utils/maths";
 import Header from "../../../../reusable-ui/Header";
 
-function Total({ amountToPay }) {
+function Total() {
+  // state -------
+  const { basket, menu } = useContext(OrderContext);
+  const totalPrice = calculateSumToPay(basket, menu);
   return (
     <Header>
       <TotalStyled>
         <span className="total">Total</span>
-        <span className="amount">{amountToPay}</span>
+        <span className="amount">{formatPrice(totalPrice)}</span>
       </TotalStyled>
     </Header>
   );
