@@ -7,12 +7,24 @@ import BasketCard from "./BasketCard";
 
 function BasketProduct() {
   //  state ---------
-  const { basket, isModeAdmin, handleDeleteBasketProduct, menu } =
-    useContext(OrderContext);
+  const {
+    basket,
+    isModeAdmin,
+    handleDeleteBasketProduct,
+    menu,
+    handleProductSelected,
+  } = useContext(OrderContext);
   //  comportement ------
-  const handleOnDelete = (id) => {
+  const handleOnDelete = (event, id) => {
+    event.stopPropagation();
     handleDeleteBasketProduct(id);
   };
+
+  // const HandleOnClick = () => {
+  //   alert("handleOnClick");
+  //   if (!isModeAdmin) return;
+  // };
+
   return (
     <BasketProductStyled>
       {basket.map((basketProduct) => {
@@ -27,8 +39,13 @@ function BasketProduct() {
                   ? menuProduct.imageSource
                   : IMAGE_COMING_SOON
               }
-              onDelete={() => handleOnDelete(menuProduct.id)}
+              onDelete={(event) => handleOnDelete(event, menuProduct.id)}
               isClickable={isModeAdmin}
+              onClick={
+                isModeAdmin
+                  ? () => handleProductSelected(basketProduct.id)
+                  : null
+              }
             />
           </div>
         );
