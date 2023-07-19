@@ -3,6 +3,7 @@ import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import { findObjectById } from "../../../../../utils/array";
 import { IMAGE_COMING_SOON } from "../../../../enums/product";
+import { checkIfProductIsSelected } from "../Menu/helper";
 import BasketCard from "./BasketCard";
 
 function BasketProduct() {
@@ -13,6 +14,7 @@ function BasketProduct() {
     handleDeleteBasketProduct,
     menu,
     handleProductSelected,
+    productSelected,
   } = useContext(OrderContext);
   //  comportement ------
   const handleOnDelete = (event, id) => {
@@ -46,6 +48,10 @@ function BasketProduct() {
                   ? () => handleProductSelected(basketProduct.id)
                   : null
               }
+              isSelected={checkIfProductIsSelected(
+                basketProduct.id,
+                productSelected.id
+              )}
             />
           </div>
         );
