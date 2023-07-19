@@ -75,7 +75,6 @@ const BasketCardStyled = styled.div`
     user-select: none;
     box-sizing: border-box;
     /* background: green; */
-    /* border: 1px solid green; */
     display: grid;
     grid-template-columns: 70% 1fr;
     font-size: ${theme.fonts.size.P0};
@@ -86,6 +85,7 @@ const BasketCardStyled = styled.div`
       grid-template-rows: 60% 40%;
       margin-left: 21px;
       /* align-items: center; */
+
       .title {
         display: flex;
         align-items: center;
@@ -111,6 +111,7 @@ const BasketCardStyled = styled.div`
         font-weight: ${theme.fonts.weights.medium};
         font-family: ${theme.fonts.family.openSans};
         /* color: ${theme.colors.white}; */
+        width: 0px;
       }
     }
 

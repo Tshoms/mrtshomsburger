@@ -34,6 +34,17 @@ const BasketStyled = styled.div`
   flex-direction: column;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   height: 85vh;
+
+  .head {
+    position: sticky;
+    top: 0;
+  }
+
+  .footer {
+    border-bottom-left-radius: ${theme.borderRadius.extraRound};
+    position: sticky;
+    bottom: 0;
+  }
 `;
 
 export default Basket;
