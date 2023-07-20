@@ -1,29 +1,61 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import OrderContext from "../../../../../context/OrderContext";
+import { findObjectById } from "../../../../../utils/array";
 import { IMAGE_COMING_SOON } from "../../../../enums/product";
+import { checkIfProductIsSelected } from "../Menu/helper";
 import BasketCard from "./BasketCard";
 
-function BasketProduct({ basket, isModeAdmin, handleDeleteBasketProduct }) {
+function BasketProduct() {
+  //  state ---------
+  const {
+    basket,
+    isModeAdmin,
+    handleDeleteBasketProduct,
+    menu,
+    handleProductSelected,
+    productSelected,
+  } = useContext(OrderContext);
   //  comportement ------
-  const handleOnDelete = (id) => {
+  const handleOnDelete = (event, id) => {
+    event.stopPropagation();
     handleDeleteBasketProduct(id);
   };
+
+  // const HandleOnClick = () => {
+  //   alert("handleOnClick");
+  //   if (!isModeAdmin) return;
+  // };
+
   return (
     <BasketProductStyled>
-      {basket.map((basketProduct) => (
-        <div className="basket-card" key={basketProduct.id}>
-          <BasketCard
-            {...basketProduct}
-            imageSource={
-              basketProduct.imageSource
-                ? basketProduct.imageSource
-                : IMAGE_COMING_SOON
-            }
-            onDelete={() => handleOnDelete(basketProduct.id)}
-            isModeAdmin={isModeAdmin}
-          />
-        </div>
-      ))}
+      {basket.map((basketProduct) => {
+        const menuProduct = findObjectById(basketProduct.id, menu);
+        return (
+          <div className="basket-card" key={menuProduct.id}>
+            <BasketCard
+              {...menuProduct}
+              quantity={basketProduct.quantity}
+              imageSource={
+                menuProduct.imageSource
+                  ? menuProduct.imageSource
+                  : IMAGE_COMING_SOON
+              }
+              onDelete={(event) => handleOnDelete(event, menuProduct.id)}
+              isClickable={isModeAdmin}
+              onClick={
+                isModeAdmin
+                  ? () => handleProductSelected(basketProduct.id)
+                  : null
+              }
+              isSelected={checkIfProductIsSelected(
+                basketProduct.id,
+                productSelected.id
+              )}
+            />
+          </div>
+        );
+      })}
     </BasketProductStyled>
   );
 }

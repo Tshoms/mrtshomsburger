@@ -3,17 +3,23 @@ export const deepClone = (array) => {
 };
 
 // method find.
-export const findInArray = (id, array) => {
+export const findObjectById = (id, array) => {
   return array.find((productInArray) => productInArray.id === id);
 };
 
 // method findIndex.
-export const findIndexInArray = (idUnknowIndex, array) => {
+export const findIndexById = (idUnknowIndex, array) => {
   return array.findIndex(
     (productInArray) => productInArray.id === idUnknowIndex
   );
 };
 
-export const filter = (idOfItemToRemove, array) => {
+// method filter.
+export const removedObjectById = (idOfItemToRemove, array) => {
   return array.filter((product) => product.id !== idOfItemToRemove);
+};
+
+// method to check array lenght.
+export const isEmpty = (array) => {
+  return array.length === 0;
 };

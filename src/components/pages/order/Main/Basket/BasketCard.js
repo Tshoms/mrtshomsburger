@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../../../../theme";
 import { MdDeleteForever } from "react-icons/md";
 import { formatPrice } from "../../../../../utils/maths";
@@ -10,11 +10,18 @@ function BasketCard({
   price,
   quantity,
   className,
-  isModeAdmin,
+  isClickable,
   onDelete,
+  onClick,
+  isSelected,
 }) {
   return (
-    <BasketCardStyled className={className} isModeAdmin={isModeAdmin}>
+    <BasketCardStyled
+      className={className}
+      isClickable={isClickable}
+      onClick={onClick}
+      isSelected={isSelected}
+    >
       <div className="delete-button" onClick={onDelete}>
         <MdDeleteForever className="icon" />
       </div>
@@ -37,7 +44,7 @@ function BasketCard({
 }
 
 const BasketCardStyled = styled.div`
-  cursor: ${({ isModeAdmin }) => (isModeAdmin ? "pointer" : "auto")};
+  cursor: ${({ isClickable }) => (isClickable ? "pointer" : "auto")};
   /* border: 1px solid red; */
   box-sizing: border-box;
   height: 86px;
@@ -68,7 +75,6 @@ const BasketCardStyled = styled.div`
     user-select: none;
     box-sizing: border-box;
     /* background: green; */
-    /* border: 1px solid green; */
     display: grid;
     grid-template-columns: 70% 1fr;
     font-size: ${theme.fonts.size.P0};
@@ -79,6 +85,7 @@ const BasketCardStyled = styled.div`
       grid-template-rows: 60% 40%;
       margin-left: 21px;
       /* align-items: center; */
+
       .title {
         display: flex;
         align-items: center;
@@ -104,6 +111,7 @@ const BasketCardStyled = styled.div`
         font-weight: ${theme.fonts.weights.medium};
         font-family: ${theme.fonts.family.openSans};
         /* color: ${theme.colors.white}; */
+        width: 0px;
       }
     }
 
@@ -163,6 +171,17 @@ const BasketCardStyled = styled.div`
         }
       }
     }
+  }
+
+  ${({ isClickable, isSelected }) =>
+    isClickable && isSelected && selectedStyled}
+`;
+
+const selectedStyled = css`
+  background: ${theme.colors.primary};
+  .price,
+  .quantity {
+    color: ${theme.colors.white};
   }
 `;
 

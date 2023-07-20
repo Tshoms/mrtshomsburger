@@ -7,6 +7,7 @@ import OrderContext from "../../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
+import { findObjectById } from "../../../utils/array";
 
 function OrderPage() {
   // state ----------
@@ -20,6 +21,13 @@ function OrderPage() {
   const { menu, handleAdd, handleEdit, handleDelete, resetMenu } = useMenu();
   const { basket, handleAddToBasket, handleDeleteBasketProduct } = useBasket();
 
+  const handleProductSelected = async (idProductClicked) => {
+    await setIsCollapsed(false);
+    await setCurrentTabSelected("edit");
+    const productClickedOn = findObjectById(idProductClicked, menu);
+    await setProductSelected(productClickedOn);
+    titleEditRef.current.focus();
+  };
   // provider for context w state.
   const orderContextValue = {
     isModeAdmin,
@@ -41,6 +49,7 @@ function OrderPage() {
     basket,
     handleAddToBasket,
     handleDeleteBasketProduct,
+    handleProductSelected,
   };
 
   // rendu ------------

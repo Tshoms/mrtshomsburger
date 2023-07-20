@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../theme";
-import { formatPrice } from "../../../../../utils/maths";
+import { isEmpty } from "../../../../../utils/array";
 import BasketProduct from "./BasketProduct";
 import EmptyBasket from "./EmptyBasket";
 import Footer from "./Footer";
@@ -10,26 +10,17 @@ import Total from "./Total";
 
 function Basket() {
   // state ------
-  const { basket, isModeAdmin, handleDeleteBasketProduct } =
-    useContext(OrderContext);
-  const isBasketEmpty = basket.length === 0;
+  const { basket } = useContext(OrderContext);
+
   // comportement ------
-  const totalPrice = basket.reduce((total, BasketProduct) => {
-    // if (isNaN(BasketProduct.price)) return total;
-    total += BasketProduct.price * BasketProduct.quantity;
-    return total;
-  }, 0);
+
   return (
     <BasketStyled>
-      <Total amountToPay={formatPrice(totalPrice)} />
-      {isBasketEmpty ? (
+      <Total />
+      {isEmpty(basket) ? (
         <EmptyBasket basketProduct={basket} />
       ) : (
-        <BasketProduct
-          basket={basket}
-          isModeAdmin={isModeAdmin}
-          handleDeleteBasketProduct={handleDeleteBasketProduct}
-        />
+        <BasketProduct />
       )}
       <Footer />
     </BasketStyled>
@@ -43,6 +34,17 @@ const BasketStyled = styled.div`
   flex-direction: column;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   height: 85vh;
+
+  .head {
+    position: sticky;
+    top: 0;
+  }
+
+  .footer {
+    border-bottom-left-radius: ${theme.borderRadius.extraRound};
+    position: sticky;
+    bottom: 0;
+  }
 `;
 
 export default Basket;
