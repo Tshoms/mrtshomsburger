@@ -8,6 +8,7 @@ import { EMPTY_PRODUCT } from "../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../../utils/array";
+// import { getUser } from "../../../api/user";
 
 function OrderPage() {
   // state ----------
@@ -51,6 +52,9 @@ function OrderPage() {
     handleDeleteBasketProduct,
     handleProductSelected,
   };
+
+  // console.log("resultat processe.env :", process.env.REACT_APP_API_KEY);
+  // getUser("Jésus");
 
   // rendu ------------
   return (
