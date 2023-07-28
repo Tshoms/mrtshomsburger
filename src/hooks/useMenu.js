@@ -16,15 +16,16 @@ export const useMenu = () => {
     syncBothMenus(idUser, menuUpdate);
   };
 
-  const handleDelete = (idOfProduct) => {
+  const handleDelete = (idOfProduct, idUser) => {
     //1. copy du state.
     const menuCopy = deepClone(menu);
-    console.log("state before", menuCopy);
+
     //2. manip du state.
     const menuUpdate = menuCopy.filter((product) => product.id !== idOfProduct);
-    console.log("state after: ", menuUpdate);
+
     //3. Update du state.
     setMenu(menuUpdate);
+    syncBothMenus(idUser, menuUpdate);
   };
 
   const handleEdit = (productBeingEdit) => {
@@ -43,5 +44,5 @@ export const useMenu = () => {
   const resetMenu = () => {
     setMenu(fakeMenu.MEDIUM);
   };
-  return { menu, handleAdd, handleEdit, handleDelete, resetMenu };
+  return { menu, setMenu, handleAdd, handleEdit, handleDelete, resetMenu };
 };

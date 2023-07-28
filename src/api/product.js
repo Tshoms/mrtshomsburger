@@ -1,5 +1,5 @@
 import { db } from "./firebase-config";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 
 export const syncBothMenus = (idUser, menuUpdate) => {
   // chemin/ cachette .
@@ -9,4 +9,15 @@ export const syncBothMenus = (idUser, menuUpdate) => {
     menu: menuUpdate,
   };
   setDoc(cachette, nourriture);
+};
+
+export const getMenu = async (idUser) => {
+  const docRef = doc(db, "users", idUser);
+  const docSnapshot = await getDoc(docRef);
+
+  if (docSnapshot.exists()) {
+    const { menu } = docSnapshot.data();
+    console.log("received Menu :", menu);
+    return menu;
+  }
 };

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import NavBar from "./Navbar/NavBar";
 import Main from "./Main/Main";
@@ -9,6 +9,7 @@ import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../../utils/array";
 import { useSearchParams } from "react-router-dom";
+import { getMenu } from "../../../api/product";
 // import { getUser } from "../../../api/user";
 
 function OrderPage() {
@@ -23,7 +24,8 @@ function OrderPage() {
   const [searchParams] = useSearchParams();
   const userName = searchParams.get("userName");
   // custom hooks ----
-  const { menu, handleAdd, handleEdit, handleDelete, resetMenu } = useMenu();
+  const { menu, setMenu, handleAdd, handleEdit, handleDelete, resetMenu } =
+    useMenu();
   const { basket, handleAddToBasket, handleDeleteBasketProduct } = useBasket();
 
   const handleProductSelected = async (idProductClicked) => {
@@ -58,9 +60,15 @@ function OrderPage() {
     handleProductSelected,
   };
 
-  // console.log("resultat processe.env :", process.env.REACT_APP_API_KEY);
-  // getUser("Jésus");
+  const initialiseMenu = async () => {
+    const receivedMenu = await getMenu(userName);
+    console.log("receivedMenu data :", receivedMenu);
+    setMenu(receivedMenu);
+  };
 
+  useEffect(() => {
+    initialiseMenu();
+  }, []);
   // rendu ------------
   return (
     <OrderStyled>
