@@ -4,7 +4,7 @@ import { fakeMenu } from "../fakeData/fakeMenu";
 import { deepClone } from "../utils/array";
 
 export const useMenu = () => {
-  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
+  const [menu, setMenu] = useState();
 
   const handleAdd = (idUser, newProduct) => {
     //1. copy du state.
