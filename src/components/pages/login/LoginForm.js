@@ -5,7 +5,7 @@ import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForwardOutline } from "react-icons/io5";
 import TextInput from "../../reusable-ui/TextInput";
 import Button from "../../reusable-ui/Button";
-import { createUser } from "../../../api/user";
+import { authenticateUser } from "../../../api/user";
 
 function LoginForm() {
   // state -----------------
@@ -19,8 +19,9 @@ function LoginForm() {
 
   const handlesubmit = (event) => {
     event.preventDefault();
-    // alert(`bonjour ${inputValue}`);
-    createUser(userName);
+    // auth from user ---
+    authenticateUser(userName);
+    // redirect in OrderPage ---
     navigate({
       pathname: "/Orderpage/:user",
       search: createSearchParams({

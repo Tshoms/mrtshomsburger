@@ -19,9 +19,19 @@ export const createUser = (idUser) => {
   // nourriture ...
   const nourriture = {
     username: idUser,
-    menu: fakeMenu.LARGE,
+    menu: fakeMenu.SMALL,
   };
 
   // setter setDoc ...
   setDoc(cachette, nourriture);
+};
+
+export const authenticateUser = async (idUser) => {
+  // step 1. check si l'user existe ---
+  const existingUser = await getUser(idUser);
+  console.log("résultat : ", existingUser);
+  // step 2. créer un user ---
+  if (existingUser === undefined) {
+    createUser(idUser);
+  }
 };
