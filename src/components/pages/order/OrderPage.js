@@ -8,6 +8,7 @@ import { EMPTY_PRODUCT } from "../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../../utils/array";
+import { useSearchParams } from "react-router-dom";
 // import { getUser } from "../../../api/user";
 
 function OrderPage() {
@@ -18,6 +19,9 @@ function OrderPage() {
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
+  // get userName ---
+  const [searchParams] = useSearchParams();
+  const userName = searchParams.get("userName");
   // custom hooks ----
   const { menu, handleAdd, handleEdit, handleDelete, resetMenu } = useMenu();
   const { basket, handleAddToBasket, handleDeleteBasketProduct } = useBasket();
@@ -31,6 +35,7 @@ function OrderPage() {
   };
   // provider for context w state.
   const orderContextValue = {
+    userName,
     isModeAdmin,
     setIsModeAdmin,
     isCollapsed,
