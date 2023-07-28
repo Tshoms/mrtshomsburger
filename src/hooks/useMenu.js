@@ -13,6 +13,7 @@ export const useMenu = () => {
     const menuUpdate = [newProduct, ...menuCopy];
     // 3. Update du state avec le setter.
     setMenu(menuUpdate);
+    // add of Crud data.
     syncBothMenus(idUser, menuUpdate);
   };
 
@@ -25,6 +26,7 @@ export const useMenu = () => {
 
     //3. Update du state.
     setMenu(menuUpdate);
+    // delete of cruD data.
     syncBothMenus(idUser, menuUpdate);
   };
 
