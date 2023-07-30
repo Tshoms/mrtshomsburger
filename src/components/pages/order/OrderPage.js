@@ -62,7 +62,6 @@ function OrderPage() {
 
   const initialiseMenu = async () => {
     const receivedMenu = await getMenu(userName);
-    console.log("receivedMenu data :", receivedMenu);
     setMenu(receivedMenu);
   };
 

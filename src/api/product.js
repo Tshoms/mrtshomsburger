@@ -17,7 +17,6 @@ export const getMenu = async (idUser) => {
 
   if (docSnapshot.exists()) {
     const { menu } = docSnapshot.data();
-    console.log("received Menu :", menu);
     return menu;
   }
 };
