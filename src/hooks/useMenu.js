@@ -43,8 +43,9 @@ export const useMenu = () => {
     setMenu(menuCopy);
   };
 
-  const resetMenu = () => {
+  const resetMenu = (idUser) => {
     setMenu(fakeMenu.MEDIUM);
+    syncBothMenus(idUser, fakeMenu.MEDIUM);
   };
   return { menu, setMenu, handleAdd, handleEdit, handleDelete, resetMenu };
 };
