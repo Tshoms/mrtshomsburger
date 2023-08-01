@@ -70,7 +70,7 @@ function OrderPage() {
   const initialBasket = () => {
     const basketReceived = getLocalStorage(userName); // localstorage est synchrone pas besoin de await .
     console.log("basket received :", basketReceived);
-    setBasket(basketReceived);
+    if (basketReceived) setBasket(basketReceived);
   };
 
   useEffect(() => {

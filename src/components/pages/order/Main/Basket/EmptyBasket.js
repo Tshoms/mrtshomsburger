@@ -2,7 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 
-function EmptyBasket({ basketProduct }) {
+function EmptyBasket() {
+  // comportement ---
+  // const basketEmptyMessage = "Votre commande est vide."
+  // const basketLoadingMessage = "Chargement en cours..."
   return (
     <EmptyBasketStyled>
       <span className="empty-message">Votre commande est vide.</span>

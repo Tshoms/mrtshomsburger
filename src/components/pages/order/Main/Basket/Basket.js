@@ -17,11 +17,7 @@ function Basket() {
   return (
     <BasketStyled>
       <Total />
-      {isEmpty(basket) ? (
-        <EmptyBasket basketProduct={basket} />
-      ) : (
-        <BasketProduct />
-      )}
+      {isEmpty(basket) ? <EmptyBasket /> : <BasketProduct />}
       <Footer />
     </BasketStyled>
   );
