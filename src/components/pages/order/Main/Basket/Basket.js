@@ -13,11 +13,15 @@ function Basket() {
   const { basket, menu } = useContext(OrderContext);
 
   // comportement ------
-  if (menu === undefined) return <span>chargement...</span>;
+  // if (menu === undefined) return <span>chargement...</span>;
   return (
     <BasketStyled>
       <Total />
-      {isEmpty(basket) ? <EmptyBasket /> : <BasketProduct />}
+      {isEmpty(basket) ? (
+        <EmptyBasket isLoading={menu === undefined} />
+      ) : (
+        <BasketProduct />
+      )}
       <Footer />
     </BasketStyled>
   );

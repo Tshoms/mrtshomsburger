@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
+import { BASKET_MESSAGE } from "../../../../enums/product";
 
-function EmptyBasket() {
-  // comportement ---
-  // const basketEmptyMessage = "Votre commande est vide."
-  // const basketLoadingMessage = "Chargement en cours..."
+function EmptyBasket({ isLoading }) {
   return (
     <EmptyBasketStyled>
-      <span className="empty-message">Votre commande est vide.</span>
+      <span className="empty-message">
+        {isLoading ? BASKET_MESSAGE.LOADING : BASKET_MESSAGE.EMPTY}
+      </span>
     </EmptyBasketStyled>
   );
 }

@@ -73,13 +73,15 @@ function OrderPage() {
     if (basketReceived) setBasket(basketReceived);
   };
 
-  useEffect(() => {
-    initialiseMenu();
-  }, []);
+  const initialeUserSession = async () => {
+    await initialiseMenu();
+    initialBasket();
+  };
 
   useEffect(() => {
-    initialBasket();
+    initialeUserSession();
   }, []);
+
   // rendu ------------
   return (
     <OrderStyled>
