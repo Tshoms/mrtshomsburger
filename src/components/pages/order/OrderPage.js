@@ -10,6 +10,7 @@ import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../../utils/array";
 import { useSearchParams } from "react-router-dom";
 import { getMenu } from "../../../api/product";
+import { getLocalStorage } from "../../../utils/window";
 // import { getUser } from "../../../api/user";
 
 function OrderPage() {
@@ -26,7 +27,8 @@ function OrderPage() {
   // custom hooks ----
   const { menu, setMenu, handleAdd, handleEdit, handleDelete, resetMenu } =
     useMenu();
-  const { basket, handleAddToBasket, handleDeleteBasketProduct } = useBasket();
+  const { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct } =
+    useBasket();
 
   const handleProductSelected = async (idProductClicked) => {
     await setIsCollapsed(false);
@@ -65,8 +67,18 @@ function OrderPage() {
     setMenu(receivedMenu);
   };
 
+  const initialBasket = () => {
+    const basketReceived = getLocalStorage(userName); // localstorage est synchrone pas besoin de await .
+    console.log("basket received :", basketReceived);
+    setBasket(basketReceived);
+  };
+
   useEffect(() => {
     initialiseMenu();
+  }, []);
+
+  useEffect(() => {
+    initialBasket();
   }, []);
   // rendu ------------
   return (
