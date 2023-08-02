@@ -9,9 +9,7 @@ import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../../utils/array";
 import { useSearchParams } from "react-router-dom";
-import { getMenu } from "../../../api/product";
-import { getLocalStorage } from "../../../utils/window";
-// import { getUser } from "../../../api/user";
+import { initialeUserSession } from "./helpers.js/initialeUserSession";
 
 function OrderPage() {
   // state ----------
@@ -37,6 +35,7 @@ function OrderPage() {
     await setProductSelected(productClickedOn);
     titleEditRef.current.focus();
   };
+
   // provider for context w state.
   const orderContextValue = {
     userName,
@@ -62,24 +61,8 @@ function OrderPage() {
     handleProductSelected,
   };
 
-  const initialiseMenu = async () => {
-    const receivedMenu = await getMenu(userName);
-    setMenu(receivedMenu);
-  };
-
-  const initialBasket = () => {
-    const basketReceived = getLocalStorage(userName); // localstorage est synchrone pas besoin de await .
-    console.log("basket received :", basketReceived);
-    if (basketReceived) setBasket(basketReceived);
-  };
-
-  const initialeUserSession = async () => {
-    await initialiseMenu();
-    initialBasket();
-  };
-
   useEffect(() => {
-    initialeUserSession();
+    initialeUserSession(userName, setMenu, setBasket);
   }, []);
 
   // rendu ------------
