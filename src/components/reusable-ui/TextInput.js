@@ -3,11 +3,11 @@ import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
 const TextInput = React.forwardRef(
-  ({ onChange, icon, className, version = "normal", ...input }, ref) => {
+  ({ onChange, icon, className, version = "normal", ...extratProps }, ref) => {
     return (
       <TextInputStyle className={className} version={version}>
         {icon && <div className="icon">{icon}</div>}
-        <input ref={ref} type="text" onChange={onChange} {...input} />
+        <input ref={ref} type="text" onChange={onChange} {...extratProps} />
       </TextInputStyle>
     );
   }

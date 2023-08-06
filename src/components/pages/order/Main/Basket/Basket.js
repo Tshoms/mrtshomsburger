@@ -10,15 +10,15 @@ import Total from "./Total";
 
 function Basket() {
   // state ------
-  const { basket } = useContext(OrderContext);
+  const { basket, menu } = useContext(OrderContext);
 
   // comportement ------
-
+  // if (menu === undefined) return <span>chargement...</span>;
   return (
     <BasketStyled>
       <Total />
       {isEmpty(basket) ? (
-        <EmptyBasket basketProduct={basket} />
+        <EmptyBasket isLoading={menu === undefined} />
       ) : (
         <BasketProduct />
       )}

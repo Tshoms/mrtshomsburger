@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import NavBar from "./Navbar/NavBar";
 import Main from "./Main/Main";
@@ -8,6 +8,8 @@ import { EMPTY_PRODUCT } from "../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../../utils/array";
+import { useSearchParams } from "react-router-dom";
+import { initialeUserSession } from "./helpers.js/initialeUserSession";
 
 function OrderPage() {
   // state ----------
@@ -17,9 +19,14 @@ function OrderPage() {
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
+  // get userName ---
+  const [searchParams] = useSearchParams();
+  const userName = searchParams.get("userName");
   // custom hooks ----
-  const { menu, handleAdd, handleEdit, handleDelete, resetMenu } = useMenu();
-  const { basket, handleAddToBasket, handleDeleteBasketProduct } = useBasket();
+  const { menu, setMenu, handleAdd, handleEdit, handleDelete, resetMenu } =
+    useMenu();
+  const { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct } =
+    useBasket();
 
   const handleProductSelected = async (idProductClicked) => {
     await setIsCollapsed(false);
@@ -28,8 +35,10 @@ function OrderPage() {
     await setProductSelected(productClickedOn);
     titleEditRef.current.focus();
   };
+
   // provider for context w state.
   const orderContextValue = {
+    userName,
     isModeAdmin,
     setIsModeAdmin,
     isCollapsed,
@@ -51,6 +60,10 @@ function OrderPage() {
     handleDeleteBasketProduct,
     handleProductSelected,
   };
+
+  useEffect(() => {
+    initialeUserSession(userName, setMenu, setBasket);
+  }, []);
 
   // rendu ------------
   return (

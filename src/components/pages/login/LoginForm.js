@@ -5,7 +5,8 @@ import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForwardOutline } from "react-icons/io5";
 import TextInput from "../../reusable-ui/TextInput";
 import Button from "../../reusable-ui/Button";
-import { theme } from "../../../theme";
+import { authenticateUser } from "../../../api/user";
+import Welcome from "./Welcome";
 
 function LoginForm() {
   // state -----------------
@@ -19,7 +20,9 @@ function LoginForm() {
 
   const handlesubmit = (event) => {
     event.preventDefault();
-    // alert(`bonjour ${inputValue}`);
+    // auth from user ---
+    authenticateUser(userName);
+    // redirect in OrderPage ---
     navigate({
       pathname: "/Orderpage/:user",
       search: createSearchParams({
@@ -33,10 +36,7 @@ function LoginForm() {
   // render ------------
   return (
     <LoginFormStyled onSubmit={handlesubmit}>
-      <h1>Bienvenue chez nous !</h1>
-      <hr />
-      <h2>Connectez-vous</h2>
-
+      <Welcome />
       <div className="container_form">
         <TextInput
           placeholder="Entrez votre prénom..."

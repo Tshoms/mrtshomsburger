@@ -9,6 +9,7 @@ import BasketCard from "./BasketCard";
 function BasketProduct() {
   //  state ---------
   const {
+    userName,
     basket,
     isModeAdmin,
     handleDeleteBasketProduct,
@@ -19,7 +20,7 @@ function BasketProduct() {
   //  comportement ------
   const handleOnDelete = (event, id) => {
     event.stopPropagation();
-    handleDeleteBasketProduct(id);
+    handleDeleteBasketProduct(id, userName);
   };
 
   // const HandleOnClick = () => {

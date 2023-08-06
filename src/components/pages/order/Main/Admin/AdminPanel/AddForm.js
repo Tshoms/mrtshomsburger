@@ -8,7 +8,8 @@ import SubmitButton from "./SubmitButton";
 
 export default function AddForm() {
   // state --------
-  const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
+  const { handleAdd, newProduct, setNewProduct, userName } =
+    useContext(OrderContext);
   // custom hooks ---------
   const { isSubmit, displaysuccessMSG } = useDisplaySuccessMSG();
 
@@ -22,7 +23,7 @@ export default function AddForm() {
       price: replaceFrenchCommaWithDot(newProduct.price),
     };
 
-    handleAdd(newProductToAdd);
+    handleAdd(userName, newProductToAdd);
     setNewProduct(EMPTY_PRODUCT);
 
     displaysuccessMSG();
