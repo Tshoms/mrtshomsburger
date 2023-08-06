@@ -1,3 +1,3 @@
 # README FoodTech project
 
-![FoodTech!](crazee-burger-Mockup.jpg)
+![FoodTech!](./src/assets/crazee-burger-Mockup.jpg)
