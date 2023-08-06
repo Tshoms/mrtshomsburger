@@ -1,3 +1,3 @@
 # FoodTech project
 
-![FoodTech Project](crazee-burgerMockup.jpg)
+![FoodTech Project!](crazee-burgerMockup.jpg)
