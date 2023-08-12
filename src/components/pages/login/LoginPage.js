@@ -9,7 +9,10 @@ function LoginPage() {
   return (
     <LoginPageStyled>
       <Brand className="logo-login-page" />
-      <LoginForm />
+      <h2 className="text-mobile">Mobile coming soon...</h2>
+      <div className="devise">
+        <LoginForm />
+      </div>
     </LoginPageStyled>
   );
 }
@@ -20,6 +23,7 @@ const LoginPageStyled = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100%;
   ::before {
     content: "";
     background: url(${burgerbackground}) rgba(0, 0, 0, 0.7);
@@ -36,6 +40,22 @@ const LoginPageStyled = styled.div`
 
   .logo-login-page {
     transform: scale(2.5);
+  }
+
+  .text-mobile {
+    color: white;
+  }
+
+  @media (min-width: 1210px) {
+    .text-mobile {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1210px) {
+    .devise {
+      display: none;
+    }
   }
 `;
 

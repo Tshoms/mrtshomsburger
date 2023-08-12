@@ -14,7 +14,6 @@ export default function Brand({ className, onClick }) {
 const LogoStyled = styled.div`
   display: flex;
   align-items: center;
-  /* transform: scale(2.5); */
 
   h1 {
     display: inline;
@@ -34,5 +33,25 @@ const LogoStyled = styled.div`
     height: 60px;
     width: 80px; // for Safari and Firefox
     margin: 0 ${theme.gridUnit / 2}px;
+  }
+
+  @media (max-width: 1210px) {
+    h1 {
+      font-size: 25px;
+    }
+    img {
+      height: 30px;
+      width: 40px;
+    }
+  }
+
+  @media (max-width: 444px) {
+    h1 {
+      font-size: 10px;
+    }
+    img {
+      height: 25px;
+      width: 20px;
+    }
   }
 `;

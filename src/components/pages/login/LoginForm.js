@@ -90,6 +90,12 @@ const LoginFormStyled = styled.form`
   .input-login {
     margin: 18px 0;
   }
+
+  @media (max-width: 1210px) {
+    .container_form {
+      display: none;
+    }
+  }
 `;
 
 export default LoginForm;
