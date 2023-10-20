@@ -10,7 +10,7 @@ import Welcome from "./Welcome";
 
 function LoginForm() {
   // state -----------------
-  const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState("Jordy");
   const navigate = useNavigate();
 
   // comportement --------------
